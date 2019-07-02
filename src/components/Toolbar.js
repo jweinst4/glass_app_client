@@ -46,7 +46,7 @@ products: [],
                 return (
                   <div className = 'logo-choice' key = {item._id} index = {index} >
                     <div>
-                        {item.name}-{item.index}-{item.email}
+                        Index: {index}, Name: {item.name}, Email: {item.email}
                     </div>
                   </div>
                       )

@@ -15,34 +15,18 @@ class Toolbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-products: [],
+
         }
 
     }
-        componentDidMount() {
-            // https://stackoverflow.com/questions/49684217/how-to-use-fetch-api-in-react-to-setstate
-            const that = this;
-            fetch(baseURL + '/users')
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(jsonData) {
-                    return jsonData;
-                })
-                .then(function(jsonStr) {
-                    that.setState({ products: jsonStr });
-                });
-                console.log(baseURL + '/users')
-        
-        }
-
+     
     render()
     
     {
         return (
 
            
-            this.state.products.map((item, index) => {
+            this.props.users.map((item, index) => {
                 return (
                   <div className = 'logo-choice' key = {item._id} index = {index} >
                     <div>

@@ -22,22 +22,31 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
- products: [],
+users: [],
     }
   
       }
-
-     
+componentDidMount(){
+      fetch(baseURL+ '/users')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+      .then(parsedData => this.setState({users: parsedData}),
+      
+      err=> console.log(err))
+      .then(parsedData => this.setState({currentUser: this.state.users[0]}),
+      err=> console.log(err))
+} 
   
   render() {
 
     return (
       <Router>
 
-<Route exact path ='/' exact render={() => <Toolbar/>}/>
+<Route exact path ='/' exact render={() => <Toolbar users={this.state.users}/>}/>
 
 
-<Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
+<Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser}/>}/>
 
 
 

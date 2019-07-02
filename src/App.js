@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router} from 'react-router-dom'
+import Toolbar from './components/Toolbar.js'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,25 +15,31 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://glass-app-api.herokuapp.com/'
 }
 
-console.log('current base URL:', baseURL)
 
 class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-
+ 
     }
-
+  
       }
 
+     
+      
 
   render() {
 
     return (
+      <Router>
 
-  <p>Hi</p>
+<Toolbar getUsers={this.getUsers} topics = {this.state.topics} users = {this.state.users}/>
 
+
+
+
+</Router>
        
     );
   }

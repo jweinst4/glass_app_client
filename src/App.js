@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Toolbar from './components/Toolbar.js'
+import NewUser from './components/NewUser.js'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
@@ -21,21 +22,22 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
- 
+ products: [],
     }
   
       }
 
      
-      
-
+  
   render() {
 
     return (
       <Router>
 
-<Toolbar/>
+<Route exact path ='/' exact render={() => <Toolbar/>}/>
 
+
+<Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
 
 
 

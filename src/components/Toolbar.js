@@ -33,7 +33,7 @@ products: [],
                     that.setState({ products: jsonStr });
                 });
                 console.log(baseURL + '/users')
-                console.log(this.state.products)
+        
         }
 
     render()

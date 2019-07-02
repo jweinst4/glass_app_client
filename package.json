@@ -1,6 +1,7 @@
 {
   "name": "glass_app_client",
   "version": "0.1.0",
+  "proxy": "https://glass-app-api.herokuapp.com/",
   "private": true,
   "engines": {
     "node": "11.12.0",

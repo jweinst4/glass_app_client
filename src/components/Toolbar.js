@@ -8,7 +8,7 @@ let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {
-  baseURL = 'https://glass-app-api.herokuapp.com/'
+  baseURL = 'https://glass-app-api.herokuapp.com'
 }
 
 class Toolbar extends React.Component {
@@ -46,7 +46,7 @@ products: [],
                 return (
                   <div className = 'logo-choice' key = {item._id} index = {index} >
                     <div>
-                        {item.name}
+                        {item.name}-{item.index}-{item.email}
                     </div>
                   </div>
                       )

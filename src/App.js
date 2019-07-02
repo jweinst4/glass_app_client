@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <Router>
 
-<Toolbar getUsers={this.getUsers} topics = {this.state.topics} users = {this.state.users}/>
+<Toolbar/>
 
 
 

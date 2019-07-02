@@ -32,6 +32,8 @@ products: [],
                 .then(function(jsonStr) {
                     that.setState({ products: jsonStr });
                 });
+                console.log(baseURL + '/users')
+                console.log(this.state.products)
         }
 
     render()

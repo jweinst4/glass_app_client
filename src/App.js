@@ -11,7 +11,7 @@ let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {
-  baseURL = 'https://shirt-api.herokuapp.com'
+  baseURL = 'https://glass-app-api.herokuapp.com/'
 }
 
 console.log('current base URL:', baseURL)

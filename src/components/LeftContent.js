@@ -28,7 +28,69 @@ class LeftContent extends React.Component {
 
     render() {
         return (
-             <p>LeftContent</p>
+          <div className = 'leftContent col s2 m2 l2'>
+            <div className = 'col'>
+            <h6>Lightboards:</h6>
+            {this.props.lightboards.map((item, index) => {
+                 return (
+                   <div className = 'logo-choice' key = {item._id} index = {index} >
+                     <div>
+                        {item.name}
+                     </div>
+                   </div>
+                       )
+               })}
+            
+            </div>
+
+            <div className = 'col'>
+            <h6>Studios:</h6>
+            {this.props.studios.map((item, index) => {
+                 return (
+                   <div className = 'logo-choice' key = {item._id} index = {index} >
+                     <div>
+                        {item.name}
+                     </div>
+                   </div>
+                       )
+               })}
+            
+            </div>
+
+            <div className = 'col'>
+            <h6>Accessories:</h6>
+            {this.props.studios.map((item, index) => {
+                 return (
+                   <div className = 'logo-choice' key = {item._id} index = {index} >
+                     <div>
+                        {item.name}
+                     </div>
+                   </div>
+                       )
+               })}
+            
+            </div>
+
+            <div className = 'col'>
+            <h6>Users:</h6>
+            {this.props.users.map((item, index) => {
+                 return (
+                   <div className = 'logo-choice' key = {item._id} index = {index} >
+                     <div>
+                        {item.name}
+                     </div>
+                   </div>
+                       )
+               })}
+            
+            </div>
+
+
+
+            
+            </div>
+
+            
         )
     }
 }

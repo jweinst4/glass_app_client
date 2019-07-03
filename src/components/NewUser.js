@@ -62,7 +62,7 @@ class NewUser extends React.Component {
 
     render() {
         return (
-
+<div className = 'userContainer'>
            
          <form className = 'col s12 m12 l12' onSubmit={this.handleUserSubmit}>
          
@@ -86,6 +86,21 @@ class NewUser extends React.Component {
               
              
             </form>
+
+            <div className = 'col'>
+{this.props.users.map((item, index) => {
+     return (
+       <div className = 'logo-choice' key = {item._id} index = {index} >
+         <div>
+        Name: {item.name}
+         </div>
+       </div>
+           )
+   })}
+
+</div>
+
+            </div>
         )
     }
 }

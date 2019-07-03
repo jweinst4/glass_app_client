@@ -31,7 +31,8 @@ showItems() {
     render() {
         return (
            
-                <div className = 'row'>
+                <div>
+                
 
                 <ul id="dropdown1" className="dropdown-content">
   <li><a href="#!">one</a></li>
@@ -42,12 +43,12 @@ showItems() {
 <nav>
   <div className="nav-wrapper navBar">
 
-    <a href="#!" className="brand-logo"><span className = 'black-text'>Logo</span></a>
+    <a href="#!" className="brand-logo"><span className = 'navText'>Logo</span></a>
     <ul className="right hide-on-med-and-down">
-      <li><a href="#"><span className = 'black-text'>ContactInfo</span></a></li>
-      <li><a href="#"><span className = 'black-text'>Resources</span></a></li>
+      <li><a href="#"><span className = 'navText'>ContactInfo</span></a></li>
+      <li><a href="#"><span className = 'navText'>Resources</span></a></li>
       
-      <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}><span className = 'black-text'>CompanyInfo</span><i className="material-icons right"><span className = 'black-text'>arrow_drop_down</span></i></a></li>
+      <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}><span className = 'navText'>CompanyInfo</span><i className="material-icons right"><span className = 'navText'>arrow_drop_down</span></i></a></li>
     </ul>
   </div>
 </nav>

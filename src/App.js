@@ -134,6 +134,7 @@ if (process.env.NODE_ENV === 'development') {
                     fakeAuth.signout(() => history.push('/'))
                   }}>Sign out</button> </div>
 
+<div className = 'col'><Link to ="/">Home</Link></div>
 <div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
 <div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
 <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>

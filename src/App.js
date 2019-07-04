@@ -21,9 +21,6 @@ import './App.css';
 
 require('dotenv').config()
 
-
-let baseURL = process.env.REACT_APP_BASEURL
-
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {

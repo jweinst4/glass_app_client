@@ -15,14 +15,11 @@ import Overview from './components/Overview.js'
 import Management from './components/Management.js'
 import News from './components/News.js'
 import Faq from './components/Faq.js'
-
-
-
-
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-
 import './App.css';
+
+require('dotenv').config()
 
 
 let baseURL = process.env.REACT_APP_BASEURL
@@ -66,7 +63,7 @@ if (process.env.NODE_ENV === 'development') {
             }
             login = () => {
 
-              if (this.state.password === 'ABc'){
+              if (this.state.password === process.env.REACT_APP_SECRET_CODE){
                 fakeAuth.authenticate(() => {
                   
                   this.setState(() => ({

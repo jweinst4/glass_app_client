@@ -35,7 +35,7 @@ class NewLightboard extends React.Component {
 
     handleLightboardSubmit(event) {
         event.preventDefault()
-
+        if (this.props.fakeAuth.isAuthenticated) {
         fetch(baseURL + '/lightboards', {
             method: 'POST',
             body: JSON.stringify({
@@ -50,7 +50,7 @@ class NewLightboard extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.handleAddLightboard(resJSON)
+            this.props.handleAddLightboard(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         this.setState({
             name: '',
@@ -58,20 +58,11 @@ class NewLightboard extends React.Component {
             code: '',
             description: '',
             price: '',})
-    }
-
-    handleAddLightboard(item) {
-          const copyLightboards = [...this.state.lightboards]
-          copyLightboards.unshift(item)
-          this.setState({
-            lightboards: copyLightboards,
-            name: '',
-            image: '',
-            code: '',
-            description: '',
-            price: '',
-          })
         }
+        else {
+            alert('Please login')
+        }
+    }
 
     render() {
         return (

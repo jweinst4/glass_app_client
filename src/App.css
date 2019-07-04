@@ -26,3 +26,11 @@ body {
     border-radius: 5px;
     height: 90vh;
 }
+
+input {
+    color: white;
+}
+
+input[type=submit] {
+    color: black;
+}

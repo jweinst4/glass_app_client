@@ -33,7 +33,7 @@ class NewUser extends React.Component {
 
     handleUserSubmit(event) {
         event.preventDefault()
-
+        if (this.props.fakeAuth.isAuthenticated) {
         fetch(baseURL + '/users', {
             method: 'POST',
             body: JSON.stringify({
@@ -45,10 +45,14 @@ class NewUser extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.handleAddUser(resJSON)
+            this.props.handleAddUser(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         this.setState({name: '',email: ''})
     }
+    else {
+        alert('Please login')
+    }
+}
 
     handleAddUser(item) {
           const copyUsers = [...this.state.users]

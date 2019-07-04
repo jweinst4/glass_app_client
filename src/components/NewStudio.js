@@ -36,6 +36,7 @@ class NewStudio extends React.Component {
     handleStudioSubmit(event) {
         event.preventDefault()
 
+        if (this.props.fakeAuth.isAuthenticated) {
         fetch(baseURL + '/studios', {
             method: 'POST',
             body: JSON.stringify({
@@ -50,7 +51,7 @@ class NewStudio extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.handleAddStudio(resJSON)
+            this.props.handleAddStudio(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         this.setState({
             name: '',
@@ -58,6 +59,10 @@ class NewStudio extends React.Component {
             code: '',
             description: '',
             price: '',})
+        }
+        else {
+            alert('Please login')
+        }
     }
 
     handleAddStudio(item) {

@@ -35,7 +35,7 @@ class NewAccessory extends React.Component {
 
     handleAccessorySubmit(event) {
         event.preventDefault()
-
+        if (this.props.fakeAuth.isAuthenticated) {
         fetch(baseURL + '/accessories', {
             method: 'POST',
             body: JSON.stringify({
@@ -50,7 +50,7 @@ class NewAccessory extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.handleAddAccessory(resJSON)
+            this.props.handleAddAccessory(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         this.setState({
             name: '',
@@ -58,6 +58,10 @@ class NewAccessory extends React.Component {
             code: '',
             description: '',
             price: '',})
+        }
+        else {
+            alert('Please login')
+        }
     }
 
     handleAddAccessory(item) {

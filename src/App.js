@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-router-dom'
 import Toolbar from './components/Toolbar.js'
 import NewUser from './components/NewUser.js'
 import LeftContent from './components/LeftContent.js'
@@ -10,10 +10,13 @@ import NewAccessory from './components/NewAccessory.js'
 import Navbar from './components/Navbar.js'
 
 
+
+
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
 import './App.css';
+
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -22,6 +25,124 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://glass-app-api.herokuapp.com/'
 }
+
+
+// https://tylermcginnis.com/react-router-protected-routes-authentication/
+
+    // ADMIN AUTHORIZATION SECTION
+          const fakeAuth = {
+            isAuthenticated: false,
+            authenticate(cb) {
+              this.isAuthenticated = true
+              setTimeout(cb, 100)
+            },
+            signout(cb) {
+              this.isAuthenticated = false
+              setTimeout(cb, 100)
+            }
+
+          }
+
+      // ADMIN AUTHORIZATION SECTION      
+          const Public = () => <h3>Public</h3>
+          const Protected = () => <h3>Protected</h3>
+
+      // ADMIN AUTHORIZATION SECTION      
+          class Login extends React.Component {
+            constructor(props) {
+              super(props)
+            this.state = {
+              redirectToReferrer: false,
+              password: '',
+            }
+            this.handlePasswordChange=this.handlePasswordChange.bind(this)
+            }
+            login = () => {
+              console.log(fakeAuth)
+
+              if (this.state.password === 'ABc'){
+                fakeAuth.authenticate(() => {
+                  console.log(fakeAuth)
+                  this.setState(() => ({
+                    redirectToReferrer: true
+                  }))
+                })
+              }
+              else{
+                alert('wrong password')
+                this.setState({password: ''})
+              }
+            }
+
+            handlePasswordChange(event) {
+            this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
+
+          }
+
+            render() {
+              const { from } = this.props.location.state || { from: { pathname: '/' } }
+              const { redirectToReferrer } = this.state
+
+              if (redirectToReferrer === true) {
+                return <Redirect to={from} />
+              }
+
+              return (
+                <div>
+                  <p>You must log in to view the page</p>
+
+                  <form className = 'col s12 m12 l12'>
+                  
+                      <div className = 'form-inline'>
+                      <div className = 'col s12 m12 l12 form-group'>
+                      <label className = 'col s2 m2 l2' htmlFor="password">Password:</label>
+                          <input className = 'col s6 m6 l6' type="text" id="password" name="password" onChange={this.handlePasswordChange} value={this.state.password}  />  
+                          </div>   
+                          </div>
+                          </form>
+
+                          {this.state.password}
+                          
+                  <button onClick={this.login}>Log in</button>
+                </div>
+              )
+            }
+          }
+
+      // ADMIN AUTHORIZATION SECTION      
+          const PrivateRoute = ({ component: Component, ...rest }) => (
+            <Route {...rest} render={(props) => (
+              fakeAuth.isAuthenticated === true
+                ? <Component {...props} />
+                : <Redirect to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                  }} />
+            )} />
+          )
+          
+      // SPECIAL INFO ONLY ADMIN SEES WHEN THEY LOG IN   
+          const AuthButton = withRouter(({ history }) => (
+            fakeAuth.isAuthenticated ? (
+              <div className = 'row'>
+             
+                  <div className = 'col'>Welcome!</div>
+                  <div className = 'col'><button onClick={() => {
+                    fakeAuth.signout(() => history.push('/'))
+                  }}>Sign out</button> </div>
+
+<div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
+<div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
+<div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
+              
+                </div>
+            ) : (
+              <>
+              </>
+            )
+          ))
+    //END ADMIN AUTHORIZATION SECTION
+
 
 
 class App extends React.Component {
@@ -38,6 +159,10 @@ class App extends React.Component {
   this.getLightboards = this.getLightboards.bind(this)
   this.getStudios = this.getStudios.bind(this)
   this.getAccessories = this.getAccessories.bind(this)
+  this.handleAddLightboard = this.handleAddLightboard.bind(this)
+  this.handleAddStudio = this.handleAddStudio.bind(this)
+  this.handleAddAccessory = this.handleAddAccessory.bind(this)
+
       }
 
   componentDidMount(){
@@ -45,8 +170,10 @@ class App extends React.Component {
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
+
+      console.log(fakeAuth)
   } 
-    
+
   getUsers() {
     fetch(baseURL+ '/users')
       .then(data => {
@@ -55,7 +182,6 @@ class App extends React.Component {
           .then(parsedData => this.setState({users: parsedData}),
           err=> console.log(err))
   }
-
 
   getLightboards() {
     fetch(baseURL+ '/lightboards')
@@ -84,6 +210,37 @@ class App extends React.Component {
           err=> console.log(err))
   }
 
+  handleAddLightboard(item) {
+    const copyLightboards = [...this.state.lightboards]
+    copyLightboards.unshift(item)
+    this.setState({
+      lightboards: copyLightboards,
+    })
+  }
+
+  handleAddStudio(item) {
+    const copyStudios = [...this.state.studios]
+    copyStudios.unshift(item)
+    this.setState({
+      studios: copyStudios,
+    })
+  }
+
+  handleAddAccessory(item) {
+    const copyAccessories = [...this.state.accessories]
+    copyAccessories.unshift(item)
+    this.setState({
+      accessories: copyAccessories,
+    })
+  }
+
+  handleAddUser(item) {
+    const copyUsers = [...this.state.users]
+    copyUsers.unshift(item)
+    this.setState({
+      users: copyUsers,
+    })
+  }
 
   render() {
 
@@ -91,14 +248,23 @@ class App extends React.Component {
 
       <Router>
 
+        {/* ADMIN AUTHORIZATION */}
+        <div>
+          <AuthButton/>
+          <Route path="/public" component={Public} admin={this.state.admin}/>
+          <Route path="/login" component={Login} admin={this.state.admin}/>
+          <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
+        </div>
+
             {/* NEWUSER FORM */}
-          <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users}/>}/>
 
-          <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards}/>}/>
+          <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users} handleAddUser={this.handleAddUser} fakeAuth = {fakeAuth}/>}/>
 
-          <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios}/>}/>
+          <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth}/>}/>
 
-          <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} />}/>
+          <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth}/>}/>
+
+          <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth}/>}/>
 
  {/* NAVBAR */}
     

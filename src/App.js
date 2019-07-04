@@ -8,6 +8,13 @@ import NewLightboard from './components/NewLightboard.js'
 import NewStudio from './components/NewStudio.js'
 import NewAccessory from './components/NewAccessory.js'
 import Navbar from './components/Navbar.js'
+import Lightboard from './components/Lightboard.js'
+import Studio from './components/Studio.js'
+import Accessory from './components/Accessory.js'
+import Overview from './components/Overview.js'
+import Management from './components/Management.js'
+import News from './components/News.js'
+import Faq from './components/Faq.js'
 
 
 
@@ -153,11 +160,20 @@ class App extends React.Component {
     lightboards: [],
     studios: [],
     accessories: [],
+    management: [],
+    overview: [],
+    news: [],
+    faq: [],
     }
   this.getUsers = this.getUsers.bind(this)
   this.getLightboards = this.getLightboards.bind(this)
   this.getStudios = this.getStudios.bind(this)
   this.getAccessories = this.getAccessories.bind(this)
+  this.getManagement = this.getManagement.bind(this)
+  this.getOverview = this.getOverview.bind(this)
+  this.getNews = this.getNews.bind(this)
+  this.getFAQ = this.getFAQ.bind(this)
+
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
@@ -169,6 +185,10 @@ class App extends React.Component {
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
+      this.getManagement()
+      this.getNews()
+      this.getOverview()
+      this.getFAQ()
   } 
 
   getUsers() {
@@ -204,6 +224,42 @@ class App extends React.Component {
         return data.json()},
         err => console.log(err))
           .then(parsedData => this.setState({accessories: parsedData}),
+          err=> console.log(err))
+  }
+
+  getManagement() {
+    fetch(baseURL+ '/managements')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({management: parsedData}),
+          err=> console.log(err))
+  }
+
+  getOverview() {
+    fetch(baseURL+ '/overviews')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({overview: parsedData}),
+          err=> console.log(err))
+  }
+
+  getNews() {
+    fetch(baseURL+ '/news')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({news: parsedData}),
+          err=> console.log(err))
+  }
+
+  getFAQ() {
+    fetch(baseURL+ '/faqs')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({faq: parsedData}),
           err=> console.log(err))
   }
 
@@ -262,6 +318,22 @@ class App extends React.Component {
           <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth}/>}/>
 
           <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth}/>}/>
+
+          <Route exact path ='/lightboards/' exact render={() => <Lightboard lightboards={this.state.lightboards}/>}/>
+
+          <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
+
+          <Route exact path ='/accessories/' exact render={() => <Accessory accessories={this.state.accessories}/>}/>
+
+          <Route exact path ='/aboutUs/overview' exact render={() => <Overview overview={this.state.overview}/>}/>
+
+          <Route exact path ='/aboutus/management' exact render={() => <Management management={this.state.management}/>}/>
+
+          <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
+
+          <Route exact path ='/faq' exact render={() => <Faq faq={this.state.faq}/>}/>
+
+          
 
  {/* NAVBAR */}
     

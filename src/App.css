@@ -34,3 +34,15 @@ input {
 input[type=submit] {
     color: black;
 }
+
+.lightboardItem > img {
+    width: 20%;
+}
+
+.studioItem > img {
+    width: 20%;
+}
+
+.accessoryItem > img {
+    width: 20%;
+}

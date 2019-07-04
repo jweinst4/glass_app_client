@@ -58,11 +58,10 @@ if (process.env.NODE_ENV === 'development') {
             this.handlePasswordChange=this.handlePasswordChange.bind(this)
             }
             login = () => {
-              console.log(fakeAuth)
 
               if (this.state.password === 'ABc'){
                 fakeAuth.authenticate(() => {
-                  console.log(fakeAuth)
+                  
                   this.setState(() => ({
                     redirectToReferrer: true
                   }))
@@ -170,8 +169,6 @@ class App extends React.Component {
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
-
-      console.log(fakeAuth)
   } 
 
   getUsers() {

@@ -137,6 +137,12 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
 <div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
 <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
+<div className = 'col'><Link to ="/faq">FAQ</Link></div>
+<div className = 'col'><Link to ="/lightboards">Lightboards</Link></div>
+<div className = 'col'><Link to ="/aboutUs/management">Management</Link></div>
+<div className = 'col'><Link to ="/aboutUs/news">News</Link></div>
+<div className = 'col'><Link to ="/aboutUs/overview">Overview</Link></div>
+<div className = 'col'><Link to ="/studios">Studio</Link></div>
               
                 </div>
             ) : (

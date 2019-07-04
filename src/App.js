@@ -187,7 +187,7 @@ class App extends React.Component {
       this.getOverview()
       this.getFAQ()
   } 
-
+// test
   getUsers() {
     fetch(baseURL+ '/users')
       .then(data => {

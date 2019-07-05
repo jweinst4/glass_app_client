@@ -40,7 +40,18 @@ class Lightboard extends React.Component {
                    </div>
                        )
                })}
-            
+
+{this.props.amazonItem.map((item, index) => {
+                 return (
+                   <div className = 'logo-choice lightboardItem' key = {item._id} index = {index} >
+                     <h4>{item.Key}</h4>
+                   </div>
+                       )
+               })}
+
+         
+
+
             </div>
 
             

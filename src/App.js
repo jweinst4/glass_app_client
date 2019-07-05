@@ -18,32 +18,40 @@ import Faq from './components/Faq.js'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
+let amazonObject = [];
+let amazonItem = [];
 
 require('dotenv').config()
 const aws = require('aws-sdk');
 
-(async function() {
-  try { 
-    aws.config.setPromisesDependency();
-    aws.config.update({
-    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-    region: 'us-east-1',
-  });
-
-  const s3= new aws.S3();
-
-  const response = await s3.listObjectsV2({
-    Bucket: process.env.REACT_APP_S3_BUCKET
-  }).promise();
-
-  console.log(response)
+  (async function() {
+    try { 
+      aws.config.setPromisesDependency();
+      aws.config.update({
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+      region: 'us-east-1',
+    });
   
-  } catch(e) {
-    console.log('error');
-  }
-})();
+    const s3= new aws.S3();
+  
+    const response = await s3.listObjectsV2({
+      Bucket: process.env.REACT_APP_S3_BUCKET
+    }).promise();
 
+      amazonObject.push(response)
+      amazonItem = amazonObject[0].Contents
+
+    } catch(e) {
+      console.log('error');
+    }
+
+  })();
+  
+  
+
+      
+    
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -346,7 +354,7 @@ class App extends React.Component {
 
           <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth}/>}/>
 
-          <Route exact path ='/lightboards/' exact render={() => <Lightboard lightboards={this.state.lightboards}/>}/>
+          <Route exact path ='/lightboards/' exact render={() => <Lightboard lightboards={this.state.lightboards} amazonItem={amazonItem}/>}/>
 
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 

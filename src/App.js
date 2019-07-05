@@ -26,15 +26,15 @@ const aws = require('aws-sdk');
   try { 
     aws.config.setPromisesDependency();
     aws.config.update({
-    accessKeyId: 'AKIAXZJQ7MAVBKFAQX4J',
-    secretAccessKey: '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',
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
     region: 'us-east-1',
   });
 
   const s3= new aws.S3();
 
   const response = await s3.listObjectsV2({
-    Bucket: 'jweinst4'
+    Bucket: process.env.REACT_APP_S3_BUCKET
   }).promise();
 
   console.log(response)

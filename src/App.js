@@ -15,6 +15,7 @@ import Overview from './components/Overview.js'
 import Management from './components/Management.js'
 import News from './components/News.js'
 import Faq from './components/Faq.js'
+import Download from './components/Download.js'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
@@ -36,19 +37,20 @@ const aws = require('aws-sdk');
     const s3= new aws.S3();
   
     const response = await s3.listObjectsV2({
-      Bucket: process.env.REACT_APP_S3_BUCKET
+      Bucket: process.env.REACT_APP_S3_BUCKET,
     }).promise();
 
       amazonObject.push(response)
       amazonItem = amazonObject[0].Contents
+
 
     } catch(e) {
       console.log('error');
     }
 
   })();
-  
-  
+    
+  console.log(amazonObject)
 
       
     
@@ -175,6 +177,7 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/aboutUs/news">News</Link></div>
 <div className = 'col'><Link to ="/aboutUs/overview">Overview</Link></div>
 <div className = 'col'><Link to ="/studios">Studio</Link></div>
+<div className = 'col'><Link to ="/download">Download</Link></div>
               
                 </div>
             ) : (
@@ -367,6 +370,8 @@ class App extends React.Component {
           <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 
           <Route exact path ='/faq' exact render={() => <Faq faq={this.state.faq}/>}/>
+
+          <Route exact path ='/download' exact render={() => <Download amazonObject={amazonObject}/>}/>
 
           
 

@@ -19,10 +19,7 @@ import Download from './components/Download.js'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
-
-      
-    
-
+  
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -184,6 +181,7 @@ class App extends React.Component {
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
 
+
       }
 
   componentDidMount(){
@@ -196,7 +194,7 @@ class App extends React.Component {
       this.getOverview()
       this.getFAQ()
   } 
-// test
+
   getUsers() {
     fetch(baseURL+ '/users')
       .then(data => {
@@ -315,6 +313,8 @@ class App extends React.Component {
           <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
         </div>
 
+        
+   
             {/* NEWUSER FORM */}
 
           <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users} handleAddUser={this.handleAddUser} fakeAuth = {fakeAuth}/>}/>
@@ -346,7 +346,11 @@ class App extends React.Component {
  {/* NAVBAR */}
     
  <Route exact path ='/' exact render={() => <Navbar />}/>
-     
+
+
+
+ 
+ 
 
      {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
      <div className = 'row LeftAndRightContentRow'>
@@ -358,7 +362,7 @@ class App extends React.Component {
 
        {/* RIGHTCONTENT COLUMN */}
                 
-         <Route exact path ='/' exact render={() => <RightContent />}/>
+         <Route exact path ='/' exact render={() => <RightContent lightboards={this.state.lightboards}/>}/>
   
 
      </div>
@@ -367,6 +371,32 @@ class App extends React.Component {
       </Router>
             
     );
+  }
+}
+
+
+class History extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    let current = this.props.current;
+    let items = this.props.items.map( (el, index) => {
+      let name = (index == current) ? 'active' : '';
+      return (
+        <li key={index}>
+          <button 
+            className={name} 
+            onClick={ () => this.props.changeSilde(current, index) }
+          ></button>
+        </li>
+      )
+    });
+    
+    return (
+      <ul>{items}</ul>
+    )
   }
 }
 

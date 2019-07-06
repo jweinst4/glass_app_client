@@ -37,9 +37,9 @@ componentDidMount() {
                 
 
                 <ul id="dropdown1" className="dropdown-content">
-  <li><a href="/aboutUs/overview">Overview</a></li>
-  <li><a href="/aboutUs/management">Management</a></li>
-  <li><a href="/aboutUs/news">News</a></li>
+  <li><a href="/aboutUs/overview"><span className = 'white-text'>Overview</span></a></li>
+  <li><a href="/aboutUs/management"><span className = 'white-text'>Management</span></a></li>
+  <li><a href="/aboutUs/news"><span className = 'white-text'>News</span></a></li>
 </ul>
 <nav>
   <div className="nav-wrapper navBar">

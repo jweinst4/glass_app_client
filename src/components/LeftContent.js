@@ -30,7 +30,7 @@ class LeftContent extends React.Component {
         return (
           <div className = 'leftContent col s2 m2 l2'>
             <div className = 'col'>
-            <h6>Lightboards:</h6>
+            <Link to ="/lightboards"><h6>Lightboards:</h6></Link>
             {this.props.lightboards.map((item, index) => {
                  return (
                    <div className = 'logo-choice' key = {item._id} index = {index} >
@@ -44,7 +44,7 @@ class LeftContent extends React.Component {
             </div>
 
             <div className = 'col'>
-            <h6>Studios:</h6>
+            <Link to ="/studios"><h6>Studios:</h6></Link>
             {this.props.studios.map((item, index) => {
                  return (
                    <div className = 'logo-choice' key = {item._id} index = {index} >
@@ -58,7 +58,7 @@ class LeftContent extends React.Component {
             </div>
 
             <div className = 'col'>
-            <h6>Accessories:</h6>
+            <Link to ="/accessories"><h6>Accessories:</h6></Link>
             {this.props.studios.map((item, index) => {
                  return (
                    <div className = 'logo-choice' key = {item._id} index = {index} >

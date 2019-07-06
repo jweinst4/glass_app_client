@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css'; 
+
+
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -10,125 +13,47 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://glass-app-api.herokuapp.com'
 }
-
-
+// https://codepen.io/nbondy/pen/qjPyvW
 
 class RightContent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+          allImages: ['https://i.imgur.com/DLZnino.jpg','https://i.imgur.com/kNCm2Qv.jpg','https://i.imgur.com/E1sSnOH.jpg','https://i.imgur.com/mxr79bm.jpg'],
+          
+        currentImage: '',
+        counter: 0,
         }
-     
-    }
+        this.nextImage = this.nextImage.bind(this)
+      }
+        
+      componentDidMount() {
+      this.setState({currentImage: this.state.allImages[0]})
+      }
 
+      nextImage() {
+        if (this.state.counter === this.state.allImages.length - 1) {
+          this.setState({currentImage: this.state.allImages[0]})
+          this.setState({counter: 0})
 
+        }
+        else {
+          this.setState({currentImage: this.state.allImages[this.state.counter + 1]})
+          this.setState({counter: this.state.counter + 1})
+        }    
+      }
+
+    render() {
+  
+        return (
+          
+            <div className='rightContent col s10 m10 l10'>
+                    
+              <img className = 'currentCarouselImage' src = {this.state.currentImage} onClick = {this.nextImage}></img>
+              </div>
 
     
 
-    render() {
-        return (
-            <div className = 'leftContent col s10 m10 l10'>
-             <p>O say can you see, by the dawn's early light,
-             What so proudly we hailed at the twilight's last gleaming,
-             Whose broad stripes and bright stars through the perilous fight,
-             O'er the ramparts we watched, were so gallantly streaming?
-             And the rockets' red glare, the bombs bursting in air,
-             Gave proof through the night that our flag was still there;
-             O say does that star-spangled banner yet wave
-             O'er the land of the free and the home of the brave?
-             </p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-
-<p>O say can you see, by the dawn's early light,
-What so proudly we hailed at the twilight's last gleaming,
-Whose broad stripes and bright stars through the perilous fight,
-O'er the ramparts we watched, were so gallantly streaming?
-And the rockets' red glare, the bombs bursting in air,
-Gave proof through the night that our flag was still there;
-O say does that star-spangled banner yet wave
-O'er the land of the free and the home of the brave?
-</p>
-</div>
         )
     }
 }

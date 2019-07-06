@@ -1,32 +1,42 @@
 body {
     margin-top: 10px; 
-    background: black;
+   background: black;
     color: lightblue;
     font-family: 'Russo One'
-    
+
 }
 
 .navBar {
     border-radius: 5px;
-    border: 1px solid grey;
     background: black;
-    
+}
 
+.dropdown-content {
+    background: black;
+    color: white;
 }
 
 .leftContent {
-    border: 1px solid grey;
-    border-radius: 5px;
-    height: 90vh;
-
+border-radius: 5px;
+height: 90vh;
+align-items: center;
+justify-content: center;
 }
 
 .rightContent {
-    border: 1px solid grey;
     border-radius: 5px;
     height: 90vh;
 }
 
+.rightContent > img {
+    border-radius: 5px;
+    height: 90vh;
+}
+.currentCarouselImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 input {
     color: white;
 }

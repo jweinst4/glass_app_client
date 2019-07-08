@@ -99,7 +99,9 @@ class RightContent extends React.Component {
     render() {
         return (
         
-            <div className='rightContent col s10 m10 l10' onClick = {this.nextImage} style={{backgroundImage:'url(' + this.state.currentImage + ')',backgroundSize: '100% 100%'}} >
+            // <div className='rightContent col s10 m10 l10' onClick = {this.nextImage} style={{backgroundImage:'url(' + this.state.currentImage + ')',backgroundSize: '100% 100%'}} >
+            // </div>
+            <div className='rightContent col s10 m10 l10' onClick = {this.nextImage} ><img className = 'currentCarouselImage' src = {this.state.currentImage} />
             </div>
 
         )

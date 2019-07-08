@@ -1,48 +1,62 @@
 body {
-   background:black;
-    color: lightblue;
-    font-family: 'Russo One'
 
-}
-
-.navBar {
-    border-radius: 5px;
-    background: black;
+font-family: 'Russo One'
 }
 
 .dropdown-content {
     background: black;
 }
 
-.leftContent {
-border-radius: 5px;
-height: 90vh;
-align-items: center;
-justify-content: center;
-border:1px solid black;
+.leftAndRightContentRow {
+    position: relative;
+    width: 100vw;
 }
+
+        .leftContent {
+        position: absolute;
+        height: 100vh;
+        width: 70vw;
+        color: black;
+        }
+
+        .leftContentFolder {
+            font-size: 36px;
+            color: black;
+            position: relative;
+            left: 5vw !important;
+            top: 10vw !important;
+        }
+
+        .leftContentHeader {
+            margin-top: 10px;
+            color: black;             
+        }
+        
+        .leftContentItem {
+            font-size: 20px;
+            color: grey;
+        }
+
 
 .rightContent {
-    border:1px solid black;
-    height: 90vh;  
-    text-align: center;
-    transition: background-image 1.0s ease-in-out;
-}
+    position: absolute;
+    background: black;
+    width: 30vw;
+    right: 0px;
+    height: 100vh;
 
-.rightContent:before {
-    content: ' ';
-    display: inline-block;
-    vertical-align: middle;  /* vertical alignment of the inline element */
-    height: 100%;
 }
 
 .currentCarouselImage {   
- display: inline-block;
- vertical-align: middle; 
- height: 80vh;
- margin-left: auto;
- margin-right: auto;
- border-radius: 5px;
+    position: absolute;
+    
+    height: 75vh;
+    right: 0px;
+    top: 12.5vh;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;   
+    box-shadow: 0px 0px 5px 5px black;
 }
 
 input {
@@ -69,4 +83,31 @@ input[type=submit] {
     height: auto;
 }
 
+.navBar {
+    width: 100vw;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+}
 
+.navBarLeft {
+    width: 70vw;
+    height: 50px;
+    color: black;
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+}
+
+.navBarRight {
+    width: 30vw;
+    height: 50px; 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+.navBarlogo {
+    margin-left: 20px;
+}

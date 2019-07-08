@@ -364,7 +364,7 @@ class App extends React.Component {
  
 
      {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
-     <div className = 'row LeftAndRightContentRow'>
+     <div className = 'row leftAndRightContentRow'>
 
        {/* LEFTCONTENT COLUMN */}
             

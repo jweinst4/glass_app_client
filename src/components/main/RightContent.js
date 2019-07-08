@@ -4,6 +4,8 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css'; 
 
+
+
 const aws = require('aws-sdk');
 require('dotenv').config()
 
@@ -34,6 +36,10 @@ class RightContent extends React.Component {
       }
       // https://stackoverflow.com/questions/39426083/update-react-component-every-second
       componentDidMount() {
+         // https://stackoverflow.com/questions/46207198/how-i-can-use-dropdown-from-materialize-css-in-react
+  let elems = document.querySelectorAll('.dropdown-trigger');
+  M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
+
 (async function() {
   try { 
     aws.config.setPromisesDependency();
@@ -64,7 +70,7 @@ class RightContent extends React.Component {
   }
 
 })();
-      this.interval = setInterval(() => this.nextImage(), 7000)    
+      this.interval = setInterval(() => this.nextImage(), 100000)    
 
       }
 
@@ -99,10 +105,9 @@ class RightContent extends React.Component {
     render() {
         return (
         
-            // <div className='rightContent col s10 m10 l10' onClick = {this.nextImage} style={{backgroundImage:'url(' + this.state.currentImage + ')',backgroundSize: '100% 100%'}} >
-            // </div>
-            <div className='rightContent col s10 m10 l10' onClick = {this.nextImage} ><img className = 'currentCarouselImage' src = {this.state.currentImage} />
-            </div>
+            <div className = 'rightContent'>
+              <img className = 'currentCarouselImage' onClick = {this.nextImage} src = {this.state.currentImage} />
+              </div>
 
         )
     }

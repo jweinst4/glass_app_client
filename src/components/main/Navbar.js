@@ -24,37 +24,26 @@ class Navbar extends React.Component {
     }
 
 componentDidMount() {
-  // https://stackoverflow.com/questions/46207198/how-i-can-use-dropdown-from-materialize-css-in-react
-  let elems = document.querySelectorAll('.dropdown-trigger');
-  M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
+ 
 
 }
 
     render() {
         return (
-           
-          <div>
-          
-            <ul id="dropdown1" className="dropdown-content">
-              <li><Link to ="/aboutUs/overview">Overview</Link></li>
-              <li><Link to ="/aboutUs/management">Management</Link></li>
-              <li><Link to ="/aboutUs/news">News</Link></li>
-            </ul>
+<div className = 'row navBar'>
 
-            <nav>
-              <div className="nav-wrapper navBar">
-                <Link to ="#" className="brand-logo">Logo</Link>
-                <ul className="right hide-on-med-and-down">
-                  <li><Link to ="/contact">ContactInfo</Link></li>
-                  <li><Link to ="/resources">Resources</Link></li>
-                  <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}>AboutUs<i className="material-icons right"><span className = 'navText'>arrow_drop_down</span></i></a></li>
-                </ul>
-              </div>
-            </nav>
-            
-                </div>
+        <div className = 'navBarLeft col'></div>
+    <div className = 'navBarLogo col s8 m8 l8'>
+      <img className = 'logo' src = 'https://jweinst4.s3.amazonaws.com/GlassApp/logo2.png' />
+    </div>
+
+    <div className = 'navBarLinks col s4 m4 l4'>
           
-       
+    </div>
+
+    <div className = 'navBarRight col'>Test2</div>
+
+</div>        
 
         )
     }

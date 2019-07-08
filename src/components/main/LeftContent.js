@@ -28,52 +28,64 @@ class LeftContent extends React.Component {
 
     render() {
         return (
-          <div className = 'leftContent col s2 m2 l2'>
-            <div className = 'col'>
-            <Link to ="/lightboards"><h6>Lightboards:</h6></Link>
+          <div className = 'leftContent col'>
+         
+            <div className = 'leftContentFolder col s12 m12 l12'>
+            <div className = 'row'>
+            <Link to ="/lightboards"><div className = 'leftContentHeader col s12 m12 l12'>Lightboards:</div></Link>
+            </div>
+            <div className = 'row'>
             {this.props.lightboards.map((item, index) => {
                  return (
-                   <div className = 'logo-choice' key = {item._id} index = {index} >
-                     <div>
-                        {item.name}
-                     </div>
+                   <div className = 'leftContentItem col' key = {item._id} index = {index} >
+                    
+                        {item.code} Lightboard
+                    
                    </div>
                        )
                })}
+               </div>
             
             </div>
 
-            <div className = 'col'>
-            <Link to ="/studios"><h6>Studios:</h6></Link>
+            <div className = 'leftContentFolder col s12 m12 l12'>
+            <div className = 'row'>
+            <Link to ="/studios"><div className = 'leftContentHeader col s12 m12 l12'>Studios:</div></Link>
+            </div>
+            <div className = 'row'>
             {this.props.studios.map((item, index) => {
                  return (
-                   <div className = 'logo-choice' key = {item._id} index = {index} >
-                     <div>
-                        {item.name}
-                     </div>
+                   <div className = 'leftContentItem col' key = {item._id} index = {index} >
+                 
+                 {item.code} Studio
+                
                    </div>
                        )
                })}
+               </div>
             
             </div>
 
-            <div className = 'col'>
-            <Link to ="/accessories"><h6>Accessories:</h6></Link>
-            {this.props.studios.map((item, index) => {
+            <div className = 'leftContentFolder col s12 m12 l12'>
+            <div className = 'row'>
+            <Link to ="/accessories"><div className = 'leftContentHeader col s12 m12 l12'>Accessories:</div></Link>
+            </div>
+            <div className = 'row'>
+            {this.props.accessories.map((item, index) => {
                  return (
-                   <div className = 'logo-choice' key = {item._id} index = {index} >
-                     <div>
+                   <div className = 'leftContentItem col' key = {item._id} index = {index} >
+                  
                         {item.name}
-                     </div>
+                   
                    </div>
                        )
                })}
-            
+            </div>
             </div>
 
  
             </div>
-
+    
             
         )
     }

@@ -46,7 +46,7 @@ class ContactForm extends React.Component {
 
     sendEmail(name,email,message) {
         var templateParams = {
-            name: name,
+          name: name,
           email: email,
           message: message,
         };
@@ -54,8 +54,10 @@ class ContactForm extends React.Component {
         emailjs.send('gmail', 'contact_form', templateParams,'user_9Z15AiUlH6qGAT2Ro6H3m')
             .then(function(response) {
                console.log('SUCCESS!', response.status, response.text);
+               alert('Thank you for your submission!')
             }, function(error) {
                console.log('FAILED...', error);
+               alert('There was a technical issue with your submisson.  We will look into this, thank you!')
             });
     }
 

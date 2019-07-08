@@ -45,8 +45,8 @@ componentDidMount() {
               <div className="nav-wrapper navBar">
                 <Link to ="#" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
-                  <li><Link to ="#">ContactInfo</Link></li>
-                  <li><Link to ="#">Resources</Link></li>
+                  <li><Link to ="/contact">ContactInfo</Link></li>
+                  <li><Link to ="/resources">Resources</Link></li>
                   <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}>AboutUs<i className="material-icons right"><span className = 'navText'>arrow_drop_down</span></i></a></li>
                 </ul>
               </div>

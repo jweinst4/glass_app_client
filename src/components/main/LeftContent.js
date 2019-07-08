@@ -71,23 +71,7 @@ class LeftContent extends React.Component {
             
             </div>
 
-            <div className = 'col'>
-            <h6>Users:</h6>
-            {this.props.users.map((item, index) => {
-                 return (
-                   <div className = 'logo-choice' key = {item._id} index = {index} >
-                     <div>
-                        {item.name}
-                     </div>
-                   </div>
-                       )
-               })}
-            
-            </div>
-
-
-
-            
+ 
             </div>
 
             

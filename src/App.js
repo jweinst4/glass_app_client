@@ -1,23 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-router-dom'
-import Toolbar from './components/Toolbar.js'
-import NewUser from './components/NewUser.js'
-import LeftContent from './components/LeftContent.js'
-import RightContent from './components/RightContent.js'
-import NewLightboard from './components/NewLightboard.js'
-import NewStudio from './components/NewStudio.js'
-import NewAccessory from './components/NewAccessory.js'
-import Navbar from './components/Navbar.js'
-import Lightboard from './components/Lightboard.js'
-import Studio from './components/Studio.js'
-import Accessory from './components/Accessory.js'
-import Overview from './components/Overview.js'
-import Management from './components/Management.js'
-import News from './components/News.js'
-import Faq from './components/Faq.js'
-import Download from './components/Download.js'
-import HowToGuide from './components/HowToGuide.js'
-import ContactForm from './components/ContactForm.js'
+
+import NewUser from './components/new/NewUser.js'
+import NewLightboard from './components/new/NewLightboard.js'
+import NewStudio from './components/new/NewStudio.js'
+import NewAccessory from './components/new/NewAccessory.js'
+
+import LeftContent from './components/main/LeftContent.js'
+import RightContent from './components/main/RightContent.js'
+import Navbar from './components/main/Navbar.js'
+import Lightboard from './components/main/Lightboard.js'
+import Studio from './components/main/Studio.js'
+import Accessory from './components/main/Accessory.js'
+
+import Overview from './components/about/Overview.js'
+import Management from './components/about/Management.js'
+import News from './components/about/News.js'
+import Faq from './components/about/Faq.js'
+import HowToGuide from './components/about/HowToGuide.js'
+import ContactForm from './components/about/ContactForm.js'
+
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
@@ -25,13 +27,6 @@ import './App.css';
 
 require('dotenv').config()
 const aws = require('aws-sdk');
-
-let amazonObject = [];
-let amazonObjectURL = [];
-let allImages=[];
-let firstImage = '';
-
-
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -155,7 +150,6 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/aboutUs/news">News</Link></div>
 <div className = 'col'><Link to ="/aboutUs/overview">Overview</Link></div>
 <div className = 'col'><Link to ="/studios">Studio</Link></div>
-<div className = 'col'><Link to ="/download">Download</Link></div>
               
                 </div>
             ) : (
@@ -180,10 +174,6 @@ class App extends React.Component {
     overview: [],
     news: [],
     faq: [],
-    firstImage: '',
-    allImagesForContent: [],
-    allImages: [],
-    amazonObject: []
     }
   this.getUsers = this.getUsers.bind(this)
   this.getLightboards = this.getLightboards.bind(this)
@@ -197,47 +187,10 @@ class App extends React.Component {
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
-  
-      }
 
-  componentDidMount(){
-
-
-(async function() {
-  try { 
-    aws.config.setPromisesDependency();
-    aws.config.update({
-    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-    region: 'us-east-1',
-  });
-
-  const s3= new aws.S3();
-
-  const response = await s3.listObjectsV2({
-    Bucket: process.env.REACT_APP_S3_BUCKET,
-  }).promise();
-
-    amazonObject.push(response)
-
-    for (let i = 0; i < amazonObject[0].Contents.length; i++) {
-      if (amazonObject[0].Contents[i].Size > 0) {
-        amazonObjectURL.push(amazonObject[0].Contents[i].Key)
-      }
-    }
-    
-
-    allImages = amazonObjectURL.map(el => 'https://jweinst4.s3.amazonaws.com/' + el)
-console.log(allImages)
-  
-  } catch(e) {
-    console.log('error');
   }
 
-})();
-
-
-
+  componentDidMount(){
       this.getUsers()
       this.getStudios()
       this.getAccessories()
@@ -395,8 +348,6 @@ console.log(allImages)
 
           <Route exact path ='/faq' exact render={() => <Faq faq={this.state.faq}/>}/>
 
-          <Route exact path ='/download' exact render={() => <Download/>}/>
-
           <Route exact path ='/resources' exact render={() => <HowToGuide/>}/>
 
           <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
@@ -422,43 +373,17 @@ console.log(allImages)
 
        {/* RIGHTCONTENT COLUMN */}
                 
-         <Route exact path ='/' exact render={() => <RightContent lightboards={this.state.lightboards} allImages={allImages}/>}/>
+         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} />}/>
 
         
   
 
      </div>
-          {/* <Route exact path ='/' exact render={() => <Toolbar />}/> */}
+         
 
       </Router>
             
     );
-  }
-}
-
-
-class History extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
-  render() {
-    let current = this.props.current;
-    let items = this.props.items.map( (el, index) => {
-      let name = (index == current) ? 'active' : '';
-      return (
-        <li key={index}>
-          <button 
-            className={name} 
-            onClick={ () => this.props.changeSilde(current, index) }
-          ></button>
-        </li>
-      )
-    });
-    
-    return (
-      <ul>{items}</ul>
-    )
   }
 }
 

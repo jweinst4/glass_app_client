@@ -1,7 +1,6 @@
 body {
-    margin-top: 10px; 
-   background: black;
-    color: lightblue;
+   background:lightblue;
+    color: black;
     font-family: 'Russo One'
 
 }
@@ -13,7 +12,6 @@ body {
 
 .dropdown-content {
     background: black;
-    color: white;
 }
 
 .leftContent {
@@ -21,22 +19,32 @@ border-radius: 5px;
 height: 90vh;
 align-items: center;
 justify-content: center;
+border:1px solid black;
 }
 
 .rightContent {
-    border-radius: 5px;
-    height: 90vh;
+    border:1px solid black;
+    height: 90vh;  
+    text-align: center;
+
 }
 
-.rightContent > img {
-    border-radius: 5px;
-    height: 90vh;
+.rightContent:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
 }
+
 .currentCarouselImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    vertical-align: middle; 
+ height: 80vh;
+ margin-left: auto;
+ margin-right: auto;
+
 }
+
 input {
     color: white;
 }
@@ -56,3 +64,9 @@ input[type=submit] {
 .accessoryItem > img {
     width: 20%;
 }
+
+.faqItem {
+    height: auto;
+}
+
+

@@ -33,26 +33,24 @@ componentDidMount() {
     render() {
         return (
            
-                <div>
-                
+          <div>
+          
+            <ul id="dropdown1" className="dropdown-content">
+              <li><Link to ="/aboutUs/overview">Overview</Link></li>
+              <li><Link to ="/aboutUs/management">Management</Link></li>
+              <li><Link to ="/aboutUs/news">News</Link></li>
+            </ul>
 
-                <ul id="dropdown1" className="dropdown-content">
-  <li><a href="/aboutUs/overview"><span className = 'white-text'>Overview</span></a></li>
-  <li><a href="/aboutUs/management"><span className = 'white-text'>Management</span></a></li>
-  <li><a href="/aboutUs/news"><span className = 'white-text'>News</span></a></li>
-</ul>
-<nav>
-  <div className="nav-wrapper navBar">
-
-    <a href="#!" className="brand-logo"><span className = 'navText'>Logo</span></a>
-    <ul className="right hide-on-med-and-down">
-      <li><a href="#"><span className = 'navText'>ContactInfo</span></a></li>
-      <li><a href="#"><span className = 'navText'>Resources</span></a></li>
-      
-      <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}><span className = 'navText'>AboutUs</span><i className="material-icons right"><span className = 'navText'>arrow_drop_down</span></i></a></li>
-    </ul>
-  </div>
-</nav>
+            <nav>
+              <div className="nav-wrapper navBar">
+                <Link to ="#" className="brand-logo">Logo</Link>
+                <ul className="right hide-on-med-and-down">
+                  <li><Link to ="#">ContactInfo</Link></li>
+                  <li><Link to ="#">Resources</Link></li>
+                  <li><a className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}>AboutUs<i className="material-icons right"><span className = 'navText'>arrow_drop_down</span></i></a></li>
+                </ul>
+              </div>
+            </nav>
             
                 </div>
           

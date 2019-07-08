@@ -6,8 +6,16 @@ import M from 'materialize-css';
 
 
 
+require('dotenv').config()
+const aws = require('aws-sdk');
+let allImagesHere =[];
+
+
 let baseURL = process.env.REACT_APP_BASEURL
 
+
+  
+    
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {
@@ -19,16 +27,32 @@ class RightContent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          allImages: ['https://i.imgur.com/DLZnino.jpg','https://i.imgur.com/kNCm2Qv.jpg','https://i.imgur.com/E1sSnOH.jpg','https://i.imgur.com/mxr79bm.jpg'],
-          
-        currentImage: '',
-        counter: 0,
+          currentImage: '',
+          counter: 0,
+          allImages: ['https://jweinst4.s3.amazonaws.com/GlassApp/Accessories/Decimator.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Accessories/Dracast.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Accessories/Markers.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Accessories/Mini-recoders.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Lightboards/S66A Lightboard System.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Studios/S33 Table Top Lightboard Studio Package.jpg','https://jweinst4.s3.amazonaws.com/GlassApp/Studios/S66 Standalone Lightboard Studio Package.jpg']
+    
         }
-        this.nextImage = this.nextImage.bind(this)
-      }
         
+        this.nextImage = this.nextImage.bind(this)
+        this.getInitialImage = this.getInitialImage.bind(this)
+      }
+      // https://stackoverflow.com/questions/39426083/update-react-component-every-second
       componentDidMount() {
       this.setState({currentImage: this.state.allImages[0]})
+      this.interval = setInterval(() => this.nextImage(), 100000)
+      }
+
+      componentDidUpdate() {
+   
+      }
+
+      getInitialImage() {
+        
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.interval);
+
       }
 
       nextImage() {
@@ -44,13 +68,16 @@ class RightContent extends React.Component {
       }
 
     render() {
-  
+     
         return (
-          
+        
             <div className='rightContent col s10 m10 l10'>
-                    
+
+           
               <img className = 'currentCarouselImage' src = {this.state.currentImage} onClick = {this.nextImage}></img>
+        
               </div>
+      
 
     
 

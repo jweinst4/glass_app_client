@@ -17,25 +17,44 @@ class FAQ extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+       currentFAQ: '',
         }
-     
+     this.handleClick = this.handleClick.bind(this)
     }
 
+    componentDidMount() {
 
+    }
+
+handleClick(item) {
+  this.setState({currentFAQ: item.id})
+  console.log(this.state.currentFAQ)
+
+}
 
     
 
     render() {
         return (
           
-            <div className = 'row managementContent'>
+            <div className = 'row faqContent'>
 
 {this.props.faq.map((item, index) => {
                  return (
-                   <div className = 'logo-choice managementItem' key = {item._id} index = {index} >
-                     <h6>{item.question}</h6>
-                     <h6>{item.answer}</h6>
+                   <div className = 'faqItem' key = {item._id} index = {index} >
+                     <h6 onClick={() => { 
+                                this.handleClick(item) }}>{item.question}</h6>
+                     
+                     { this.state.currentFAQ === item.id ? (
+  <> 
+ <h6>{item.answer}</h6>
+  </>
+):(
+<>
+
+</>
+)}
+                    
                     
                    </div>
                        )

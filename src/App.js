@@ -16,10 +16,23 @@ import Management from './components/Management.js'
 import News from './components/News.js'
 import Faq from './components/Faq.js'
 import Download from './components/Download.js'
+import HowToGuide from './components/HowToGuide.js'
+import ContactForm from './components/ContactForm.js'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
-  
+
+
+require('dotenv').config()
+const aws = require('aws-sdk');
+
+let amazonObject = [];
+let amazonObjectURL = [];
+let allImages=[];
+let firstImage = '';
+
+
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -167,6 +180,10 @@ class App extends React.Component {
     overview: [],
     news: [],
     faq: [],
+    firstImage: '',
+    allImagesForContent: [],
+    allImages: [],
+    amazonObject: []
     }
   this.getUsers = this.getUsers.bind(this)
   this.getLightboards = this.getLightboards.bind(this)
@@ -180,11 +197,47 @@ class App extends React.Component {
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
-
-
+  
       }
 
   componentDidMount(){
+
+
+(async function() {
+  try { 
+    aws.config.setPromisesDependency();
+    aws.config.update({
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    region: 'us-east-1',
+  });
+
+  const s3= new aws.S3();
+
+  const response = await s3.listObjectsV2({
+    Bucket: process.env.REACT_APP_S3_BUCKET,
+  }).promise();
+
+    amazonObject.push(response)
+
+    for (let i = 0; i < amazonObject[0].Contents.length; i++) {
+      if (amazonObject[0].Contents[i].Size > 0) {
+        amazonObjectURL.push(amazonObject[0].Contents[i].Key)
+      }
+    }
+    
+
+    allImages = amazonObjectURL.map(el => 'https://jweinst4.s3.amazonaws.com/' + el)
+console.log(allImages)
+  
+  } catch(e) {
+    console.log('error');
+  }
+
+})();
+
+
+
       this.getUsers()
       this.getStudios()
       this.getAccessories()
@@ -193,7 +246,10 @@ class App extends React.Component {
       this.getNews()
       this.getOverview()
       this.getFAQ()
+      
+  
   } 
+ 
 
   getUsers() {
     fetch(baseURL+ '/users')
@@ -341,6 +397,10 @@ class App extends React.Component {
 
           <Route exact path ='/download' exact render={() => <Download/>}/>
 
+          <Route exact path ='/resources' exact render={() => <HowToGuide/>}/>
+
+          <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
+
           
 
  {/* NAVBAR */}
@@ -362,7 +422,9 @@ class App extends React.Component {
 
        {/* RIGHTCONTENT COLUMN */}
                 
-         <Route exact path ='/' exact render={() => <RightContent lightboards={this.state.lightboards}/>}/>
+         <Route exact path ='/' exact render={() => <RightContent lightboards={this.state.lightboards} allImages={allImages}/>}/>
+
+        
   
 
      </div>

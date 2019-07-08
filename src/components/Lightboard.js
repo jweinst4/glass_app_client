@@ -8,37 +8,6 @@ let baseURL = process.env.REACT_APP_BASEURL
 let amazonObject = [];
 let amazonItem = [];
 
-require('dotenv').config()
-const aws = require('aws-sdk');
-
-  (async function() {
-    try { 
-      aws.config.setPromisesDependency();
-      aws.config.update({
-      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-      region: 'us-east-1',
-    });
-  
-    const s3= new aws.S3();
-  
-    const response = await s3.listObjectsV2({
-      Bucket: process.env.REACT_APP_S3_BUCKET,
-    }).promise();
-
-      amazonObject.push(response)
-      amazonItem = amazonObject[0].Contents
-
-
-    } catch(e) {
-      console.log('error');
-    }
-
-  })();
-    
-  console.log(amazonObject)
-
-
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {

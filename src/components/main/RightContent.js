@@ -106,7 +106,13 @@ class RightContent extends React.Component {
         return (
         
             <div className = 'rightContent'>
+
+              <div className = 'whiteIconTop'></div>
+              <div className = 'whiteIconBottom'></div>
+
               <img className = 'currentCarouselImage' onClick = {this.nextImage} src = {this.state.currentImage} />
+
+              
               </div>
 
         )

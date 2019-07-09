@@ -27,8 +27,13 @@ class FAQ extends React.Component {
     }
 
     handleClick(item) {
+
+      if (this.state.currentFAQ === item) {
+        this.setState({currentFAQ: ''})
+      }
+      else {
       this.setState({currentFAQ: item})
-      console.log(this.state.currentFAQ)
+      }
     
     }
     render() {
@@ -40,9 +45,20 @@ class FAQ extends React.Component {
         
           {this.props.faq.map((item, index) => {
                            return (
-                             <div className = 'faqItem' key = {item._id} index = {index} >
-                               <h6 onClick={() => { 
-                                          this.handleClick(item) }}>{item.question}</h6>
+                             <div className = 'faqItem' onClick={() => { 
+                              this.handleClick(item) }} key = {item._id} index = {index} >
+
+{ this.state.currentFAQ.id === item.id ? (
+            <> 
+             <i className="material-icons faqIcon" >remove_circle_outline</i>
+            </>
+          ):(
+          <>
+           
+            <i className="material-icons faqIcon" >add_circle_outline</i>
+          </>
+          )}
+                              {item.question}
                                
                                { this.state.currentFAQ.id === item.id ? (
             <> 

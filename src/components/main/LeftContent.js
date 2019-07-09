@@ -29,6 +29,10 @@ class LeftContent extends React.Component {
     render() {
         return (
           <div className = 'leftContent col'>
+
+
+<div className = 'blackIconTop'></div>
+<div className = 'blackIconBottom'></div>
          
             <div className = 'leftContentFolder col s12 m12 l12'>
             <div className = 'row'>

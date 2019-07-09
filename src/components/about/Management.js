@@ -25,7 +25,7 @@ class Management extends React.Component {
 
     render() {
         return (
-            <div className = 'row showContent'>
+            <div className = 'row showContent otherContent'>
                
    <div className = 'aboutHeader' >Management: 
    </div>

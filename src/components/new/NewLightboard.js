@@ -67,7 +67,7 @@ class NewLightboard extends React.Component {
     render() {
         return (
 
-           <div className = 'lightboardContainer'>
+           <div className = 'lightboardContainer otherContent'>
            
          <form className = 'col s12 m12 l12' onSubmit={this.handleLightboardSubmit}>
          

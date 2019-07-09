@@ -110,7 +110,7 @@ height: 20px;
 
 
 input {
-    color: white;
+    color: black;
 }
 
 input[type=submit] {
@@ -133,7 +133,7 @@ input[type=submit] {
 
 .navBar {
     width: 100vw;
-    height: 70px;
+    height: 50px;
     position: absolute;
     top: 0px;
     background: white;
@@ -142,7 +142,7 @@ input[type=submit] {
 
 .navBarLeft {
     width: 70vw;
-    height: 70px;
+    height: 50px;
     color: black;
     position: absolute;
     top: 0px;
@@ -151,7 +151,7 @@ input[type=submit] {
 
 .navBarRight {
     width: 30vw;
-    height: 70px; 
+    height: 50px; 
     position: absolute;
     top: 0px;
     right: 0px;
@@ -187,7 +187,6 @@ input[type=submit] {
             }
 
             .showContent {
-                margin-top: 70px;
                 text-align: center;
                 display: flex;
                 flex-direction: row;
@@ -270,11 +269,15 @@ input[type=submit] {
     text-align: left; 
   }
 
-  .faqContent {
-      width: 60%;
-      margin-left: 20%;
-      margin-top: 70px;
+  .otherContent {
+      width: 80%;
+      margin-left: 10%;
   }
+  .overviewContent {
+    width: 80%;
+    margin-left: 10%;
+}
+
 
   .faqItem {
     border-bottom: 1px dashed grey;
@@ -287,5 +290,7 @@ input[type=submit] {
       padding-right: 15px;
       vertical-align: middle;
   }
+
+
 
   

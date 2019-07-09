@@ -41,7 +41,7 @@ class FAQ extends React.Component {
 
           <div className = 'row'>
           
-          <div className = 'row faqContent'>
+          <div className = 'row otherContent'>
         
           {this.props.faq.map((item, index) => {
                            return (

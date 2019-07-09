@@ -66,7 +66,7 @@ class NewUser extends React.Component {
 
     render() {
         return (
-<div className = 'userContainer'>
+<div className = 'userContainer otherContent'>
            
          <form className = 'col s12 m12 l12' onSubmit={this.handleUserSubmit}>
          

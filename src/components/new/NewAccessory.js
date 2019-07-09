@@ -80,7 +80,7 @@ class NewAccessory extends React.Component {
     render() {
         return (
 
-           <div className = 'accessoryContainer'>
+           <div className = 'accessoryContainer otherContent'>
            
          <form className = 'col s12 m12 l12' onSubmit={this.handleAccessorySubmit}>
          

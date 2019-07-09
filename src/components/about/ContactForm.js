@@ -68,9 +68,9 @@ class ContactForm extends React.Component {
     render() {
         return (
 
-           <div className = 'accessoryContainer'>
+           <div className = 'accessoryContainer otherContent'>
            
-         <form className = 'col s12 m12 l12' onSubmit={this.handleContactSubmit}>
+         <form className = 'col s12 m12 l12 contactForm' onSubmit={this.handleContactSubmit}>
          
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>

@@ -85,8 +85,8 @@ if (process.env.NODE_ENV === 'development') {
             }
 
             handlePasswordChange(event) {
-            this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
-
+            this.setState({ [event.currentTarget.id]: event.currentTarget.value})
+                console.log(this.state.password)
           }
 
             render() {
@@ -98,7 +98,7 @@ if (process.env.NODE_ENV === 'development') {
               }
 
               return (
-                <div>
+                <div className = 'otherContent'>
                   <p>You must log in to view the page</p>
 
                   <form className = 'col s12 m12 l12'>
@@ -111,7 +111,7 @@ if (process.env.NODE_ENV === 'development') {
                           </div>
                           </form>
 
-                          {this.state.password}
+                      
                           
                   <button onClick={this.login}>Log in</button>
                 </div>

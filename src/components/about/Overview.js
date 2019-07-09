@@ -25,7 +25,7 @@ class Overview extends React.Component {
 
     render() {
         return (
-            <div className = 'row showContent'>
+            <div className = 'row showContent overviewContent'>
                
    <div className = 'aboutHeader' >Overview: 
    </div>

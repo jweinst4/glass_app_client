@@ -81,7 +81,7 @@ class NewStudio extends React.Component {
     render() {
         return (
 
-            <div className = 'studioContainer'>
+            <div className = 'studioContainer otherContent'>
          <form className = 'col s12 m12 l12' onSubmit={this.handleStudioSubmit}>
          
             <div className = 'form-inline'>

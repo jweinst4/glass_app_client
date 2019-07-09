@@ -12,6 +12,7 @@ import Navbar from './components/main/Navbar.js'
 import Studio from './components/main/Studio.js'
 import Accessory from './components/main/Accessory.js'
 import Lightboard from './components/main/Lightboard.js'
+import Footer from './components/main/Footer.js'
 
 import Overview from './components/about/Overview.js'
 import Management from './components/about/Management.js'
@@ -312,7 +313,7 @@ class App extends React.Component {
   render() {
 
     return (
-
+      <div className = 'outerContainer'>
       <Router>
 
         {/* ADMIN AUTHORIZATION */}
@@ -325,6 +326,7 @@ class App extends React.Component {
 
         
         <Navbar />
+        
             {/* NEWUSER FORM */}
 
           <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users} handleAddUser={this.handleAddUser} fakeAuth = {fakeAuth}/>}/>
@@ -366,15 +368,23 @@ class App extends React.Component {
                 
          <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} />}/>
 
-         <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
-
-       
-   {/* RIGHTCONTENT COLUMN */}
-            
-     </div>
          
 
+         <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
+
+        
+   
+         
+     </div>
+
+     <Footer />
+ 
+    
+     
+     
+
       </Router>
+      </div>
             
     );
   }

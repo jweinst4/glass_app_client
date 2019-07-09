@@ -1,14 +1,28 @@
 body {
 font-family: 'Russo One';
+position: relative;
+height: 100%;
+}
+
+.outerContainer {
+min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 20px; /* height of your footer */
 }
 
 .dropdown-content {
-    background: black;
+ background: black;
 }
 
-.leftAndRightContentRow {
-    position: relative;
-    width: 100vw;
+
+/* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
+.footer {
+position:absolute;
+width: 100%;
+bottom:0 !important;
+height: 20px;
 }
 
         .leftContent {
@@ -163,3 +177,4 @@ input[type=submit] {
                -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: white;
             }
+            

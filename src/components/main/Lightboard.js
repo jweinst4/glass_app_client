@@ -5,9 +5,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
-let amazonObject = [];
-let amazonItem = [];
-
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {
@@ -26,39 +23,33 @@ class Lightboard extends React.Component {
     }
 
 
-
-    
-
     render() {
         return (
-          
-            <div className = 'row lightboardContent'>
 
+          
+            <div className = 'row showContent'>
+               
+   
             {this.props.lightboards.map((item, index) => {
                  return (
-                   <div className = 'logo-choice lightboardItem' key = {item._id} index = {index} >
-                     <h4>{item.name}</h4>
-                     <img src={item.image}></img>
-                     <h6>{item.description}</h6>
-                   </div>
+              <div className="card">
+                <div className="card-image">
+                
+                  <img src={item.image} />
+                  <span className="card-title">{item.name}</span>
+                </div>
+                
+                <div className="card-content">
+                  {item.description}
+                </div>
+                
+              </div>
                        )
                })}
-
-{amazonItem.map((item, index) => {
-                 return (
-                   <div className = 'logo-choice lightboardItem' key = {item._id} index = {index} >
-                     <h4>{item.Key}</h4>
-                   </div>
-                       )
-               })}
-
-         
-
-
+      
+    
             </div>
-
-            
-        )
+                 )
     }
 }
 

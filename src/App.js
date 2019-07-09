@@ -9,9 +9,9 @@ import NewAccessory from './components/new/NewAccessory.js'
 import LeftContent from './components/main/LeftContent.js'
 import RightContent from './components/main/RightContent.js'
 import Navbar from './components/main/Navbar.js'
-import Lightboard from './components/main/Lightboard.js'
 import Studio from './components/main/Studio.js'
 import Accessory from './components/main/Accessory.js'
+import Lightboard from './components/main/Lightboard.js'
 
 import Overview from './components/about/Overview.js'
 import Management from './components/about/Management.js'
@@ -146,6 +146,7 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
 <div className = 'col'><Link to ="/faq">FAQ</Link></div>
 <div className = 'col'><Link to ="/lightboards">Lightboards</Link></div>
+
 <div className = 'col'><Link to ="/aboutUs/management">Management</Link></div>
 <div className = 'col'><Link to ="/aboutUs/news">News</Link></div>
 <div className = 'col'><Link to ="/aboutUs/overview">Overview</Link></div>
@@ -323,7 +324,7 @@ class App extends React.Component {
         </div>
 
         
-   
+        <Navbar />
             {/* NEWUSER FORM */}
 
           <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users} handleAddUser={this.handleAddUser} fakeAuth = {fakeAuth}/>}/>
@@ -334,7 +335,6 @@ class App extends React.Component {
 
           <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth}/>}/>
 
-          <Route exact path ='/lightboards/' exact render={() => <Lightboard lightboards={this.state.lightboards}/>}/>
 
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 
@@ -352,15 +352,6 @@ class App extends React.Component {
 
           <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
 
-          
-
- {/* NAVBAR */}
-    
- <Route exact path ='/' exact render={() => <Navbar />}/>
-
-
-
- 
  
 
      {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
@@ -375,9 +366,11 @@ class App extends React.Component {
                 
          <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} />}/>
 
-        
-  
+         <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
 
+       
+   {/* RIGHTCONTENT COLUMN */}
+            
      </div>
          
 

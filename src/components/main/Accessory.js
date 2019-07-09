@@ -23,28 +23,30 @@ class Accessory extends React.Component {
     }
 
 
-
-    
-
     render() {
         return (
-          
-            <div className = 'row accessoryContent'>
-
+            <div className = 'row showContent'>
+               
+   
             {this.props.accessories.map((item, index) => {
                  return (
-                   <div className = 'logo-choice accessoryItem' key = {item._id} index = {index} >
-                     <h4>{item.name}</h4>
-                     <img src={item.image}></img>
-                     <h6>{item.description}</h6>
-                   </div>
+              <div className="card">
+                <div className="card-image">
+                  <img src={item.image} />
+                  <span className="card-title">{item.name}</span>
+                </div>
+                
+                <div className="card-content">
+                  {item.description}
+                </div>
+                
+              </div>
                        )
                })}
-            
+      
+   
             </div>
-
-            
-        )
+                 )
     }
 }
 

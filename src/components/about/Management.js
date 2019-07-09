@@ -23,26 +23,26 @@ class Management extends React.Component {
     }
 
 
-
-    
-
     render() {
         return (
-          
-            <div className = 'row managementContent'>
-
-{this.props.management.map((item, index) => {
+            <div className = 'row showContent'>
+               
+   <div className = 'aboutHeader' >Management: 
+   </div>
+            {this.props.management.map((item, index) => {
                  return (
-                   <div className = 'logo-choice managementItem' key = {item._id} index = {index} >
-                     <h4>{item.item}</h4>
-                    
-                   </div>
+               
+                <div className="aboutText">
+                  {item.item}
+                </div>
+                
+       
                        )
                })}
+      
+   
             </div>
-
-            
-        )
+                 )
     }
 }
 

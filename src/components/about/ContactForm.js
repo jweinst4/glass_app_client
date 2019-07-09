@@ -37,10 +37,12 @@ class ContactForm extends React.Component {
 
     handleContactChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
+        
     }
 
     handleContactSubmit(event) {
         event.preventDefault()
+        console.log(this.state.name,this.state.email,this.state.message)
         this.sendEmail(this.state.name,this.state.email,this.state.message)
     }
 

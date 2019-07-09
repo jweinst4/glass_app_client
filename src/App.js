@@ -18,7 +18,7 @@ import Overview from './components/about/Overview.js'
 import Management from './components/about/Management.js'
 import News from './components/about/News.js'
 import Faq from './components/about/Faq.js'
-import HowToGuide from './components/about/HowToGuide.js'
+import Resource from './components/about/Resources.js'
 import ContactForm from './components/about/ContactForm.js'
 
 import 'materialize-css'; // It installs the JS asset only
@@ -189,7 +189,6 @@ class App extends React.Component {
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
-
   }
 
   componentDidMount(){
@@ -201,11 +200,9 @@ class App extends React.Component {
       this.getNews()
       this.getOverview()
       this.getFAQ()
-      
-  
-  } 
- 
+   } 
 
+  
   getUsers() {
     fetch(baseURL+ '/users')
       .then(data => {
@@ -348,9 +345,9 @@ class App extends React.Component {
 
           <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 
-          <Route exact path ='/faq' exact render={() => <Faq faq={this.state.faq}/>}/>
+          <Route exact path ='/faq' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faq={this.state.faq} originalCardHeights={this.state.originalCardHeights}/>}/>
 
-          <Route exact path ='/resources' exact render={() => <HowToGuide/>}/>
+          <Route exact path ='/resources' exact render={() => <Resource/>}/>
 
           <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
 

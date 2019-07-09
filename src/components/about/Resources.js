@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class HowToGuide extends React.Component {
+class Resource extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,20 +23,18 @@ class HowToGuide extends React.Component {
     }
 
 
-
-    
-
     render() {
-      return (
-          
-<div className = 'pdfWrapper'>
-        <a href = 'https://jweinst4.s3.amazonaws.com/GlassApp/PDF/How+to+Guides+1.+PowerPoint-Setup-Tutorial.pdf'>Part 1 Download - Setup Tutorial</a>
-
-       <a href = 'https://jweinst4.s3.amazonaws.com/GlassApp/PDF/How+to+Guides+2.+OBS-Tutorial.pdf'>Part 2 Download - OBS Tutorial</a>
-       </div>
-
-    )
+        return (
+            <div className = 'row showContent'>
+               
+   <div className = 'aboutHeader' >Resources: 
+   </div>
+            
+      
+   
+            </div>
+                 )
     }
 }
 
-export default HowToGuide
+export default Resource

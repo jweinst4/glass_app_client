@@ -12,9 +12,6 @@ min-height: 100vh; /* will cover the 100% of viewport */
  padding-bottom: 20px; /* height of your footer */
 }
 
-.dropdown-content {
- background: black;
-}
 
 
 /* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
@@ -93,7 +90,7 @@ input[type=submit] {
 }
 
 .faqItem {
-    height: auto;
+    height: 100px;
 }
 
 .navBar {
@@ -178,3 +175,59 @@ input[type=submit] {
                 -webkit-text-stroke-color: white;
             }
             
+            .dropdown {
+                float: left;
+                overflow: hidden;
+              }
+              
+              .dropdown .dropbtn {
+                font-size: 16px;  
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+              }
+
+            
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .aboutText {
+      font-size: 30px;
+      margin-top: 70px;
+      margin-left: 20px;
+      text-align: left;
+  }
+
+  .aboutHeader {
+    font-size: 40px;
+    margin-top: 70px;
+    margin-left: 20px;
+    text-align: left; 
+  }

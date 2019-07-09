@@ -23,26 +23,26 @@ class News extends React.Component {
     }
 
 
-
-    
-
     render() {
-      return (
-          
-        <div className = 'row managementContent'>
-
-{this.props.news.map((item, index) => {
-             return (
-               <div className = 'logo-choice managementItem' key = {item._id} index = {index} >
-                 <h4>{item.item}</h4>
+        return (
+            <div className = 'row showContent'>
+               
+   <div className = 'aboutHeader' >News: 
+   </div>
+            {this.props.news.map((item, index) => {
+                 return (
+               
+                <div className="aboutText">
+                  {item.item}
+                </div>
                 
-               </div>
-                   )
-           })}
-        </div>
-
-        
-    )
+       
+                       )
+               })}
+      
+   
+            </div>
+                 )
     }
 }
 

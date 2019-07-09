@@ -51,21 +51,21 @@ componentDidMount() {
     <div className = 'navBarRight col'>
           
                 <div className = 'row navBarRightRow s12 m12 l12'>
-                  <a href = '/contact'>
+                  <Link to = '/contact'>
                     <div className = 'col navText s4 m4 l4'>
                       Contact
                     </div>
-                  </a>
-                  <a href = '/resources'>
+                  </Link>
+                  <Link to = '/resources'>
                     <div className = 'col navText s4 m4 l4'>
                       Resources
                     </div>
-                  </a>
-                  <a href = '#'>
+                  </Link>
+                  <Link to = '#'>
                     <div className = 'col navText s4 m4 l4'>
                       AboutUs
                     </div>
-                  </a>
+                  </Link>
                 </div>
                   
           

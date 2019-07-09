@@ -186,6 +186,7 @@ class App extends React.Component {
   this.getNews = this.getNews.bind(this)
   this.getFAQ = this.getFAQ.bind(this)
 
+
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
@@ -200,6 +201,7 @@ class App extends React.Component {
       this.getNews()
       this.getOverview()
       this.getFAQ()
+      
    } 
 
   
@@ -228,6 +230,7 @@ class App extends React.Component {
         err => console.log(err))
           .then(parsedData => this.setState({studios: parsedData}),
           err=> console.log(err))
+          
   }
 
   getAccessories() {
@@ -337,6 +340,8 @@ class App extends React.Component {
 
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 
+          <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
+
           <Route exact path ='/accessories/' exact render={() => <Accessory accessories={this.state.accessories}/>}/>
 
           <Route exact path ='/aboutUs/overview' exact render={() => <Overview overview={this.state.overview}/>}/>
@@ -363,11 +368,11 @@ class App extends React.Component {
 
        {/* RIGHTCONTENT COLUMN */}
                 
-         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} />}/>
+         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards}/>}/>
 
          
 
-         <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
+     
 
         
    

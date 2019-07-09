@@ -24,29 +24,30 @@ class Studio extends React.Component {
 
 
     render() {
-        return (
-            <div className = 'row showContent'>
-               
-   
-            {this.props.studios.map((item, index) => {
-                 return (
-              <div className="card">
-                <div className="card-image">
-                  <img src={item.image} />
-                  <span className="card-title">{item.name}</span>
+      return (
+        <div className = 'row showContent'>
+          <div className = 'col rightBlackBox'></div>
+          <div className = 'col leftWhiteBox'></div>
+        
+          <div className = 'cardContainer'>
+          {this.props.studios.map((item, index) => {
+              return (
+                <div className="card">
+                  <div className="card-image">
+                    <img src={item.image} />
+                    <span className="card-title">
+                      {item.name}
+                    </span>
+                  </div>
+                  <div className="card-content">
+                    {item.description}
+                  </div>
                 </div>
-                
-                <div className="card-content">
-                  {item.description}
-                </div>
-                
-              </div>
-                       )
-               })}
-      
-   
-            </div>
-                 )
+                    )
+            })}
+          </div>
+        </div>
+             )
     }
 }
 

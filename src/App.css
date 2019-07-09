@@ -30,6 +30,41 @@ height: 20px;
 
         }
 
+        .leftContentResource{
+            position: absolute;
+            height: 100vh;
+            width: 70vw;
+            color: black;
+            }
+
+            .rightBlackBox {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                width: 30vw;
+                display: inline-block;
+              background: black;
+            }
+
+            .leftWhiteBox {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 70vw;
+                display: inline-block;
+                background:white;
+            }
+
+            .cardContainer {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 70px;    
+            }
+
         .leftContentFolder {
             font-size: 36px;
             color: black;
@@ -57,9 +92,23 @@ height: 20px;
     background: black;
 }
 
+.rightContentResource {
+    position: absolute;
+    width: 30vw;
+    right: 0px;
+    height: 100vh;
+    background: black;
+}
+
+.lightboardRow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+
 .currentCarouselImage {   
     position: absolute;
-    
     height: 75vh;
     right: 0px;
     top: 12.5vh;

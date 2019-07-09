@@ -21,15 +21,15 @@ class Resource extends React.Component {
         }
      
     }
-
-
     render() {
         return (
-            <div className = 'row showContent otherContent'>
-               
-   <div className = 'aboutHeader' >Resources: 
-   </div>
-            
+            <div className = 'row'>
+   <div className = 'leftContentResource'>
+  </div>
+
+   <div className = 'rightContentResource'>
+   
+   Test</div>
       
    
             </div>

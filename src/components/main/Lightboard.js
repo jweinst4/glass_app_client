@@ -25,29 +25,27 @@ class Lightboard extends React.Component {
 
     render() {
         return (
-
-          
             <div className = 'row showContent'>
-               
-   
-            {this.props.lightboards.map((item, index) => {
-                 return (
-              <div className="card">
-                <div className="card-image">
-                
-                  <img src={item.image} />
-                  <span className="card-title">{item.name}</span>
-                </div>
-                
-                <div className="card-content">
-                  {item.description}
-                </div>
-                
+              <div className = 'col rightBlackBox'></div>
+              <div className = 'col leftWhiteBox'></div>
+            
+              <div className = 'cardContainer'>
+              {this.props.lightboards.map((item, index) => {
+                  return (
+                    <div className="card">
+                      <div className="card-image">
+                        <img src={item.image} />
+                        <span className="card-title">
+                          {item.name}
+                        </span>
+                      </div>
+                      <div className="card-content">
+                        {item.description}
+                      </div>
+                    </div>
+                        )
+                })}
               </div>
-                       )
-               })}
-      
-    
             </div>
                  )
     }

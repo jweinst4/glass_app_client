@@ -37,7 +37,6 @@ class ContactForm extends React.Component {
 
     handleContactChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
-        
     }
 
     handleContactSubmit(event) {

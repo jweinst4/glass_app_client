@@ -70,7 +70,7 @@ class RightContent extends React.Component {
   }
 
 })();
-      this.interval = setInterval(() => this.nextImage(), 100000)    
+      this.interval = setInterval(() => this.nextImage(), 15000)    
 
       }
 

@@ -31,7 +31,7 @@ class Terms extends React.Component {
             
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
-                Terms: 
+                Terms and Conditions: 
               </div>
               {this.props.terms.map((item, index) => {
                   return (

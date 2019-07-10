@@ -16,6 +16,63 @@ height: 100vh;
   /* height of your footer */
 }
 
+.leftContent {
+    position: absolute;
+    height: 100vh;
+    width: 70vw;
+    left: 0px;
+    color: black;
+    
+    }
+
+    .navAlignTest {   
+        position: absolute;
+        height: 60vh;
+        left: 0px;
+        top: 20vh;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 5px;   
+        cursor: grab;
+    }
+
+    .rightContent {
+        position: absolute;
+        width: 30vw;
+        right: 0px;
+        height: 100vh;
+     background: black;
+    }
+    
+
+    .leftContentResource{
+        position: absolute;
+        height: 100vh;
+        width: 70vw;
+        color: black;
+        }
+
+        .leftContentFolder {
+            font-size: 36px;
+            color: black;
+            position: relative;
+        
+        }
+
+        .leftContentHeader {
+            color: black;   
+      margin-bottom: 10px;
+      
+        }
+
+        .leftContentItem {
+            font-size: 20px;
+            color: grey;
+            margin-left: 10px !important;
+            margin-bottom: 5px;
+            
+        }
+
 /* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
 
 
@@ -41,19 +98,7 @@ height: 100vh;
     text-align: right;
 }
 
-       .leftContent {
-        position: absolute;
-        height: 100vh;
-        width: 70vw;
-        color: black;
-        }
-
-        .leftContentResource{
-            position: absolute;
-            height: 100vh;
-            width: 70vw;
-            color: black;
-            }
+      
 
             .rightBlackBox {
                 position: absolute;
@@ -83,23 +128,7 @@ height: 100vh;
                 margin-top: 70px;    
             }
 
-        .leftContentFolder {
-            font-size: 36px;
-            color: black;
-            position: relative;
-            left: 5vw !important;
-            top: 10vw !important;
-        }
-
-        .leftContentHeader {
-            margin-top: 10px;
-            color: black;             
-        }
-
-        .leftContentItem {
-            font-size: 20px;
-            color: grey;
-        }
+      
 
 
 .rightContent {
@@ -135,6 +164,13 @@ height: 100vh;
     box-shadow: 0px 0px 5px 5px black;
     cursor: grab;
 }
+
+.navAlignWrapper {   
+    background: blue;
+    border:1px solid black;
+    margin: 0 auto;
+}
+
 .whiteIconTop {
     position: absolute;
     top: 8vh;
@@ -212,7 +248,7 @@ input[type=submit] {
     height: 50px;
     color: black;
     position: absolute;
-    top: 0px;
+   
 
 }
 
@@ -412,6 +448,7 @@ input[type=submit] {
     font-size: 40px;
     margin-left: 20px;
     text-align: left; 
+    
   }
 
 

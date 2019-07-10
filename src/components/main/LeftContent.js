@@ -24,12 +24,12 @@ class LeftContent extends React.Component {
 
     render() {
         return (
-          <div className = 'leftContent'>
+          <div className = 'leftContent valign-wrapper'>
             <div className = 'blackIconTop'>
             </div>
             <div className = 'blackIconBottom'>
             </div>
-            <div className = 'col navAlignTest'>          
+            <div className = 'col'>          
               <div className = 'leftContentFolder col s12 m12 l12'>
                 <div className = 'col s12 m12 l12'>
                   <Link to ="/lightboards">

@@ -1,10 +1,12 @@
 
-
+/* BODY AND OUTER CONTAINER*/
+/* START */
 body {
 font-family: 'Russo One';
 position: relative;
 height: 100vh;
 }
+
 
 
 .outerContainer {
@@ -15,66 +17,54 @@ height: 100vh;
  padding-bottom: 30px;
   /* height of your footer */
 }
+/* BODY AND OUTER CONTAINER*/
+/* END */
 
-.leftContent {
-    position: absolute;
-    height: 100vh;
-    width: 70vw;
-    left: 0px;
-    color: black;
-    
-    }
 
-    .navAlignTest {   
-        position: absolute;
-        height: 60vh;
-        left: 0px;
-        top: 20vh;
-        display: inline-block;
-        vertical-align: middle;
-        border-radius: 5px;   
-        cursor: grab;
-    }
 
-    .rightContent {
-        position: absolute;
-        width: 30vw;
-        right: 0px;
-        height: 100vh;
-     background: black;
-    }
-    
+        /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
+        /* START */
+            .leftContent {
+                position: absolute;
+                height: 100vh;
+                width: 70vw;
+                left: 0px;
+                color: black;
+                vertical-align: middle !important;
+                justify-content: center;    
+            }
 
-    .leftContentResource{
-        position: absolute;
-        height: 100vh;
-        width: 70vw;
-        color: black;
-        }
+            .leftContentFolder {
+                font-size: 36px;
+                color: black;
+                position: relative;         
+            }
 
-        .leftContentFolder {
-            font-size: 36px;
-            color: black;
-            position: relative;
-        
-        }
+            .leftContentHeader {
+                color: black;   
+                margin-bottom: 10px;      
+            }
 
-        .leftContentHeader {
-            color: black;   
-      margin-bottom: 10px;
-      
-        }
+            .leftContentResource {
+                position: absolute;
+                height: 100vh;
+                width: 70vw;
+                color: black;
+            }
 
-        .leftContentItem {
-            font-size: 20px;
-            color: grey;
-            margin-left: 10px !important;
-            margin-bottom: 5px;
-            
-        }
+            .leftContentItem {
+                font-size: 20px;
+                color: grey;
+                margin-left: 10px !important;
+                margin-bottom: 5px;             
+            }
 
+        /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
+        /* END */
+
+
+/* EVERYTHING RELATED TO FOOTER  */
 /* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
-
 
 .footerContentContainer {
     position: absolute;
@@ -85,6 +75,15 @@ height: 100vh;
 
 .rightsText {
     color: black;
+}
+
+  
+.rightContent {
+    position: absolute;
+    width: 30vw;
+    right: 0px;
+    height: 100vh;
+background: black;
 }
 
 
@@ -163,12 +162,6 @@ height: 100vh;
     border-radius: 5px;   
     box-shadow: 0px 0px 5px 5px black;
     cursor: grab;
-}
-
-.navAlignWrapper {   
-    background: blue;
-    border:1px solid black;
-    margin: 0 auto;
 }
 
 .whiteIconTop {

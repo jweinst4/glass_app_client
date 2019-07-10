@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+import UpdateStudio from '../new/UpdateStudio.js';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -26,8 +27,50 @@ class NewStudio extends React.Component {
         }
         this.handleStudioChange = this.handleStudioChange.bind(this)
         this.handleStudioSubmit = this.handleStudioSubmit.bind(this)
+        this.handleStudioDelete = this.handleStudioDelete.bind(this)
+        this.handleStudioEdit = this.handleStudioEdit.bind(this)
+        this.toggleEdit = this.toggleEdit.bind(this)
+        this.handleEditItem = this.handleEditItem.bind(this)
     }
 
+    toggleEdit() {
+        this.setState({edit: !this.state.edit})
+        console.log(this.state.edit)
+    }
+
+    handleEditItem() {
+        this.props.getStudios()
+    }
+
+    handleStudioEdit(id) { 
+        if (this.props.fakeAuth.isAuthenticated) {
+            this.toggleEdit()
+            this.setState({currentEdit: id})
+        }
+        else {
+            alert('Please login')
+        }   
+        
+    }
+
+
+    handleStudioDelete(id) {
+        if (this.props.fakeAuth.isAuthenticated) {
+            fetch(baseURL + '/studios/' + id, { method: 'DELETE' }).then(response => {
+                this.props.getStudios()
+            })
+        }
+        else {
+            alert('Please login')
+        }
+    }
+
+    deleteItem(id) {
+        this.props.
+        fetch(baseURL + '/studios/' + (id + 1), { method: 'DELETE' }).then(response => {
+            console.log(id)
+        })
+    }
 
     handleStudioChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
@@ -80,8 +123,20 @@ class NewStudio extends React.Component {
 
     render() {
         return (
-
-            <div className = 'studioContainer otherContent'>
+            <div className = 'row showContent'>
+            <div className = 'col rightBlackBox'></div>
+            <div className = 'col leftWhiteBox'>
+                <div className = 'aboutWrapper'>
+                    <div className = 'aboutHeader'>
+                        New Studio
+                    </div>
+                    {this.state.edit  ? (
+  <> 
+ 
+ <UpdateStudio currentEdit={this.state.currentEdit} handleEditItem={this.handleEditItem}/>
+  </>
+):(
+<>
          <form className = 'col s12 m12 l12' onSubmit={this.handleStudioSubmit}>
          
             <div className = 'form-inline'>
@@ -127,19 +182,32 @@ class NewStudio extends React.Component {
               
              
             </form>
+        </>
+        )}
+            </div></div>
 
-            <div className = 'col'>
-           {this.props.studios.map((item, index) => {
+            <div className = 'cardDeleteContainer'>
+            {this.props.studios.map((item, index) => {
                 return (
-                  <div className = 'logo-choice' key = {item._id} index = {index} >
-                    <div>
-                    Index: {index}, Name: {item.name}, Description: {item.description}
+                    <div className="card cardDelete">
+                        <p>
+                            Name: {item.name}
+                        </p>
+                        <p>
+                            Description: {item.description}
+                        </p>
+                        <p onClick={() => { this.handleStudioDelete(item.id) }} >
+                            <i className="small material-icons">
+                                delete
+                            </i>
+                        </p>
+                        <p onClick={() => { this.handleStudioEdit(item) }}>
+                            Edit
+                        </p>
                     </div>
-                  </div>
-                      )
-              })}
-           
-           </div>
+                        )
+            })}
+        </div>
 
             </div>
         )

@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-router-dom'
 
-import NewUser from './components/new/NewUser.js'
 import NewLightboard from './components/new/NewLightboard.js'
 import NewStudio from './components/new/NewStudio.js'
 import NewAccessory from './components/new/NewAccessory.js'
@@ -171,7 +170,7 @@ class App extends React.Component {
     terms: [],
     howtos: [],
     }
-  this.getUsers = this.getUsers.bind(this)
+
   this.getLightboards = this.getLightboards.bind(this)
   this.getStudios = this.getStudios.bind(this)
   this.getAccessories = this.getAccessories.bind(this)
@@ -189,7 +188,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-      this.getUsers()
+  
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
@@ -202,15 +201,6 @@ class App extends React.Component {
       this.getHowTos()   
    } 
 
-  
-  getUsers() {
-    fetch(baseURL+ '/users')
-      .then(data => {
-        return data.json()},
-        err => console.log(err))
-          .then(parsedData => this.setState({users: parsedData}),
-          err=> console.log(err))
-  }
 
   getLightboards() {
     fetch(baseURL+ '/lightboards')
@@ -326,14 +316,6 @@ class App extends React.Component {
     })
   }
 
-  handleAddUser(item) {
-    const copyUsers = [...this.state.users]
-    copyUsers.unshift(item)
-    this.setState({
-      users: copyUsers,
-    })
-  }
-
   render() {
 
     return (
@@ -353,14 +335,11 @@ class App extends React.Component {
         
             {/* NEWUSER FORM */}
 
-          <Route exact path ='/newUser/' exact render={() => <NewUser users={this.state.users} handleAddUser={this.handleAddUser} fakeAuth = {fakeAuth}/>}/>
+          <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth} getLightboards = {this.getLightboards}/>}/>
 
-          <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth}/>}/>
+          <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
 
-          <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth}/>}/>
-
-          <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth}/>}/>
-
+          <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
 
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+import UpdateAccessory from '../new/UpdateAccessory.js';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -22,15 +23,53 @@ class NewAccessory extends React.Component {
           code: '',
           description: '',
           price: '',
+          category: '',
+          edit: false,
+          currentEdit: '',
 
         }
         this.handleAccessoryChange = this.handleAccessoryChange.bind(this)
         this.handleAccessorySubmit = this.handleAccessorySubmit.bind(this)
+        this.handleAccessoryDelete = this.handleAccessoryDelete.bind(this)
+        this.handleAccessoryEdit = this.handleAccessoryEdit.bind(this)
+        this.toggleEdit = this.toggleEdit.bind(this)
+        this.handleEditItem = this.handleEditItem.bind(this)
     }
 
+    toggleEdit() {
+        this.setState({edit: !this.state.edit})
+        console.log(this.state.edit)
+    }
+
+    handleEditItem() {
+        this.props.getAccessories()
+    }
+
+    handleAccessoryDelete(id) {
+        if (this.props.fakeAuth.isAuthenticated) {
+            fetch(baseURL + '/accessories/' + id, { method: 'DELETE' }).then(response => {
+                this.props.getAccessories()
+            })
+        }
+        else {
+            alert('Please login')
+        }   
+    }
 
     handleAccessoryChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
+    }
+
+
+    handleAccessoryEdit(id) { 
+        if (this.props.fakeAuth.isAuthenticated) {
+            this.toggleEdit()
+            this.setState({currentEdit: id})
+        }
+        else {
+            alert('Please login')
+        }   
+        
     }
 
     handleAccessorySubmit(event) {
@@ -44,6 +83,7 @@ class NewAccessory extends React.Component {
                 code: this.state.code,
                 description: this.state.description,
                 price: this.state.price,
+                category: 'accessory'
                
             }),
             headers: {
@@ -80,9 +120,21 @@ class NewAccessory extends React.Component {
     render() {
         return (
 
-           <div className = 'accessoryContainer otherContent'>
-           
-         <form className = 'col s12 m12 l12' onSubmit={this.handleAccessorySubmit}>
+            <div className = 'row showContent'>
+        <div className = 'col rightBlackBox'></div>
+        <div className = 'col leftWhiteBox'>
+            <div className = 'aboutWrapper'>
+                <div className = 'aboutHeader'>
+                    New Accessory
+                </div>
+                {this.state.edit  ? (
+  <> 
+ 
+ <UpdateAccessory currentEdit={this.state.currentEdit} handleEditItem={this.handleEditItem}/>
+  </>
+):(
+<>
+<form className = 'col s12 m12 l12' onSubmit={this.handleAccessorySubmit}>
          
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>
@@ -119,26 +171,37 @@ class NewAccessory extends React.Component {
                 </div>   
                 </div>
 
-
-
                 <div className = 'form-row'>
                 <input type="submit" value="Add a Accessory"/>
                 </div>
-              
-             
             </form>
-            <div className = 'col'>
-           {this.props.accessories.map((item, index) => {
+</>
+)}
+         
+            </div>
+            </div>
+            <div className = 'cardDeleteContainer'>
+            {this.props.accessories.map((item, index) => {
                 return (
-                  <div className = 'logo-choice' key = {item._id} index = {index} >
-                    <div>
-                       Index: {index}, Name: {item.name}, Description: {item.description}
+                    <div className="card cardDelete">
+                        <p>
+                            Name: {item.name}
+                        </p>
+                        <p>
+                            Description: {item.description}
+                        </p>
+                        <p onClick={() => { this.handleAccessoryDelete(item.id) }} >
+                            <i className="small material-icons">
+                                delete
+                            </i>
+                        </p>
+                        <p onClick={() => { this.handleAccessoryEdit(item) }}>
+                            Edit
+                        </p>
                     </div>
-                  </div>
-                      )
-              })}
-           
-           </div>
+                        )
+            })}
+        </div>
             
             </div>
 

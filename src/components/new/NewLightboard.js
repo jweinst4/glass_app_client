@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+import UpdateLightboard from '../new/UpdateLightboard.js';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -26,8 +27,48 @@ class NewLightboard extends React.Component {
         }
         this.handleLightboardChange = this.handleLightboardChange.bind(this)
         this.handleLightboardSubmit = this.handleLightboardSubmit.bind(this)
+        this.handleLightboardDelete = this.handleLightboardDelete.bind(this)
+        this.handleLightboardEdit = this.handleLightboardEdit.bind(this)
+        this.toggleEdit = this.toggleEdit.bind(this)
+        this.handleEditItem = this.handleEditItem.bind(this)
     }
 
+
+    toggleEdit() {
+        this.setState({edit: !this.state.edit})
+        console.log(this.state.edit)
+    }
+
+    handleEditItem() {
+        this.props.getLightboards()
+    }
+
+
+    handleLightboardEdit(id) { 
+        if (this.props.fakeAuth.isAuthenticated) {
+            this.toggleEdit()
+            this.setState({currentEdit: id})
+        }
+        else {
+            alert('Please login')
+        }   
+        
+    }
+
+
+
+
+    handleLightboardDelete(id) {
+        
+        if (this.props.fakeAuth.isAuthenticated) {
+            fetch(baseURL + '/lightboards/' + id, { method: 'DELETE' }).then(response => {
+                this.props.getLightboards()
+            })
+        }
+        else {
+            alert('Please login')
+        }
+    }
 
     handleLightboardChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
@@ -66,70 +107,93 @@ class NewLightboard extends React.Component {
 
     render() {
         return (
-
-           <div className = 'lightboardContainer otherContent'>
-           
-         <form className = 'col s12 m12 l12' onSubmit={this.handleLightboardSubmit}>
-         
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="name">Name</label>
-                <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleLightboardChange} value={this.state.name}  />  
-                </div>   
+    <div className = 'row showContent'>
+        <div className = 'col rightBlackBox'></div>
+        <div className = 'col leftWhiteBox'>
+            <div className = 'aboutWrapper'>
+                <div className = 'aboutHeader'>
+                    New Lightboard
                 </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="image">Image</label>
-                <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleLightboardChange} value={this.state.image}  />  
-                </div>   
+                {this.state.edit  ? (
+  <> 
+ 
+ <UpdateLightboard currentEdit={this.state.currentEdit} handleEditItem={this.handleEditItem}/>
+  </>
+):(
+<>
+                <form className = 'col s12 m12 l12' onSubmit={this.handleLightboardSubmit}>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="name">
+                                Name
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleLightboardChange} value={this.state.name}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="image">
+                                Image
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleLightboardChange} value={this.state.image}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="code">
+                                Code
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleLightboardChange} value={this.state.code}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="description">
+                                Description
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleLightboardChange} value={this.state.description}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="price">
+                                Price
+                            </label>
+                            <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleLightboardChange} value={this.state.price}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-row'>
+                        <input type="submit" value="Add a Lightboard"/>
+                    </div>
+                </form>
+            </>
+)}
                 </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="code">Code</label>
-                <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleLightboardChange} value={this.state.code}  />  
-                </div>   
                 </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="description">Description</label>
-                <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleLightboardChange} value={this.state.description}  />  
-                </div>   
+                <div className = 'cardDeleteContainer'>
+                    {this.props.lightboards.map((item, index) => {
+                        return (
+                            <div className="card cardDelete">
+                                <p>
+                                    Name: {item.name}
+                                </p>
+                                <p>
+                                    Description: {item.description}
+                                </p>
+                                <p onClick={() => { this.handleLightboardDelete(item.id) }} >
+                                    <i className="small material-icons">
+                                        delete
+                                    </i>
+                                </p>
+                                <p onClick={() => { this.handleLightboardEdit(item) }}>
+                                    Edit
+                                </p>
+                            </div>
+                                )
+                    })}
+            
                 </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="price">Price</label>
-                <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleLightboardChange} value={this.state.price}  />  
-                </div>   
-                </div>
-
-
-
-                <div className = 'form-row'>
-                <input type="submit" value="Add a Lightboard"/>
-                </div>
-              
-             
-            </form>
-
-<div className = 'col'>
-{this.props.lightboards.map((item, index) => {
-     return (
-       <div className = 'logo-choice' key = {item._id} index = {index} >
-         <div>
-         Index: {index}, Name: {item.name}, Description: {item.description}
-         </div>
-       </div>
-           )
-   })}
-
-</div>
-
- </div>
-
+            </div>
         )
     }
 }

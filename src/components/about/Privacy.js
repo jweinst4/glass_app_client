@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class Overview extends React.Component {
+class Privacy extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -31,9 +31,9 @@ class Overview extends React.Component {
             
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
-                Overview:
+                Privacy Policy: 
               </div>
-              {this.props.overview.map((item, index) => {
+              {this.props.privacy.map((item, index) => {
                   return (
                     <div className = 'aboutText'>  
                       {item.item}
@@ -46,4 +46,4 @@ class Overview extends React.Component {
     }
 }
 
-export default Overview
+export default Privacy

@@ -37,47 +37,50 @@ class FAQ extends React.Component {
     
     }
     render() {
-        return (
+      return (
+        <div className = 'row showContent'>
+          <div className = 'col rightBlackBox'></div>
+          <div className = 'col leftWhiteBox'>
+            <div className = 'aboutWrapper'>
+            <h3>Frequently Asked Questions</h3>
+              {this.props.faq.map((item, index) => {
+                              return (
+                                <div className = 'faqItem' onClick={() => { 
+                                  this.handleClick(item) }} key = {item._id} index = {index} >
 
-          <div className = 'row'>
-          
-          <div className = 'row otherContent'>
-        
-          {this.props.faq.map((item, index) => {
-                           return (
-                             <div className = 'faqItem' onClick={() => { 
-                              this.handleClick(item) }} key = {item._id} index = {index} >
-
-{ this.state.currentFAQ.id === item.id ? (
-            <> 
-             <i className="material-icons faqIcon" >remove_circle_outline</i>
-            </>
-          ):(
-          <>
-           
-            <i className="material-icons faqIcon" >add_circle_outline</i>
-          </>
-          )}
-                              {item.question}
-                               
-                               { this.state.currentFAQ.id === item.id ? (
-            <> 
-           <h6>{item.answer}</h6>
-            </>
-          ):(
-          <>
-          
-          </>
-          )}
-                              
-                              
-                             </div>
-                                 )
-                         })}
-          </div>
-          </div>
+    { this.state.currentFAQ.id === item.id ? (
+                <> 
+                <i className="material-icons faqIcon" >remove_circle_outline</i>
+                </>
+              ):(
+              <>
+              
+                <i className="material-icons faqIcon" >add_circle_outline</i>
+              </>
+              )}
+                                  {item.question}
+                                  
+                                  { this.state.currentFAQ.id === item.id ? (
+                <> 
+              <h6>{item.answer}</h6>
+                </>
+              ):(
+              <>
+              
+              </>
+              )}
+                                  
+                                  
+                                </div>
+                                    )
+                            })}
+              </div>
             
-                 )
+            </div>
+    
+              </div>
+  
+             )
     }
 }
 

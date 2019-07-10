@@ -29,15 +29,28 @@ class Footer extends React.Component {
     render() {
       return (
         <div className = 'footer row'>
-          <div className = "col all-rights s10 m10 l10">
-          JSW, all rights reserved
+        <div className = 'footerContentContainer'>
+          <div className = "col all-rights">
+            Lightboard Inc., all rights reserved
           </div>
-          <div className = "col copyright s1 m1 l1">
-            <i className="small material-icons s1">copyright</i>
+          <div className = "col">
+            <div className = 'row'> 
+              <Link to ='/terms'>
+                <div className = 'col terms'>
+                  Terms
+                </div>
+              </Link>
+              <Link to ='/privacy'>
+                <div className = 'col privacy'>
+                  Privacy
+                </div>
+              </Link>
+            </div>
           </div>
-          <div className = "col company-name s1 m1 l1">
-            JSW 2019
-          </div>
+        </div>
+          
+          
+      
         </div>  
     )
     }

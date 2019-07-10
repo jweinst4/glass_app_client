@@ -18,13 +18,14 @@ import Overview from './components/about/Overview.js'
 import Management from './components/about/Management.js'
 import News from './components/about/News.js'
 import Faq from './components/about/Faq.js'
-import Resource from './components/about/Resources.js'
 import ContactForm from './components/about/ContactForm.js'
+import Privacy from './components/about/Privacy.js'
+import Terms from './components/about/Terms.js'
+import HowTo from './components/about/HowTo.js'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
-
 
 require('dotenv').config()
 const aws = require('aws-sdk');
@@ -36,7 +37,6 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://glass-app-api.herokuapp.com/'
 }
-
 
 // https://tylermcginnis.com/react-router-protected-routes-authentication/
 
@@ -98,9 +98,10 @@ if (process.env.NODE_ENV === 'development') {
               }
 
               return (
-                <div className = 'otherContent'>
-                  <p>You must log in to view the page</p>
-
+                <div className = 'row showContent'>
+                <div className = 'col rightBlackBox'></div>
+                <div className = 'col leftWhiteBox'>
+                  <div className = 'aboutWrapper'>
                   <form className = 'col s12 m12 l12'>
                   
                       <div className = 'form-inline'>
@@ -109,11 +110,9 @@ if (process.env.NODE_ENV === 'development') {
                           <input className = 'col s6 m6 l6' type="text" id="password" name="password" onChange={this.handlePasswordChange} value={this.state.password}  />  
                           </div>   
                           </div>
-                          </form>
-
-                      
-                          
+                          </form>     
                   <button onClick={this.login}>Log in</button>
+                  </div></div>
                 </div>
               )
             }
@@ -134,24 +133,16 @@ if (process.env.NODE_ENV === 'development') {
       // SPECIAL INFO ONLY ADMIN SEES WHEN THEY LOG IN   
           const AuthButton = withRouter(({ history }) => (
             fakeAuth.isAuthenticated ? (
-              <div className = 'row'>
+              <div className = 'row authenticatedRow'>
              
-                  <div className = 'col'>Welcome!</div>
+                 <div className = 'col'>Welcome!</div>
                   <div className = 'col'><button onClick={() => {
                     fakeAuth.signout(() => history.push('/'))
                   }}>Sign out</button> </div>
 
-<div className = 'col'><Link to ="/">Home</Link></div>
 <div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
 <div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
 <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
-<div className = 'col'><Link to ="/faq">FAQ</Link></div>
-<div className = 'col'><Link to ="/lightboards">Lightboards</Link></div>
-
-<div className = 'col'><Link to ="/aboutUs/management">Management</Link></div>
-<div className = 'col'><Link to ="/aboutUs/news">News</Link></div>
-<div className = 'col'><Link to ="/aboutUs/overview">Overview</Link></div>
-<div className = 'col'><Link to ="/studios">Studio</Link></div>
               
                 </div>
             ) : (
@@ -176,6 +167,9 @@ class App extends React.Component {
     overview: [],
     news: [],
     faq: [],
+    privacy: [],
+    terms: [],
+    howtos: [],
     }
   this.getUsers = this.getUsers.bind(this)
   this.getLightboards = this.getLightboards.bind(this)
@@ -185,7 +179,9 @@ class App extends React.Component {
   this.getOverview = this.getOverview.bind(this)
   this.getNews = this.getNews.bind(this)
   this.getFAQ = this.getFAQ.bind(this)
-
+  this.getPrivacy = this.getPrivacy.bind(this)
+  this.getTerms = this.getTerms.bind(this)
+  this.getHowTos = this.getHowTos.bind(this)
 
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
@@ -201,7 +197,9 @@ class App extends React.Component {
       this.getNews()
       this.getOverview()
       this.getFAQ()
-      
+      this.getPrivacy()
+      this.getTerms()
+      this.getHowTos()   
    } 
 
   
@@ -220,7 +218,7 @@ class App extends React.Component {
         return data.json()},
         err => console.log(err))
           .then(parsedData => this.setState({lightboards: parsedData}),
-          err=> console.log(err))
+          err=> console.log(err))        
   }
 
   getStudios() {
@@ -229,8 +227,7 @@ class App extends React.Component {
         return data.json()},
         err => console.log(err))
           .then(parsedData => this.setState({studios: parsedData}),
-          err=> console.log(err))
-          
+          err=> console.log(err))        
   }
 
   getAccessories() {
@@ -275,6 +272,33 @@ class App extends React.Component {
         return data.json()},
         err => console.log(err))
           .then(parsedData => this.setState({faq: parsedData}),
+          err=> console.log(err))
+  }
+
+  getTerms() {
+    fetch(baseURL+ '/terms')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({terms: parsedData}),
+          err=> console.log(err))
+  }
+
+  getPrivacy() {
+    fetch(baseURL+ '/privacies')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({privacy: parsedData}),
+          err=> console.log(err))
+  }
+
+  getHowTos() {
+    fetch(baseURL+ '/howtos')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+          .then(parsedData => this.setState({howtos: parsedData}),
           err=> console.log(err))
   }
 
@@ -350,11 +374,15 @@ class App extends React.Component {
 
           <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 
-          <Route exact path ='/faq' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faq={this.state.faq} originalCardHeights={this.state.originalCardHeights}/>}/>
+          <Route exact path ='/resources/faq' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faq={this.state.faq} originalCardHeights={this.state.originalCardHeights}/>}/>
 
-          <Route exact path ='/resources' exact render={() => <Resource/>}/>
+          <Route exact path ='/resources/howtos' exact render={() => <HowTo howtos={this.state.howtos}/>}/>
 
           <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
+
+          <Route exact path ='/privacy' exact render={() => <Privacy privacy={this.state.privacy}/>}/>
+
+          <Route exact path ='/terms' exact render={() => <Terms terms={this.state.terms}/>}/>
 
  
 
@@ -368,15 +396,8 @@ class App extends React.Component {
 
        {/* RIGHTCONTENT COLUMN */}
                 
-         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards}/>}/>
+         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
 
-         
-
-     
-
-        
-   
-         
      </div>
 
      <Footer />

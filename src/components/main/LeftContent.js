@@ -40,9 +40,11 @@ class LeftContent extends React.Component {
               <div className = 'row'>
                 {this.props.lightboards.map((item, index) => {
                     return (
-                      <div className = 'leftContentItem col' key = {item._id} index = {index} >
-                        {item.code} Lightboard
-                      </div>
+                      <Link to ="/lightboards">
+                        <div className = 'leftContentItem col' key = {item._id} index = {index} >
+                          {item.code} Lightboard
+                        </div>
+                      </Link>
                           )
                   })}
               </div>
@@ -58,9 +60,11 @@ class LeftContent extends React.Component {
               <div className = 'row'>
                   {this.props.studios.map((item, index) => {
                       return (
+                        <Link to ="/studios">
                         <div className = 'leftContentItem col' key = {item._id} index = {index} >
-                      {item.code} Studio
+                          {item.code} Studios
                         </div>
+                      </Link>
                             )
                     })}
               </div>
@@ -76,9 +80,11 @@ class LeftContent extends React.Component {
               <div className = 'row'>
                 {this.props.accessories.map((item, index) => {
                     return (
-                      <div className = 'leftContentItem col' key = {item._id} index = {index} > 
-                            {item.name}  
+                      <Link to ="/lightboards">
+                      <div className = 'leftContentItem col' key = {item._id} index = {index} >
+                        {item.code} Accessories
                       </div>
+                    </Link>
                         )
                 })}
               </div>

@@ -49,17 +49,26 @@ componentDidMount() {
               <Link to ="/aboutUs/management">Management</Link>
               <Link to ="/aboutUs/news">News</Link>
             </ul>
+            <ul id="dropdown2" className="dropdown-content">
+              <Link to ="/resources/howtos">How To PDF's</Link>
+              <Link to ="/resources/faq">FAQ</Link>
+            </ul>
             <div className = 'row navBarRightRow s12 m12 l12'>
               <Link to = '/contact'>
                 <div className = 'col navText s4 m4 l4'>
                   Contact
                 </div>
               </Link>
-              <Link to = '/resources'>
-                <div className = 'col navText s4 m4 l4'>
+              <div className = 'col navText s4 m4 l4 right hide-on-med-and-down'>
+                <div className="dropdown-trigger" href="#" data-target="dropdown2" onClick={this.showItems}>
                   Resources
-                </div>
-              </Link>
+                  <i className="material-icons right">
+                    <span className = 'navText'>
+                      arrow_drop_down
+                    </span>
+                  </i>
+                </div>          
+              </div>
               <div className = 'col navText s4 m4 l4 right hide-on-med-and-down'>
                 <div className="dropdown-trigger" href="#" data-target="dropdown1" onClick={this.showItems}>
                   AboutUs

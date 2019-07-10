@@ -9,11 +9,10 @@ import M from 'materialize-css';
 const aws = require('aws-sdk');
 require('dotenv').config()
 
-let amazonObject = [];
-let amazonObjectURL = [];
-let allImages=[];
 let currentImage ='';
-let newArray=[];
+let clickCounter = 0;
+let allImages = [];
+
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -41,7 +40,7 @@ class RightContent extends React.Component {
   M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
 
       this.interval = setInterval(() => this.nextImage(), 5000)    
-
+      
       }
 
       componentDidUpdate() {
@@ -55,15 +54,24 @@ class RightContent extends React.Component {
       }
 
       nextImage() {
-        if (this.state.counter === this.props.lightboards.length - 1){
+        if (clickCounter === 0) {
+          allImages = [...this.props.lightboards,...this.props.studios,...this.props.accessories]
+          console.log(this.props.lightboards)
+          console.log(this.props.studios)
+          console.log(this.props.accessories)
+          console.log(allImages)
+        }
+        
+        if (this.state.counter === allImages.length - 1){
           this.setState({counter: 0})
-          this.setState({currentImage: this.props.lightboards[this.props.lightboards.length - 1].image})
+          this.setState({currentImage: allImages[allImages.length - 1].image})
         }
 
         else {
-          this.setState({counter: this.state.counter + 1})       
-          this.setState({currentImage: this.props.lightboards[this.state.counter].image})
+          this.setState({currentImage: allImages[this.state.counter].image})
+          this.setState({counter: this.state.counter + 1})  
         }
+        clickCounter ++;
 
       }
 

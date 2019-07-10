@@ -1,33 +1,44 @@
+
+
 body {
 font-family: 'Russo One';
 position: relative;
-height: 100%;
+height: 100vh;
 }
 
+
 .outerContainer {
-min-height: 100vh; /* will cover the 100% of viewport */
+ min-height: 100vh; /* will cover the 100% of viewport */
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 20px; /* height of your footer */
+ padding-bottom: 30px;
+  /* height of your footer */
 }
-
-
 
 /* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
-.footer {
-position:absolute;
-width: 100%;
-bottom:0 !important;
-height: 20px;
+
+
+.footerContentContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px !important;
+    height: 30px;
 }
 
+.all-rights {
+    color:black;
+    width: 90vw;
+    
+}
+.terms, .privacy {
+    color: white;
+}
         .leftContent {
         position: absolute;
         height: 100vh;
         width: 70vw;
         color: black;
-
         }
 
         .leftContentResource{
@@ -45,7 +56,7 @@ height: 20px;
                 height: 100%;
                 width: 30vw;
                 display: inline-block;
-              background: black;
+                background: black;
             }
 
             .leftWhiteBox {
@@ -77,7 +88,7 @@ height: 20px;
             margin-top: 10px;
             color: black;             
         }
-        
+
         .leftContentItem {
             font-size: 20px;
             color: grey;
@@ -89,7 +100,7 @@ height: 20px;
     width: 30vw;
     right: 0px;
     height: 100vh;
-    background: black;
+ background: black;
 }
 
 .rightContentResource {
@@ -104,7 +115,6 @@ height: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
-
 }
 
 .currentCarouselImage {   
@@ -116,6 +126,7 @@ height: 20px;
     vertical-align: middle;
     border-radius: 5px;   
     box-shadow: 0px 0px 5px 5px black;
+    cursor: grab;
 }
 .whiteIconTop {
     position: absolute;
@@ -236,12 +247,13 @@ input[type=submit] {
             }
 
             .showContent {
-                text-align: center;
+                text-align: left;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 flex-wrap: wrap;
             }
+
 
             .showImage {
                 height: 300px;
@@ -306,16 +318,80 @@ input[type=submit] {
 
   .aboutText {
       font-size: 30px;
-      margin-top: 70px;
       margin-left: 20px;
       text-align: left;
+      margin-bottom: 40px;
   }
+
+  .aboutContent {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.contactForm {
+    margin-top: 50px;
+}
+
+.contactLabel {
+    color: black;
+    font-size: 30px;
+}
+
+.contactInput {
+    color: red;
+    font-size: 30px;
+    width: 400px;
+    height: 300px;
+}
+
+.contactSubmit {
+    margin-top: 20px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 3px 3px 3px 3px;
+    cursor: grab;
+}
+
+  .aboutContainer {
+      display: flex;
+      flex-direction: column;
+      width: 70vw;
+      margin-top: 70px;
+      z-index: 1;
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    justify-content: space-evenly; 
+}
+
+  .aboutTextTerms, .aboutTextPrivacy {
+    font-size: 14px;
+    margin-top: 70px;
+    margin-left: 20px;
+    text-align: left;
+}
 
   .aboutHeader {
     font-size: 40px;
-    margin-top: 70px;
     margin-left: 20px;
     text-align: left; 
+  }
+
+
+  .aboutWrapper {
+      margin-top: 70px;
+      margin-left: 30px;
+      font-size: 20px !important;
+      padding-bottom: 50px;
   }
 
   .otherContent {
@@ -327,12 +403,19 @@ input[type=submit] {
     margin-left: 10%;
 }
 
+.overviewContainer {
+    z-index: 1;
+}
 
+.authenticatedRow {
+    margin-top: 70px;
+}
   .faqItem {
     border-bottom: 1px dashed grey;
-    font-size: 24px;
+    font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: grab;
   }
 
   .faqIcon {

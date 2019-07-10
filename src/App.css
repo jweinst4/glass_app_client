@@ -7,8 +7,6 @@ position: relative;
 height: 100vh;
 }
 
-
-
 .outerContainer {
  min-height: 100vh; /* will cover the 100% of viewport */
  overflow: hidden;
@@ -37,19 +35,13 @@ height: 100vh;
             .leftContentFolder {
                 font-size: 36px;
                 color: black;
-                position: relative;         
+                position: relative; 
+                margin-bottom: 30px;        
             }
 
             .leftContentHeader {
                 color: black;   
                 margin-bottom: 10px;      
-            }
-
-            .leftContentResource {
-                position: absolute;
-                height: 100vh;
-                width: 70vw;
-                color: black;
             }
 
             .leftContentItem {
@@ -224,8 +216,6 @@ input[type=submit] {
 .accessoryItem > img {
     width: 20%;
 }
-
-
 
 .navBar {
     width: 100vw;

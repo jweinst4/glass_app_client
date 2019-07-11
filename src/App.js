@@ -22,6 +22,10 @@ import Privacy from './components/about/Privacy.js'
 import Terms from './components/about/Terms.js'
 import HowTo from './components/about/HowTo.js'
 
+import LightboardShowRoute from './components/show/LightboardShowRoute.js'
+import StudioShowRoute from './components/show/StudioShowRoute.js'
+import AccessoryShowRoute from './components/show/AccessoryShowRoute.js'
+
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
@@ -169,6 +173,7 @@ class App extends React.Component {
     privacy: [],
     terms: [],
     howtos: [],
+    currentShowItem: [],
     }
 
   this.getLightboards = this.getLightboards.bind(this)
@@ -185,10 +190,11 @@ class App extends React.Component {
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
+
+  this.changeCurrentShowItem = this.changeCurrentShowItem.bind(this)
   }
 
   componentDidMount(){
-  
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
@@ -201,6 +207,10 @@ class App extends React.Component {
       this.getHowTos()   
    } 
 
+   changeCurrentShowItem(item) {
+     this.setState({currentShowItem: item})
+     console.log(this.state.currentShowItem)
+   }
 
   getLightboards() {
     fetch(baseURL+ '/lightboards')
@@ -363,6 +373,14 @@ class App extends React.Component {
 
           <Route exact path ='/terms' exact render={() => <Terms terms={this.state.terms}/>}/>
 
+          <Route exact path='/lightboards/:id' exact render = {(props) => <LightboardShowRoute {...props} lightboards={this.state.lightboards}/>} />
+
+          <Route exact path='/studios/:id' exact render = {(props) => <StudioShowRoute {...props} studios={this.state.studios}/>} />
+
+          <Route exact path='/accessories/:id' exact render = {(props) => <AccessoryShowRoute {...props} accessories={this.state.accessories}/>} />
+
+          
+
  
 
      {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
@@ -370,7 +388,7 @@ class App extends React.Component {
 
        {/* LEFTCONTENT COLUMN */}
             
-         <Route exact path ='/' exact render={() => <LeftContent lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
+         <Route exact path ='/' exact render={() => <LeftContent lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>}/>
    
 
        {/* RIGHTCONTENT COLUMN */}

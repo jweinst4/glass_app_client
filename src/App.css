@@ -18,10 +18,10 @@ height: 100vh;
 /* BODY AND OUTER CONTAINER*/
 /* END */
 
-
-
         /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
         /* START */
+
+            /* NavBar container, 100% height */
             .leftContent {
                 position: absolute;
                 height: 100vh;
@@ -32,6 +32,7 @@ height: 100vh;
                 justify-content: center;    
             }
 
+            /* Individual Categories, i.e. all Lightboards, all Studios, etc. */
             .leftContentFolder {
                 font-size: 36px;
                 color: black;
@@ -39,11 +40,13 @@ height: 100vh;
                 margin-bottom: 30px;        
             }
 
+            /* Individual Category Header, i.e. "Lightboards" */
             .leftContentHeader {
                 color: black;   
                 margin-bottom: 10px;      
             }
 
+            /* Individual Item, i.e. "Dracast" */
             .leftContentItem {
                 font-size: 20px;
                 color: grey;
@@ -75,7 +78,37 @@ height: 100vh;
     width: 30vw;
     right: 0px;
     height: 100vh;
-background: black;
+    background: black;
+}
+
+.showRouteContent {
+    position: absolute;
+    width: 100vw;
+    right: 0px;
+    height: 100vh;
+}
+
+.currentShowImage {   
+    position: relative;
+    height: 80vh;
+    top: 10vh;
+    left: 40vw;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;   
+    box-shadow: 0px 0px 5px 5px black;
+    cursor: grab;
+    /* -webkit-animation: mymove 6s infinite; 
+    animation: mymove 5s infinite; */
+}
+
+.cardContainerShowRoute {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: red;
+    justify-content: center !important;
+
 }
 
 
@@ -116,7 +149,8 @@ background: black;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                margin-top: 70px;    
+                margin-top: 70px;   
+                
             }
 
       
@@ -144,6 +178,7 @@ background: black;
     flex-direction: column;
 }
 
+
 .currentCarouselImage {   
     position: absolute;
     height: 75vh;
@@ -154,7 +189,30 @@ background: black;
     border-radius: 5px;   
     box-shadow: 0px 0px 5px 5px black;
     cursor: grab;
+    /* -webkit-animation: mymove 6s infinite; 
+    animation: mymove 5s infinite; */
 }
+
+
+/* 
+
+@-webkit-keyframes mymove {
+    from { top: 0; left: 0; }
+  to   { top: 100px; left: 100px; }
+  }
+  @-moz-keyframes mymove {
+    from { top: 0; left: 0; }
+  to   { top: 100px; left: 100px; }
+  }
+  @-o-keyframes mymove {
+    from { top: 0; left: 0; }
+    to   { top: 100px; left: 100px; }
+  }
+  @keyframes mymove {
+    from { top: 0; left: 0; }
+  to   { top: 100px; left: 100px; }
+  }
+ */
 
 .whiteIconTop {
     position: absolute;
@@ -290,6 +348,7 @@ input[type=submit] {
                 margin: 20px;
                 border: 3px solid black;
                 border-radius: 5px;
+    
             }
 
             .cardDelete {
@@ -419,6 +478,8 @@ input[type=submit] {
     margin-top: 70px;
     justify-content: space-evenly; 
 }
+
+
 
   .aboutTextTerms, .aboutTextPrivacy {
     font-size: 14px;

@@ -9,6 +9,7 @@ import NewFAQ from './components/new/NewFAQ.js'
 import NewHowTo from './components/new/NewHowTo.js'
 import NewOverview from './components/new/NewOverview.js'
 import NewManagement from './components/new/NewManagement.js'
+import NewPrivacy from './components/new/NewPrivacy.js'
 
 import LeftContent from './components/main/LeftContent.js'
 import RightContent from './components/main/RightContent.js'
@@ -156,6 +157,7 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/newHowTo">NewHowTo</Link></div>
 <div className = 'col'><Link to ="/newOverview">NewOverview</Link></div>
 <div className = 'col'><Link to ="/newManagement">NewManagement</Link></div>
+<div className = 'col'><Link to ="/newPrivacy">NewPrivacy</Link></div>
               
                 </div>
             ) : (
@@ -205,6 +207,7 @@ class App extends React.Component {
   this.handleAddHowTo = this.handleAddHowTo.bind(this)
   this.handleAddManagement = this.handleAddManagement.bind(this)
   this.handleAddOverview = this.handleAddOverview.bind(this)
+  this.handleAddPrivacy = this.handleAddPrivacy.bind(this)
 
   this.changeCurrentShowItem = this.changeCurrentShowItem.bind(this)
   }
@@ -381,22 +384,30 @@ class App extends React.Component {
     })
   }
 
+  handleAddPrivacy(item) {
+    const copyPrivacies = [...this.state.privacy]
+    copyPrivacies.unshift(item)
+    this.setState({
+      privacy: copyPrivacies,
+    })
+  }
+
   render() {
 
     return (
       <div className = 'outerContainer'>
       <Router>
-
+     
         {/* ADMIN AUTHORIZATION */}
-        <div>
+        
           <AuthButton/>
           <Route path="/public" component={Public} admin={this.state.admin}/>
           <Route path="/login" component={Login} admin={this.state.admin}/>
           <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
-        </div>
-
+      
+          <Navbar />
         
-        <Navbar />
+       
         
             {/* NEWUSER FORM */}
 
@@ -417,6 +428,8 @@ class App extends React.Component {
 
           <Route exact path ='/newOverview/' exact render={() => <NewOverview overviews={this.state.overviews} handleAddOverview={this.handleAddOverview} fakeAuth = {fakeAuth} getOverviews = {this.getOverviews}/>}/>
 
+          <Route exact path ='/newPrivacy/' exact render={() => <NewPrivacy privacy={this.state.privacy} handleAddPrivacy={this.handleAddPrivacy} fakeAuth = {fakeAuth} getPrivacy = {this.getPrivacy}/>}/>
+
 
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 
@@ -424,9 +437,9 @@ class App extends React.Component {
 
           <Route exact path ='/accessories/' exact render={() => <Accessory accessories={this.state.accessories}/>}/>
 
-          <Route exact path ='/aboutUs/overview' exact render={() => <Overview overview={this.state.overview}/>}/>
+          <Route exact path ='/aboutUs/overview' exact render={() => <Overview overviews={this.state.overviews}/>}/>
 
-          <Route exact path ='/aboutus/management' exact render={() => <Management management={this.state.management}/>}/>
+          <Route exact path ='/aboutus/management' exact render={() => <Management managements={this.state.managements}/>}/>
 
           <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 

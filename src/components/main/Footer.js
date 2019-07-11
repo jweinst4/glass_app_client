@@ -35,14 +35,14 @@ class Footer extends React.Component {
               Lightboard Inc., all rights reserved
             </span>
           </div>
-          <div className = 'col terms s2 m2 l2'>
+          <div className = 'col terms s3 m3 l3'>
             <Link to ='/terms'>
               <span className = 'termsText'>
                 Terms and Conditions
               </span>             
             </Link>
           </div>
-          <div className = 'col privacy s2 m2 l2'>
+          <div className = 'col privacy s1 m1 l1'>
             <Link to ='/privacy'>
               <span className = 'privacyText'>
                 Privacy Policy

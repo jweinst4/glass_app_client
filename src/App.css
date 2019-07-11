@@ -319,6 +319,10 @@ input[type=submit] {
     cursor: grab;
 }
 
+.largeTextArea {
+   width: 100%;
+}
+
             .leftShowContent {
                 background: white;
                 width: 50vw;
@@ -351,7 +355,11 @@ input[type=submit] {
                 margin: 20px;
                 border: 3px solid black;
                 border-radius: 5px;
-    
+            }
+
+            
+            .privacyCard {
+                width: 100%;
             }
 
             .cardDelete {
@@ -405,6 +413,7 @@ input[type=submit] {
   .test1 {
       width: 300px;
   }
+
   
   .dropdown-content a {
     float: none;
@@ -518,7 +527,7 @@ input[type=submit] {
 }
 
 .authenticatedRow {
-    margin-top: 70px;
+margin-top: 50px;
 }
   .faqItem {
     border-bottom: 1px dashed grey;

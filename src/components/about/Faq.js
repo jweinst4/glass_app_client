@@ -43,7 +43,7 @@ class FAQ extends React.Component {
           <div className = 'col leftWhiteBox'>
             <div className = 'aboutWrapper'>
             <h3>Frequently Asked Questions</h3>
-              {this.props.faq.map((item, index) => {
+              {this.props.faqs.map((item, index) => {
                               return (
                                 <div className = 'faqItem' onClick={() => { 
                                   this.handleClick(item) }} key = {item._id} index = {index} >

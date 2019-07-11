@@ -18,15 +18,12 @@ class NewAccessory extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          name: '',
-          image: '',
-          code: '',
-          description: '',
-          price: '',
-          category: '',
-          edit: false,
-          currentEdit: '',
-
+            name: '',
+            image: '',
+            code: '',
+            description: '',
+            price: '',
+            category: 'accessory',
         }
         this.handleAccessoryChange = this.handleAccessoryChange.bind(this)
         this.handleAccessorySubmit = this.handleAccessorySubmit.bind(this)
@@ -37,12 +34,33 @@ class NewAccessory extends React.Component {
     }
 
     toggleEdit() {
-        this.setState({edit: !this.state.edit})
-        console.log(this.state.edit)
+        this.setState({edit: !this.state.edit})    
     }
 
     handleEditItem() {
         this.props.getAccessories()
+        this.setState({
+            name: '',
+            image: '',
+            code: '',
+            description: '',
+            price: '',
+            category: 'accessory',
+          })
+
+        this.toggleEdit()
+    }
+
+    handleAccessoryEdit(id) { 
+        if (this.props.fakeAuth.isAuthenticated) {
+            this.toggleEdit()
+            this.setState({currentEdit: id})
+            console.log(this.state.currentEdit)
+        }
+        else {
+            alert('Please login')
+        }   
+        
     }
 
     handleAccessoryDelete(id) {
@@ -53,27 +71,23 @@ class NewAccessory extends React.Component {
         }
         else {
             alert('Please login')
-        }   
+        }
+    }
+
+    deleteItem(id) {
+        this.props.
+        fetch(baseURL + '/accessories/' + (id + 1), { method: 'DELETE' }).then(response => {
+            console.log(id)
+        })
     }
 
     handleAccessoryChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
     }
 
-
-    handleAccessoryEdit(id) { 
-        if (this.props.fakeAuth.isAuthenticated) {
-            this.toggleEdit()
-            this.setState({currentEdit: id})
-        }
-        else {
-            alert('Please login')
-        }   
-        
-    }
-
     handleAccessorySubmit(event) {
         event.preventDefault()
+
         if (this.props.fakeAuth.isAuthenticated) {
         fetch(baseURL + '/accessories', {
             method: 'POST',
@@ -83,8 +97,7 @@ class NewAccessory extends React.Component {
                 code: this.state.code,
                 description: this.state.description,
                 price: this.state.price,
-                category: 'accessory'
-               
+                category: this.state.category,             
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -97,7 +110,9 @@ class NewAccessory extends React.Component {
             image: '',
             code: '',
             description: '',
-            price: '',})
+            price: '',
+            category: 'accessory',
+          })
         }
         else {
             alert('Please login')
@@ -114,20 +129,20 @@ class NewAccessory extends React.Component {
             code: '',
             description: '',
             price: '',
+            category: 'accessory',
           })
         }
 
     render() {
         return (
-
             <div className = 'row showContent'>
-        <div className = 'col rightBlackBox'></div>
-        <div className = 'col leftWhiteBox'>
-            <div className = 'aboutWrapper'>
-                <div className = 'aboutHeader'>
-                    New Accessory
-                </div>
-                {this.state.edit  ? (
+            <div className = 'col rightBlackBox'></div>
+            <div className = 'col leftWhiteBox'>
+                <div className = 'aboutWrapper'>
+                    <div className = 'aboutHeader'>
+                        New Accessory
+                    </div>
+                    {this.state.edit  ? (
   <> 
  
  <UpdateAccessory currentEdit={this.state.currentEdit} handleEditItem={this.handleEditItem}/>
@@ -135,53 +150,56 @@ class NewAccessory extends React.Component {
 ):(
 <>
 <form className = 'col s12 m12 l12' onSubmit={this.handleAccessorySubmit}>
-         
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="name">Name</label>
-                <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleAccessoryChange} value={this.state.name}  />  
-                </div>   
-                </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="name">
+                                Name
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleAccessoryChange} value={this.state.name}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="image">
+                                Image
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleAccessoryChange} value={this.state.image}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="code">
+                                Code
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleAccessoryChange} value={this.state.code}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="description">
+                                Description
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleAccessoryChange} value={this.state.description}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="price">
+                                Price
+                            </label>
+                            <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleAccessoryChange} value={this.state.price}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-row'>
+                        <input type="submit" value="Add a Accessory"/>
+                    </div>
+                </form>
+        </>
+        )}
+            </div></div>
 
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="image">Image</label>
-                <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleAccessoryChange} value={this.state.image}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="code">Code</label>
-                <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleAccessoryChange} value={this.state.code}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="description">Description</label>
-                <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleAccessoryChange} value={this.state.description}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="price">Price</label>
-                <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleAccessoryChange} value={this.state.price}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-row'>
-                <input type="submit" value="Add a Accessory"/>
-                </div>
-            </form>
-</>
-)}
-         
-            </div>
-            </div>
-            <div className = 'cardDeleteContainer'>
-            {this.props.accessories.map((item, index) => {
+           <div className = 'cardEditContainer'>
+           {this.props.accessories.map((item, index) => {
                 return (
                     <div className="card cardDelete">
                         <p>
@@ -191,21 +209,19 @@ class NewAccessory extends React.Component {
                             Description: {item.description}
                         </p>
                         <p onClick={() => { this.handleAccessoryDelete(item.id) }} >
-                            <i className="small material-icons">
+                            <i className="small material-icons adminDelete">
                                 delete
                             </i>
                         </p>
-                        <p onClick={() => { this.handleAccessoryEdit(item) }}>
+                        <p onClick={() => { this.handleAccessoryEdit(item) }} className = 'adminEdit'>
                             Edit
                         </p>
                     </div>
                         )
             })}
-        </div>
-            
-            </div>
+       </div>
 
-            
+            </div>
         )
     }
 }

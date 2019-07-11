@@ -18,12 +18,12 @@ class NewStudio extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          name: '',
-          image: '',
-          code: '',
-          description: '',
-          price: '',
-
+            name: '',
+            image: '',
+            code: '',
+            description: '',
+            price: '',
+            category: 'studio',
         }
         this.handleStudioChange = this.handleStudioChange.bind(this)
         this.handleStudioSubmit = this.handleStudioSubmit.bind(this)
@@ -34,25 +34,33 @@ class NewStudio extends React.Component {
     }
 
     toggleEdit() {
-        this.setState({edit: !this.state.edit})
-        console.log(this.state.edit)
+        this.setState({edit: !this.state.edit})    
     }
 
     handleEditItem() {
         this.props.getStudios()
+        this.state = {
+            name: '',
+            image: '',
+            code: '',
+            description: '',
+            price: '',
+            category: 'studio',
+        }
+        this.toggleEdit()
     }
 
     handleStudioEdit(id) { 
         if (this.props.fakeAuth.isAuthenticated) {
             this.toggleEdit()
             this.setState({currentEdit: id})
+            console.log(this.state.currentEdit)
         }
         else {
             alert('Please login')
         }   
         
     }
-
 
     handleStudioDelete(id) {
         if (this.props.fakeAuth.isAuthenticated) {
@@ -88,7 +96,7 @@ class NewStudio extends React.Component {
                 code: this.state.code,
                 description: this.state.description,
                 price: this.state.price,
-               
+                category: this.state.category,             
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -101,7 +109,9 @@ class NewStudio extends React.Component {
             image: '',
             code: '',
             description: '',
-            price: '',})
+            price: '',
+            category: 'studio',
+          })
         }
         else {
             alert('Please login')
@@ -118,6 +128,7 @@ class NewStudio extends React.Component {
             code: '',
             description: '',
             price: '',
+            category: 'studio',
           })
         }
 
@@ -137,57 +148,57 @@ class NewStudio extends React.Component {
   </>
 ):(
 <>
-         <form className = 'col s12 m12 l12' onSubmit={this.handleStudioSubmit}>
-         
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="name">Name</label>
-                <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleStudioChange} value={this.state.name}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="image">Image</label>
-                <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleStudioChange} value={this.state.image}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="code">Code</label>
-                <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleStudioChange} value={this.state.code}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="description">Description</label>
-                <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleStudioChange} value={this.state.description}  />  
-                </div>   
-                </div>
-
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="price">Price</label>
-                <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleStudioChange} value={this.state.price}  />  
-                </div>   
-                </div>
-
-
-
-                <div className = 'form-row'>
-                <input type="submit" value="Add a Studio"/>
-                </div>
-              
-             
-            </form>
+<form className = 'col s12 m12 l12' onSubmit={this.handleStudioSubmit}>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="name">
+                                Name
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleStudioChange} value={this.state.name}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="image">
+                                Image
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="image" name="image" onChange={this.handleStudioChange} value={this.state.image}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="code">
+                                Code
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="code" name="code" onChange={this.handleStudioChange} value={this.state.code}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="description">
+                                Description
+                            </label>
+                            <input className = 'col s6 m6 l6' type="text" id="description" name="description" onChange={this.handleStudioChange} value={this.state.description}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-inline'>
+                        <div className = 'col s12 m12 l12 form-group'>
+                            <label className = 'col s2 m2 l2' htmlFor="price">
+                                Price
+                            </label>
+                            <input className = 'col s6 m6 l6' type="number" id="price" name="price" onChange={this.handleStudioChange} value={this.state.price}  />  
+                        </div>   
+                    </div>
+                    <div className = 'form-row'>
+                        <input type="submit" value="Add a Studio"/>
+                    </div>
+                </form>
         </>
         )}
             </div></div>
 
-            <div className = 'cardDeleteContainer'>
-            {this.props.studios.map((item, index) => {
+           <div className = 'cardEditContainer'>
+           {this.props.studios.map((item, index) => {
                 return (
                     <div className="card cardDelete">
                         <p>
@@ -197,17 +208,17 @@ class NewStudio extends React.Component {
                             Description: {item.description}
                         </p>
                         <p onClick={() => { this.handleStudioDelete(item.id) }} >
-                            <i className="small material-icons">
+                            <i className="small material-icons adminDelete" >
                                 delete
                             </i>
                         </p>
-                        <p onClick={() => { this.handleStudioEdit(item) }}>
+                        <p onClick={() => { this.handleStudioEdit(item) }} className = 'adminEdit'>
                             Edit
                         </p>
                     </div>
                         )
             })}
-        </div>
+       </div>
 
             </div>
         )

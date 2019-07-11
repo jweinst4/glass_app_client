@@ -17,7 +17,6 @@ class UpdateStudio extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          
 
         }
         this.handleStudioEditChange = this.handleStudioEditChange.bind(this)
@@ -26,20 +25,23 @@ class UpdateStudio extends React.Component {
     }
     handleStudioEditChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event.currentTarget.value)
+       
     }
 
     handleStudioEditSubmit(event) {
         event.preventDefault()//if you comment out, it edits that field and deletes the rest.
+
+        console.log(this.props.currentEdit)
+      
         fetch(baseURL + '/studios/' + this.props.currentEdit.id, {
             method: 'PUT',
             body: JSON.stringify({
                 name: this.state.name,
-                image:this.state.image,
-                code:this.state.code,
-                description:this.state.description,
+                image: this.state.image,
+                code: this.state.code,
+                description: this.state.description,
                 price: this.state.price,
-                category: this.state.category,
+                category: 'studio',   
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -93,7 +95,7 @@ class UpdateStudio extends React.Component {
                 </div>
 
                 <div className = 'form-row'>
-                <input type="submit" value="Edit a Lightboard"/>
+                <input type="submit" value="Edit a Studio"/>
                 </div>
             </form>
         )

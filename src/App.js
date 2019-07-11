@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-
 import NewLightboard from './components/new/NewLightboard.js'
 import NewStudio from './components/new/NewStudio.js'
 import NewAccessory from './components/new/NewAccessory.js'
+import NewNews from './components/new/NewNews.js'
+import NewFAQ from './components/new/NewFAQ.js'
+import NewHowTo from './components/new/NewHowTo.js'
+import NewOverview from './components/new/NewOverview.js'
+import NewManagement from './components/new/NewManagement.js'
 
 import LeftContent from './components/main/LeftContent.js'
 import RightContent from './components/main/RightContent.js'
@@ -146,6 +151,11 @@ if (process.env.NODE_ENV === 'development') {
 <div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
 <div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
 <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
+<div className = 'col'><Link to ="/newNews">NewNews</Link></div>
+<div className = 'col'><Link to ="/newFAQ">NewFAQ</Link></div>
+<div className = 'col'><Link to ="/newHowTo">NewHowTo</Link></div>
+<div className = 'col'><Link to ="/newOverview">NewOverview</Link></div>
+<div className = 'col'><Link to ="/newManagement">NewManagement</Link></div>
               
                 </div>
             ) : (
@@ -166,10 +176,10 @@ class App extends React.Component {
     lightboards: [],
     studios: [],
     accessories: [],
-    management: [],
-    overview: [],
+    managements: [],
+    overviews: [],
     news: [],
-    faq: [],
+    faqs: [],
     privacy: [],
     terms: [],
     howtos: [],
@@ -179,10 +189,10 @@ class App extends React.Component {
   this.getLightboards = this.getLightboards.bind(this)
   this.getStudios = this.getStudios.bind(this)
   this.getAccessories = this.getAccessories.bind(this)
-  this.getManagement = this.getManagement.bind(this)
-  this.getOverview = this.getOverview.bind(this)
+  this.getManagements = this.getManagements.bind(this)
+  this.getOverviews = this.getOverviews.bind(this)
   this.getNews = this.getNews.bind(this)
-  this.getFAQ = this.getFAQ.bind(this)
+  this.getFAQs = this.getFAQs.bind(this)
   this.getPrivacy = this.getPrivacy.bind(this)
   this.getTerms = this.getTerms.bind(this)
   this.getHowTos = this.getHowTos.bind(this)
@@ -190,6 +200,11 @@ class App extends React.Component {
   this.handleAddLightboard = this.handleAddLightboard.bind(this)
   this.handleAddStudio = this.handleAddStudio.bind(this)
   this.handleAddAccessory = this.handleAddAccessory.bind(this)
+  this.handleAddNews = this.handleAddNews.bind(this)
+  this.handleAddFAQ = this.handleAddFAQ.bind(this)
+  this.handleAddHowTo = this.handleAddHowTo.bind(this)
+  this.handleAddManagement = this.handleAddManagement.bind(this)
+  this.handleAddOverview = this.handleAddOverview.bind(this)
 
   this.changeCurrentShowItem = this.changeCurrentShowItem.bind(this)
   }
@@ -198,10 +213,10 @@ class App extends React.Component {
       this.getStudios()
       this.getAccessories()
       this.getLightboards()
-      this.getManagement()
+      this.getManagements()
       this.getNews()
-      this.getOverview()
-      this.getFAQ()
+      this.getOverviews()
+      this.getFAQs()
       this.getPrivacy()
       this.getTerms()
       this.getHowTos()   
@@ -239,21 +254,21 @@ class App extends React.Component {
           err=> console.log(err))
   }
 
-  getManagement() {
+  getManagements() {
     fetch(baseURL+ '/managements')
       .then(data => {
         return data.json()},
         err => console.log(err))
-          .then(parsedData => this.setState({management: parsedData}),
+          .then(parsedData => this.setState({managements: parsedData}),
           err=> console.log(err))
   }
 
-  getOverview() {
+  getOverviews() {
     fetch(baseURL+ '/overviews')
       .then(data => {
         return data.json()},
         err => console.log(err))
-          .then(parsedData => this.setState({overview: parsedData}),
+          .then(parsedData => this.setState({overviews: parsedData}),
           err=> console.log(err))
   }
 
@@ -266,12 +281,12 @@ class App extends React.Component {
           err=> console.log(err))
   }
 
-  getFAQ() {
+  getFAQs() {
     fetch(baseURL+ '/faqs')
       .then(data => {
         return data.json()},
         err => console.log(err))
-          .then(parsedData => this.setState({faq: parsedData}),
+          .then(parsedData => this.setState({faqs: parsedData}),
           err=> console.log(err))
   }
 
@@ -326,6 +341,46 @@ class App extends React.Component {
     })
   }
 
+  handleAddNews(item) {
+    const copyNews = [...this.state.news]
+    copyNews.unshift(item)
+    this.setState({
+      news: copyNews,
+    })
+  }
+
+  handleAddFAQ(item) {
+    const copyFAQs = [...this.state.faqs]
+    copyFAQs.unshift(item)
+    this.setState({
+      faqs: copyFAQs,
+    })
+  }
+
+  handleAddHowTo(item) {
+    const copyHowTos = [...this.state.howtos]
+    copyHowTos.unshift(item)
+    this.setState({
+      howtos: copyHowTos,
+    })
+  }
+
+  handleAddManagement(item) {
+    const copyManagements = [...this.state.managements]
+    copyManagements.unshift(item)
+    this.setState({
+      managements: copyManagements,
+    })
+  }
+
+  handleAddOverview(item) {
+    const copyOverviews = [...this.state.overviews]
+    copyOverviews.unshift(item)
+    this.setState({
+      overviews: copyOverviews,
+    })
+  }
+
   render() {
 
     return (
@@ -351,6 +406,18 @@ class App extends React.Component {
 
           <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
 
+
+          <Route exact path ='/newNews/' exact render={() => <NewNews news={this.state.news} handleAddNews={this.handleAddNews} fakeAuth = {fakeAuth} getNews = {this.getNews}/>}/>
+
+          <Route exact path ='/newFAQ/' exact render={() => <NewFAQ faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
+
+          <Route exact path ='/newHowTo/' exact render={() => <NewHowTo howtos={this.state.howtos} handleAddHowTo={this.handleAddHowTo} fakeAuth = {fakeAuth} getHowTos = {this.getHowTos}/>}/>
+
+          <Route exact path ='/newManagement/' exact render={() => <NewManagement managements={this.state.managements} handleAddManagement={this.handleAddManagement} fakeAuth = {fakeAuth} getManagements = {this.getManagements}/>}/>
+
+          <Route exact path ='/newOverview/' exact render={() => <NewOverview overviews={this.state.overviews} handleAddOverview={this.handleAddOverview} fakeAuth = {fakeAuth} getOverviews = {this.getOverviews}/>}/>
+
+
           <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
 
           <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
@@ -363,7 +430,7 @@ class App extends React.Component {
 
           <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 
-          <Route exact path ='/resources/faq' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faq={this.state.faq} originalCardHeights={this.state.originalCardHeights}/>}/>
+          <Route exact path ='/resources/faqs' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
 
           <Route exact path ='/resources/howtos' exact render={() => <HowTo howtos={this.state.howtos}/>}/>
 

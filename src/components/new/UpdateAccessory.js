@@ -17,7 +17,6 @@ class UpdateAccessory extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          
 
         }
         this.handleAccessoryEditChange = this.handleAccessoryEditChange.bind(this)
@@ -26,22 +25,23 @@ class UpdateAccessory extends React.Component {
     }
     handleAccessoryEditChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event.currentTarget.value)
+       
     }
 
     handleAccessoryEditSubmit(event) {
         event.preventDefault()//if you comment out, it edits that field and deletes the rest.
-        console.log(this.state.name)
-        console.log(baseURL + '/accessories/' + this.props.currentEdit.id)
+
+        console.log(this.props.currentEdit)
+      
         fetch(baseURL + '/accessories/' + this.props.currentEdit.id, {
             method: 'PUT',
             body: JSON.stringify({
                 name: this.state.name,
-                image:this.state.image,
-                code:this.state.code,
-                description:this.state.description,
+                image: this.state.image,
+                code: this.state.code,
+                description: this.state.description,
                 price: this.state.price,
-                category: this.state.category,
+                category: 'accessory',   
             }),
             headers: {
                 'Content-Type': 'application/json'

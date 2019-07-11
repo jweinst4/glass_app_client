@@ -315,6 +315,9 @@ input[type=submit] {
     text-align: center;  
 }
 
+.adminDelete, .adminEdit, input[type=submit] {
+    cursor: grab;
+}
 
             .leftShowContent {
                 background: white;
@@ -355,14 +358,12 @@ input[type=submit] {
                 width: 300px !important;
             }
 
-            .cardDeleteContainer {
-                position: absolute;
+            .cardEditContainer {
+                position: relative;
                 display: flex;
-                flex-direction: row;
+                width: 100%;
                 flex-wrap: wrap;
-                top: 50vh;
-                left: 0px;
-                justify-content: space-evenly; 
+                margin-top: 20vw;
             }
 
             .card-title {

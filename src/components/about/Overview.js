@@ -33,7 +33,7 @@ class Overview extends React.Component {
               <div className = 'aboutHeader'>
                 Overview:
               </div>
-              {this.props.overview.map((item, index) => {
+              {this.props.overviews.map((item, index) => {
                   return (
                     <div className = 'aboutText'>  
                       {item.item}

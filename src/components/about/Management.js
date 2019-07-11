@@ -33,7 +33,7 @@ class Management extends React.Component {
               <div className = 'aboutHeader'>
                 Management:
               </div>
-              {this.props.management.map((item, index) => {
+              {this.props.managements.map((item, index) => {
                   return (
                     <div className = 'aboutText'>  
                       {item.item}

@@ -51,7 +51,7 @@ componentDidMount() {
             </ul>
             <ul id="dropdown2" className="dropdown-content">
               <Link to ="/resources/howtos">How To Guide</Link>
-              <Link to ="/resources/faq">FAQ</Link>
+              <Link to ="/resources/faqs">FAQ</Link>
             </ul>
             <div className = 'row navBarRightRow s12 m12 l12'>
             <div className = 'col navText s4 m4 l4 hide-on-med-and-down'>

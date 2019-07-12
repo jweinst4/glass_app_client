@@ -38,7 +38,7 @@ class TestHome extends React.Component {
 let elems = document.querySelectorAll('.dropdown-trigger');
 M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
 
- this.interval = setInterval(() => this.nextImage(), 3000)    
+ this.interval = setInterval(() => this.nextImage(), 5000)    
  
  }
 

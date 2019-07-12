@@ -10,6 +10,51 @@ import NewHowTo from './components/new/NewHowTo.js'
 import NewOverview from './components/new/NewOverview.js'
 import NewManagement from './components/new/NewManagement.js'
 import NewPrivacy from './components/new/NewPrivacy.js'
+import TestLightboard from './components/test/TestLightboard.js'
+import TestStudio from './components/test/TestStudio.js'
+import TestAccessory from './components/test/TestAccessory.js'
+import TestContactForm from './components/test/TestContactForm.js'
+import TestTerm from './components/test/TestTerms.js'
+import TestFAQ from './components/test/TestFAQ.js'
+import TestHowTo from './components/test/TestHowTo.js'
+import TestManagement from './components/test/TestManagement.js'
+import TestNews from './components/test/TestNews.js'
+import TestOverview from './components/test/TestOverview.js'
+import TestTerms from './components/test/TestTerms.js'
+import TestPrivacy from './components/test/TestPrivacy.js'
+import Sidebar from './components/test/Sidebar.js'
+import Navbar2 from './components/test/Navbar2.js'
+
+import Home from './components/test/Home.js'
+
+import NewStudioTest from './components/test/NewStudioTest.js'
+import UpdateStudioTest from './components/test/UpdateStudioTest.js'
+
+import NewAccessoryTest from './components/test/NewAccessoryTest.js'
+import UpdateAccessoryTest from './components/test/UpdateAccessoryTest.js'
+
+import NewFAQTest from './components/test/NewFAQTest.js'
+import UpdateFAQTest from './components/test/UpdateFAQTest.js'
+
+import NewHowToTest from './components/test/NewHowToTest.js'
+import UpdateHowToTest from './components/test/UpdateHowToTest.js'
+
+import NewLightboardTest from './components/test/NewLightboardTest.js'
+import UpdateLightboardTest from './components/test/UpdateLightboardTest.js'
+
+import NewManagementTest from './components/test/NewManagementTest.js'
+import UpdateManagementTest from './components/test/UpdateManagementTest.js'
+
+import NewNewsTest from './components/test/NewNewsTest.js'
+import UpdateNewsTest from './components/test/UpdateNewsTest.js'
+
+import NewOverviewTest from './components/test/NewOverviewTest.js'
+import UpdateOverviewTest from './components/test/UpdateOverviewTest.js'
+
+import NewPrivacyTest from './components/test/NewPrivacyTest.js'
+import UpdatePrivacyTest from './components/test/UpdatePrivacyTest.js'
+
+
 
 import LeftContent from './components/main/LeftContent.js'
 import RightContent from './components/main/RightContent.js'
@@ -107,11 +152,12 @@ if (process.env.NODE_ENV === 'development') {
               }
 
               return (
-                <div className = 'row showContent'>
-                <div className = 'col rightBlackBox'></div>
-                <div className = 'col leftWhiteBox'>
-                  <div className = 'aboutWrapper'>
-                  <form className = 'col s12 m12 l12'>
+                <div className = 'row aboutContent'>
+                <div className = 'aboutContainer'>
+          <div className = 'aboutHeader'>
+            Contact Form: 
+          </div>
+          <form className = 'col s12 m12 l12'>
                   
                       <div className = 'form-inline'>
                       <div className = 'col s12 m12 l12 form-group'>
@@ -121,8 +167,8 @@ if (process.env.NODE_ENV === 'development') {
                           </div>
                           </form>     
                   <button onClick={this.login}>Log in</button>
-                  </div></div>
-                </div>
+          </div>
+            </div>
               )
             }
           }
@@ -405,13 +451,69 @@ class App extends React.Component {
           <Route path="/login" component={Login} admin={this.state.admin}/>
           <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
       
-          <Navbar />
+         
+        <Navbar2 />
         
-       
-        
-            {/* NEWUSER FORM */}
+        <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
 
-          <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth} getLightboards = {this.getLightboards}/>}/>
+            {/* <Route exact path='/faq' exact render = {() => </>}/> */}
+
+            <Route exact path='/lightboards/:id' exact render = {(props) => <TestLightboard lightboards={this.state.lightboards} {...props}/>}/>
+
+            <Route exact path='/studios/:id' exact render = {(props) => <TestStudio studios={this.state.studios} {...props}/>}/>
+
+            <Route exact path='/accessories/:id' exact render = {(props) => <TestAccessory accessories={this.state.accessories} {...props}/>}/>
+
+            <Route exact path ='/contact' exact render={() => <TestContactForm/>}/>
+
+            <Route exact path ='/terms' exact render={() => <TestTerm terms={this.state.terms}/>}/>
+
+            <Route exact path ='/resources/faqs' exact render={() => <TestFAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
+
+            <Route exact path ='/resources/howtos' exact render={() => <TestHowTo howtos={this.state.howtos}/>}/>
+
+            <Route exact path ='/aboutus/news' exact render={() => <TestNews news={this.state.news}/>}/>
+
+            <Route exact path ='/aboutus/overview' exact render={() => <TestOverview overviews={this.state.overviews}/>}/>
+
+            <Route exact path ='/privacy' exact render={() => <TestPrivacy privacy={this.state.privacy}/>}/>
+
+            <Route exact path ='/aboutus/management' exact render={() => <TestManagement managements={this.state.managements}/>}/>
+
+            <Route exact path ='/newstudio' exact render={() => <NewStudioTest studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
+
+            <Route exact path ='/newaccessory' exact render={() => <NewAccessoryTest accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
+
+            <Route exact path ='/newfaq' exact render={() => <NewFAQTest faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
+
+
+            <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
+
+{/* 
+            <Route exact path='/studios/:id' exact render = {(props) => <TestStudio  {...props}/>}/>
+
+            <Route exact path='/accessories/:id' exact render = {(props) => <TestAccessory  {...props}/>}/> */}
+
+   <Footer />
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth} getLightboards = {this.getLightboards}/>}/>
 
           <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
 
@@ -457,27 +559,16 @@ class App extends React.Component {
 
           <Route exact path='/studios/:id' exact render = {(props) => <StudioShowRoute {...props} studios={this.state.studios}/>} />
 
-          <Route exact path='/accessories/:id' exact render = {(props) => <AccessoryShowRoute {...props} accessories={this.state.accessories}/>} />
+          <Route exact path='/accessories/:id' exact render = {(props) => <AccessoryShowRoute {...props} accessories={this.state.accessories}/>} /> */}
 
           
 
  
 
      {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
-     <div className = 'row leftAndRightContentRow'>
+     
 
-       {/* LEFTCONTENT COLUMN */}
-            
-         <Route exact path ='/' exact render={() => <LeftContent lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>}/>
-   
 
-       {/* RIGHTCONTENT COLUMN */}
-                
-         <Route exact path ='/' exact render={() => <RightContent getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
-
-     </div>
-
-     <Footer />
  
     
      

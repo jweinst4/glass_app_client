@@ -436,6 +436,13 @@ input[type=submit] {
       margin-bottom: 40px;
   }
 
+  .termsAndPrivacyText {
+    color: black;
+    font-size: 20px;
+    margin-left: 20px;
+    text-align: left;
+}
+
   
 
 .contactForm {
@@ -483,15 +490,6 @@ input[type=submit] {
     flex-wrap: wrap;
     margin-top: 70px;
     justify-content: space-evenly; 
-}
-
-
-
-  .aboutTextTerms, .aboutTextPrivacy {
-    font-size: 14px;
-    margin-top: 70px;
-    margin-left: 20px;
-    text-align: left;
 }
 
   .aboutHeader {

@@ -30,14 +30,26 @@ class Privacy extends React.Component {
               <div className = 'col leftWhiteBox'></div>
             
               <div className = 'aboutContainer'>
-              <div className = 'aboutHeader'>
-                Privacy Policy: 
-              </div>
               {this.props.privacy.map((item, index) => {
                   return (
-                    <div className = 'aboutText'>  
-                      {item.item}
+                    <div className = 'termsAndPrivacyText'>  
+                      
+
+                      { item.item === '<p>' ? (
+                <> 
+                  <div>&nbsp;</div>
+                </>
+              ):(
+              <>
+                {item.item}
+                
+              </>
+              )}
                     </div>
+
+                    
+
+                    
                         )
                 })}
               </div>

@@ -30,14 +30,26 @@ class Terms extends React.Component {
               <div className = 'col leftWhiteBox'></div>
             
               <div className = 'aboutContainer'>
-              <div className = 'aboutHeader'>
-                Terms and Conditions: 
-              </div>
               {this.props.terms.map((item, index) => {
                   return (
-                    <div className = 'aboutText'>  
-                      {item.item}
+                    <div className = 'termsAndPrivacyText'>  
+                      
+
+                      { item.item === '<p>' ? (
+                <> 
+                  <div>&nbsp;</div>
+                </>
+              ):(
+              <>
+                {item.item}
+                
+              </>
+              )}
                     </div>
+
+                    
+
+                    
                         )
                 })}
               </div>

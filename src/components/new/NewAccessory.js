@@ -208,6 +208,9 @@ class NewAccessory extends React.Component {
                         <p>
                             Description: {item.description}
                         </p>
+                        <p>
+                            Price: ${item.price}
+                        </p>
                         <p onClick={() => { this.handleAccessoryDelete(item.id) }} >
                             <i className="small material-icons adminDelete">
                                 delete

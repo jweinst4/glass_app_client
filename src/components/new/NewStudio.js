@@ -207,6 +207,9 @@ class NewStudio extends React.Component {
                         <p>
                             Description: {item.description}
                         </p>
+                        <p>
+                            Price: ${item.price}
+                        </p>
                         <p onClick={() => { this.handleStudioDelete(item.id) }} >
                             <i className="small material-icons adminDelete" >
                                 delete

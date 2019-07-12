@@ -53,46 +53,63 @@ height: 100vh;
                 margin-left: 10px !important;
                 margin-bottom: 5px;             
             }
-
         /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
         /* END */
 
 
-/* EVERYTHING RELATED TO FOOTER  */
-/* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
+/* EVERYTHING RELATED TO FAQ  */
+/* START */
+.faqItem {
+    border-bottom: 1px dashed grey;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: grab;
+  }
 
-.footerContentContainer {
-    position: absolute;
-    width: 100%;
-    bottom: 0px !important;
-    height: 30px;
-}
+  .faqIcon {
+      padding-right: 15px;
+      vertical-align: middle;
+  }
+  /* EVERYTHING RELATED TO FAQ  */
+/* END */
 
-.rightsText {
-    color: black;
-}
 
-  
-.rightContent {
-    position: absolute;
-    width: 30vw;
-    right: 0px;
-    height: 100vh;
-    background: black;
-}
+                        /* EVERYTHING RELATED TO LEFT WHITE BOX AND RIGHT BLACK BOX */
+                        /* START */
+                        .rightBlackBox {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            height: 100%;
+                            width: 30vw;
+                            display: inline-block;
+                            background: black;
+                        }
+            
+                        .leftWhiteBox {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 70vw;
+                            display: inline-block;
+                            background:white;
+                        }
 
-.showRouteContent {
-    position: absolute;
-    width: 100vw;
-    right: 0px;
-    height: 100vh;
-}
+                        /* EVERYTHING RELATED TO LEFT WHITE BOX AND RIGHT BLACK BOX */
+                        /* END */
+
+
+/* EVERYTHING RELATED TO SHOW ROUTE */
+/* START */
 
 .currentShowImage {   
-    position: relative;
-    height: 80vh;
-    top: 10vh;
-    left: 40vw;
+    position: absolute;
+    height: 60vh;
+    top: 20vh;
+    left: 50vw;
     display: inline-block;
     vertical-align: middle;
     border-radius: 5px;   
@@ -102,58 +119,51 @@ height: 100vh;
     animation: mymove 5s infinite; */
 }
 
-.cardContainerShowRoute {
+.showParagraph {
     position: relative;
-    height: 100%;
-    width: 100%;
-    background: red;
-    justify-content: center !important;
-
+    top: 20vh;
+    width: 40vw;
+    left: 5vw;
 }
 
 
-.termsText, .privacyText {
-    color: white;
-   justify-content: right;
-   text-align: right;
+.aboutContent {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
 }
 
-.terms, .privacy {
-    text-align: right;
-}
+/* EVERYTHING RELATED TO SHOW ROUTE */
+/* END */
 
-      
+            /* EVERYTHING RELATED TO FOOTER */
+            /* START */
+                /* https://medium.com/@zerox/keep-that-damn-footer-at-the-bottom-c7a921cb9551 */
+                .footerContentContainer {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0px !important;
+                    height: 30px;
+                }
 
-            .rightBlackBox {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                height: 100%;
-                width: 30vw;
-                display: inline-block;
-                background: black;
-            }
+                .rightsText {
+                    color: black;
+                }
 
-            .leftWhiteBox {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 70vw;
-                display: inline-block;
-                background:white;
-            }
+                .termsText, .privacyText {
+                    color: white;
+                justify-content: right;
+                text-align: right;
+                }
 
-            .cardContainer {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                margin-top: 70px;   
-                
-            }
+                .terms, .privacy {
+                    text-align: right;
+                }
 
-      
+            /* EVERYTHING RELATED TO FOOTER */
+            /* END */
 
 
 .rightContent {
@@ -163,21 +173,6 @@ height: 100vh;
     height: 100vh;
  background: black;
 }
-
-.rightContentResource {
-    position: absolute;
-    width: 30vw;
-    right: 0px;
-    height: 100vh;
-    background: black;
-}
-
-.lightboardRow {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
 
 .currentCarouselImage {   
     position: absolute;
@@ -192,7 +187,6 @@ height: 100vh;
     /* -webkit-animation: mymove 6s infinite; 
     animation: mymove 5s infinite; */
 }
-
 
 /* 
 
@@ -214,6 +208,9 @@ height: 100vh;
   }
  */
 
+
+ /* EVERYTHING RELATED TO BLACK AN W */
+/* END */
 .whiteIconTop {
     position: absolute;
     top: 8vh;
@@ -281,7 +278,7 @@ input[type=submit] {
     position: absolute;
     top: 0px;
     background: white;
-    z-index: 1;
+    z-index: 10 !important;
 }
 
 .navBarLeft {
@@ -363,7 +360,7 @@ input[type=submit] {
             }
 
             .cardDelete {
-                width: 300px !important;
+                width: 90vw !important;
             }
 
             .cardEditContainer {
@@ -371,7 +368,7 @@ input[type=submit] {
                 display: flex;
                 width: 100%;
                 flex-wrap: wrap;
-                margin-top: 20vw;
+                margin-top: 30vw;
             }
 
             .card-title {
@@ -406,7 +403,7 @@ input[type=submit] {
     overflow: hidden;
     top: -30px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 5 !important;
 }
 
 
@@ -439,13 +436,7 @@ input[type=submit] {
       margin-bottom: 40px;
   }
 
-  .aboutContent {
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    flex-wrap: wrap;
-}
+  
 
 .contactForm {
     margin-top: 50px;
@@ -476,8 +467,13 @@ input[type=submit] {
   .aboutContainer {
       display: flex;
       flex-direction: column;
-      width: 70vw;
-      margin-top: 70px;
+      width: 90vw;
+      min-height: 80vh;
+      margin-left: 5vw;
+      margin-top: 10vh;
+      background: white;
+      border:3px solid black;
+      border-radius: 5px; 
       z-index: 1;
   }
 
@@ -529,18 +525,8 @@ input[type=submit] {
 .authenticatedRow {
 margin-top: 50px;
 }
-  .faqItem {
-    border-bottom: 1px dashed grey;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: grab;
-  }
+  
 
-  .faqIcon {
-      padding-right: 15px;
-      vertical-align: middle;
-  }
 
 
 

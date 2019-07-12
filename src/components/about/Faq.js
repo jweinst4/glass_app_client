@@ -38,11 +38,14 @@ class FAQ extends React.Component {
     }
     render() {
       return (
-        <div className = 'row showContent'>
-          <div className = 'col rightBlackBox'></div>
-          <div className = 'col leftWhiteBox'>
-            <div className = 'aboutWrapper'>
-            <h3>Frequently Asked Questions</h3>
+        <div className = 'row aboutContent'>
+              <div className = 'col rightBlackBox'></div>
+              <div className = 'col leftWhiteBox'></div>
+            
+              <div className = 'aboutContainer'>
+              <div className = 'aboutHeader'>
+                Frequently Asked Questions: 
+              </div>
               {this.props.faqs.map((item, index) => {
                               return (
                                 <div className = 'faqItem' onClick={() => { 
@@ -75,10 +78,7 @@ class FAQ extends React.Component {
                                     )
                             })}
               </div>
-            
             </div>
-    
-              </div>
   
              )
     }

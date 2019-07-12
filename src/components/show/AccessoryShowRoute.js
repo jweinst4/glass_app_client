@@ -27,15 +27,28 @@ componentDidMount() {
 
     render() {
         return (
-            <div className = 'showRouteContent'>
-                <div className = 'col rightBlackBox'></div>
+            <div className = 'row aboutContent'>
+               <div className = 'col rightBlackBox'></div>
                 <div className = 'col leftWhiteBox'></div>
                 {this.props.accessories.map((item, index) => {
                     return (
                             <div>  
                                 {parseInt(this.props.match.params.id) === item.id ? (
-                                    <>  
+                                    <> 
+                                     <div>
+                                        <h3 className = 'showParagraph'>
+                                            {item.name}
+                                        </h3>
+                                        <h5 className = 'showParagraph'>{item.description}
+                                        </h5>
+                                        <h5 className = 'showParagraph'>${item.price}
+                                        </h5>
+                                    </div> 
+                                    <div>
                                         <img className = 'currentShowImage' src={item.image} />
+                                    </div>
+                                   
+                                       
                                     </>
                                     ):(
                                     <>
@@ -45,6 +58,7 @@ componentDidMount() {
                             </div>                    
                             )
                 })}
+
             </div>
                  )
     }

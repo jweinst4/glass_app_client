@@ -207,14 +207,19 @@ class NewLightboard extends React.Component {
                         <p>
                             Description: {item.description}
                         </p>
-                        <p onClick={() => { this.handleLightboardDelete(item.id) }} >
-                            <i className="small material-icons adminDelete">
-                                delete
-                            </i>
+                        <p>
+                            Price: ${item.price}
                         </p>
-                        <p onClick={() => { this.handleLightboardEdit(item) }} className = 'adminEdit'>
-                            Edit
-                        </p>
+                        <div className = 'row'>
+                            <div className = 'col s1 m1 l1' onClick={() => { this.handleLightboardDelete(item.id) }} >
+                                <i className="small material-icons adminDelete">
+                                    delete
+                                </i>
+                            </div>
+                            <div className = 'col s1 m1 l1' onClick={() => { this.handleLightboardEdit(item) }} className = 'adminEdit'>
+                                Edit
+                            </div>
+                        </div>
                     </div>
                         )
             })}

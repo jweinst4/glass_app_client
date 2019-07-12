@@ -31,7 +31,7 @@ class HowTo extends React.Component {
             
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
-                How To:
+                How To Guides:
               </div>
               {this.props.howtos.map((item, index) => {
                   return (

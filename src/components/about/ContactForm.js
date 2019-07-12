@@ -67,57 +67,46 @@ class ContactForm extends React.Component {
 
     render() {
         return (
-            <div className = 'row showContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'>
-                <div className = 'aboutWrapper'>
-
-                <div className = 'aboutHeader'>
-                Contact Us!
-                </div>
-              <form className = 'col s12 m12 l12 contactForm' onSubmit={this.handleContactSubmit}>
+          <div className = 'row aboutContent'>
+          <div className = 'col rightBlackBox'></div>
+          <div className = 'col leftWhiteBox'></div>
+        
+          <div className = 'aboutContainer'>
+          <div className = 'aboutHeader'>
+            Contact Form: 
+          </div>
+          <form className = 'col s12 m12 l12 contactForm' onSubmit={this.handleContactSubmit}>
          
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="name"><span className = 'contactLabel'>Name: </span></label>
-                <input className = 'col s6 m6 l6 contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
-                </div>   
-                </div>
+         <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="name"><span className = 'contactLabel'>Name: </span></label>
+             <input className = 'col s6 m6 l6 contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
+             </div>   
+             </div>
 
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
-                <input className = 'col s6 m6 l6 contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
-                </div>   
-                </div>
+             <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
+             <input className = 'col s6 m6 l6 contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
+             </div>   
+             </div>
 
-                <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s2 m2 l2' htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
-                <textarea className = 'col s6 m6 l6 contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
-                </div>   
-                </div>
+             <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
+             <textarea className = 'col s6 m6 l6 contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
+             </div>   
+             </div>
 
 
-                <div className = 'form-row'>
-                  <input className = 'contactSubmit' type="submit" value="Submit Your Message"/>
-                </div>
-              
-             
-            </form>
-            </div>
-              
-              
-              
-              
-              
-              
-              </div>
-            
-            
-     
-              </div>
-      
+             <div className = 'form-row'>
+               <input className = 'contactSubmit' type="submit" value="Submit Your Message"/>
+             </div>
+           
+          
+         </form>
+          </div>
+        </div>
                  )
     }
 }

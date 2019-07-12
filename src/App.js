@@ -445,16 +445,18 @@ class App extends React.Component {
       <Router>
      
         {/* ADMIN AUTHORIZATION */}
-        
-          <AuthButton/>
-          <Route path="/public" component={Public} admin={this.state.admin}/>
-          <Route path="/login" component={Login} admin={this.state.admin}/>
-          <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
-      
+       
          
         <Navbar2 />
         
         <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
+
+         
+        <AuthButton/>
+          <Route path="/public" component={Public} admin={this.state.admin}/>
+          <Route path="/login" component={Login} admin={this.state.admin}/>
+          <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
+      
 
             {/* <Route exact path='/faq' exact render = {() => </>}/> */}
 
@@ -488,11 +490,6 @@ class App extends React.Component {
 
 
             <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
-
-{/* 
-            <Route exact path='/studios/:id' exact render = {(props) => <TestStudio  {...props}/>}/>
-
-            <Route exact path='/accessories/:id' exact render = {(props) => <TestAccessory  {...props}/>}/> */}
 
    <Footer />
    

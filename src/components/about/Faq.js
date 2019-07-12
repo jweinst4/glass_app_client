@@ -66,6 +66,16 @@ class FAQ extends React.Component {
                                   { this.state.currentFAQ.id === item.id ? (
                 <> 
               <h6>{item.answer}</h6>
+              <h6>{item.answertwo}</h6>
+              <h6>{item.answerthree}</h6>
+              <h6>{item.answerfour}</h6>
+              <h6>{item.answerfive}</h6>
+              <h6>{item.answersix}</h6>
+              <h6>{item.answerseven}</h6>
+              <h6>{item.answereight}</h6>
+              <h6>{item.answernine}</h6>
+              <h6>{item.answerten}</h6>
+
                 </>
               ):(
               <>

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import UpdateManagement from '../new/UpdateManagement.js';
+import UpdateManagement from '../update/UpdateManagement.js';
 
 let baseURL = process.env.REACT_APP_BASEURL
 

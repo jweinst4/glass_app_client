@@ -35,12 +35,12 @@ class Footer extends React.Component {
               
             </span>
           </div>
-          <div className = "col all-rights s7 m7 l7">
+          <div className = "col all-rights s6 m6 l6">
             <span className = 'footerText'>
               Learning Glass Systems Inc., all rights reserved
             </span>
           </div>
-          <div className = 'col terms s2 m2 l2'>
+          <div className = 'col terms s3 m3 l3'>
             <Link to ='/terms'>
               
               <span className = 'footerText'>

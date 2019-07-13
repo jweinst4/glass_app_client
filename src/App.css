@@ -6,7 +6,7 @@
 /* BODY AND OUTER CONTAINER*/
 /* START */
 body {
-font-family: 'Russo One';
+font-family: 'BioRhyme' !important;
 position: relative;
 height: 100vh;
 }
@@ -181,8 +181,7 @@ height: 100vh;
                   text-align: right;
                   bottom: 0px;
                   right: 0px;
-                  position: relative;
-              
+                  position: relative;          
                 }
 
                 .privacy {
@@ -216,8 +215,8 @@ height: 100vh;
 .carouselContainerOuter {
   position: relative;
   display: table-cell;
-  width: 40vw;
-  left: 57vw !important;
+  width: 35vw;
+  left: 60vw !important;
   height: 85vh;
   vertical-align: middle;
   text-align: center;
@@ -321,7 +320,6 @@ input[type=submit] {
     right: 0px;
     background: black;
 }
-
 
 .navBarlogo {
     margin-left: 20px;
@@ -544,7 +542,6 @@ font-size: 30px;
     font-size: 40px;
     margin-left: 20px;
     text-align: left; 
-    
   }
 
 
@@ -606,15 +603,13 @@ font-size: 30px;
           height: 100vh;
           display: table-cell;
           width: 120px;
-        
           vertical-align: middle;
         }
 
         .sidebarInner {
-
           display: inline-block;
           width: 100%;
-          margin-top: -140px;
+          margin-top: -30px;
         }
         
         /* top must be same height as navbar!! */
@@ -633,32 +628,30 @@ font-size: 30px;
 
         .sidebar li {
           padding:1em;
-          color: #fff;
           width:120px;
-          position: relative;
-          font-family: 'Ubuntu', sans-serif;
-          font-weight:400; 
-          font-size: 30px !important;        
+          position: relative;    
         }
 
           .sidebarHeader {
-            color: white;   
-            margin-bottom: 10px; 
-            margin-top: 20px; 
-            font-size: 20px;
-            margin-left: 5px;    
+            color: white;
+            font-size: 16px;
+            margin-left: 5px; 
+            margin-bottom: 25px;   
         }
 
         /* Individual Item, i.e. "Dracast" */
         .sidebarItem {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 16px;
+            margin-bottom: 25px;
             width: 90%;
             justify-content: center;
             margin-left: 12px;
-            color: grey;
+            color: white;
         }
 
+        .showItemContainer {
+          margin-bottom: 40px;
+        }
       
       /* EVERYTHING RELATED TO SIDEBAR */
       /* END */

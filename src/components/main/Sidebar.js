@@ -19,12 +19,12 @@ class Sidebar extends Component {
             <div className = 'sidebarFolder'>
               <div className = 'sidebarInner'>          
              
-                <div className = 'col s12 m12 l12'>
+                <div className = 'col showItemContainer s12 m12 l12'>
                     <div className = 'sidebarHeader'>Lightboards:</div>
                   {this.props.lightboards.map((item, index) => {
                       return (
                         <Link to={`../lightboards/${item.id}`} >
-                          <div className = 'sidebarItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
+                          <div className = 'sidebarItem lightboardItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
                                   this.props.changeCurrentShowItem(item) }}>
                             {item.code} 
                           </div>
@@ -35,7 +35,7 @@ class Sidebar extends Component {
           
               
               
-                <div className = 'col s12 m12 l12'>
+                <div className = 'col showItemContainer s12 m12 l12'>
                 <div className = 'sidebarHeader'>Studios:</div>
                     {this.props.studios.map((item, index) => {
                         return (
@@ -48,7 +48,7 @@ class Sidebar extends Component {
                       })}
                 </div>
             
-                <div className = 'col s12 m12 l12'>
+                <div className = 'col showItemContainer s12 m12 l12'>
                 <div className = 'sidebarHeader'>Accessories:</div>
                   {this.props.accessories.map((item, index) => {
                       return (

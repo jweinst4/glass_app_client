@@ -17,31 +17,34 @@ class Management extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+
         }
-     
+       
     }
+
 
 
     render() {
         return (
             <div className = 'row aboutContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'></div>
-            
+           
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
                 Management:
               </div>
               {this.props.managements.map((item, index) => {
                   return (
-                    <div className = 'aboutText'>  
-                      {item.item}
-                    </div>
+                   
+                      <div className = 'aboutText'>
+                        {item.item}
+                      </div>
+                 
+                    
                         )
                 })}
               </div>
             </div>
+           
                  )
     }
 }

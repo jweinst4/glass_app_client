@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -17,7 +21,7 @@ class UpdateLightboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+        
         }
         this.handleLightboardEditChange = this.handleLightboardEditChange.bind(this)
         this.handleLightboardEditSubmit = this.handleLightboardEditSubmit.bind(this)
@@ -54,9 +58,10 @@ class UpdateLightboard extends React.Component {
     }
 
 
+
+
     render() {
         return (
-            
             <form className = 'col s12 m12 l12' onSubmit={this.handleLightboardEditSubmit}>
          
             <div className = 'form-inline'>
@@ -98,7 +103,8 @@ class UpdateLightboard extends React.Component {
                 <input type="submit" value="Edit a Lightboard"/>
                 </div>
             </form>
-        )
+  
+                 )
     }
 }
 

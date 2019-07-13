@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -17,30 +21,31 @@ class FAQ extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          currentFAQ: [],
-      }
-      this.handleClick = this.handleClick.bind(this)
+            currentFAQ: [],
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
       
     }
+    
 
     handleClick(item) {
 
-      if (this.state.currentFAQ === item) {
-        this.setState({currentFAQ: ''})
+        if (this.state.currentFAQ === item) {
+          this.setState({currentFAQ: ''})
+        }
+        else {
+        this.setState({currentFAQ: item})
+        }
+      
       }
-      else {
-      this.setState({currentFAQ: item})
-      }
-    
-    }
+
     render() {
-      return (
-        <div className = 'row aboutContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'></div>
+        return (
+            <div className = 'row aboutContent'>
+            
             
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
@@ -65,6 +70,7 @@ class FAQ extends React.Component {
                                   
                                   { this.state.currentFAQ.id === item.id ? (
                 <> 
+                <div className = 'faqAnswer'>
               <h6>{item.answer}</h6>
               <h6>{item.answertwo}</h6>
               <h6>{item.answerthree}</h6>
@@ -75,7 +81,7 @@ class FAQ extends React.Component {
               <h6>{item.answereight}</h6>
               <h6>{item.answernine}</h6>
               <h6>{item.answerten}</h6>
-
+                    </div>
                 </>
               ):(
               <>
@@ -90,7 +96,7 @@ class FAQ extends React.Component {
               </div>
             </div>
   
-             )
+                 )
     }
 }
 

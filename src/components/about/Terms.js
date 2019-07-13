@@ -17,17 +17,16 @@ class Terms extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+
         }
-     
+       
     }
+
 
 
     render() {
         return (
             <div className = 'row aboutContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'></div>
             
               <div className = 'aboutContainer'>
               {this.props.terms.map((item, index) => {
@@ -54,6 +53,7 @@ class Terms extends React.Component {
                 })}
               </div>
             </div>
+           
                  )
     }
 }

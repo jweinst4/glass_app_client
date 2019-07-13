@@ -1,81 +1,65 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-router-dom'
 
-import NewLightboard from './components/new/NewLightboard.js'
-import NewStudio from './components/new/NewStudio.js'
-import NewAccessory from './components/new/NewAccessory.js'
-import NewNews from './components/new/NewNews.js'
-import NewFAQ from './components/new/NewFAQ.js'
-import NewHowTo from './components/new/NewHowTo.js'
-import NewOverview from './components/new/NewOverview.js'
-import NewManagement from './components/new/NewManagement.js'
-import NewPrivacy from './components/new/NewPrivacy.js'
-import TestLightboard from './components/test/TestLightboard.js'
-import TestStudio from './components/test/TestStudio.js'
-import TestAccessory from './components/test/TestAccessory.js'
-import TestContactForm from './components/test/TestContactForm.js'
-import TestTerm from './components/test/TestTerms.js'
-import TestFAQ from './components/test/TestFAQ.js'
-import TestHowTo from './components/test/TestHowTo.js'
-import TestManagement from './components/test/TestManagement.js'
-import TestNews from './components/test/TestNews.js'
-import TestOverview from './components/test/TestOverview.js'
-import TestTerms from './components/test/TestTerms.js'
-import TestPrivacy from './components/test/TestPrivacy.js'
-import Sidebar from './components/test/Sidebar.js'
-import Navbar2 from './components/test/Navbar2.js'
 
-import Home from './components/test/Home.js'
+// SHOW COMPONENTS //
+// START //
+    import Lightboard from './components/show/Lightboard.js'
+    import Studio from './components/show/Studio.js'
+    import Accessory from './components/show/Accessory.js'
+// SHOW COMPONENTS //
+// END //
 
-import NewStudioTest from './components/test/NewStudioTest.js'
-import UpdateStudioTest from './components/test/UpdateStudioTest.js'
+    // ABOUT COMPONENTS //
+    // START //
+        import ContactForm from './components/about/ContactForm.js'
+        import Term from './components/about/Terms.js'
+        import FAQ from './components/about/FAQ.js'
+        import HowTo from './components/about/HowTo.js'
+        import Management from './components/about/Management.js'
+        import News from './components/about/News.js'
+        import Overview from './components/about/Overview.js'
+        import Terms from './components/about/Terms.js'
+        import Privacy from './components/about/Privacy.js'
+    // ABOUT COMPONENTS //
+    // END //
 
-import NewAccessoryTest from './components/test/NewAccessoryTest.js'
-import UpdateAccessoryTest from './components/test/UpdateAccessoryTest.js'
+// MAIN COMPONENTS //
+// START //
+    import Sidebar from './components/main/Sidebar.js'
+    import Navbar from './components/main/Navbar.js'
+    import Home from './components/main/Home.js'
+    import Footer from './components/main/Footer.js'
+// MAIN COMPONENTS //
+// END //
 
-import NewFAQTest from './components/test/NewFAQTest.js'
-import UpdateFAQTest from './components/test/UpdateFAQTest.js'
+    // NEW COMPONENTS //
+    // START //
+        import NewStudio from './components/new/NewStudio.js'
+        import NewAccessory from './components/new/NewAccessory.js'
+        import NewFAQ from './components/new/NewFAQ.js'
+        import NewHowTo from './components/new/NewHowTo.js'
+        import NewLightboard from './components/new/NewLightboard.js'
+        import NewManagement from './components/new/NewManagement.js'
+        import NewNews from './components/new/NewNews.js'
+        import NewOverview from './components/new/NewOverview.js'
+        import NewPrivacy from './components/new/NewPrivacy.js'
+    // NEW COMPONENTS //
+    // END //
 
-import NewHowToTest from './components/test/NewHowToTest.js'
-import UpdateHowToTest from './components/test/UpdateHowToTest.js'
-
-import NewLightboardTest from './components/test/NewLightboardTest.js'
-import UpdateLightboardTest from './components/test/UpdateLightboardTest.js'
-
-import NewManagementTest from './components/test/NewManagementTest.js'
-import UpdateManagementTest from './components/test/UpdateManagementTest.js'
-
-import NewNewsTest from './components/test/NewNewsTest.js'
-import UpdateNewsTest from './components/test/UpdateNewsTest.js'
-
-import NewOverviewTest from './components/test/NewOverviewTest.js'
-import UpdateOverviewTest from './components/test/UpdateOverviewTest.js'
-
-import NewPrivacyTest from './components/test/NewPrivacyTest.js'
-import UpdatePrivacyTest from './components/test/UpdatePrivacyTest.js'
-
-
-
-import LeftContent from './components/main/LeftContent.js'
-import RightContent from './components/main/RightContent.js'
-import Navbar from './components/main/Navbar.js'
-import Studio from './components/main/Studio.js'
-import Accessory from './components/main/Accessory.js'
-import Lightboard from './components/main/Lightboard.js'
-import Footer from './components/main/Footer.js'
-
-import Overview from './components/about/Overview.js'
-import Management from './components/about/Management.js'
-import News from './components/about/News.js'
-import Faq from './components/about/Faq.js'
-import ContactForm from './components/about/ContactForm.js'
-import Privacy from './components/about/Privacy.js'
-import Terms from './components/about/Terms.js'
-import HowTo from './components/about/HowTo.js'
-
-import LightboardShowRoute from './components/show/LightboardShowRoute.js'
-import StudioShowRoute from './components/show/StudioShowRoute.js'
-import AccessoryShowRoute from './components/show/AccessoryShowRoute.js'
+// UPDATE COMPONENTS //
+// START //
+    import UpdateStudio from './components/update/UpdateStudio.js'
+    import UpdateAccessory from './components/update/UpdateAccessory.js'
+    import UpdateFAQ from './components/update/UpdateFAQ.js'
+    import UpdateHowTo from './components/update/UpdateHowTo.js'
+    import UpdateLightboard from './components/update/UpdateLightboard.js'
+    import UpdateManagement from './components/update/UpdateManagement.js'
+    import UpdateNews from './components/update/UpdateNews.js'
+    import UpdateOverview from './components/update/UpdateOverview.js'
+    import UpdatePrivacy from './components/update/UpdatePrivacy.js'
+// UPDATE COMPONENTS //
+// END //
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
@@ -83,7 +67,7 @@ import './App.css';
 
 require('dotenv').config()
 const aws = require('aws-sdk');
-//test
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -443,126 +427,70 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className = 'outerContainer'>
-      <Router>
-        <Navbar2 />
-        
-        <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
+<div className = 'outerContainer'>
+  <Router>
+      <Navbar />
+      
+      <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
 
-        {/* ADMIN AUTHORIZATION */}
+      {/* ADMIN AUTHORIZATION */}
+      {/* START */}
         <AuthButton/>
         <Route path="/public" component={Public} admin={this.state.admin}/>
         <Route path="/login" component={Login} admin={this.state.admin}/>
         <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
-    
+      {/* ADMIN AUTHORIZATION */}
+      {/* END */}
 
-              {/* NAVBAR LINKS */}
-              <Route exact path ='/resources/faqs' exact render={() => <TestFAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
+            {/* NAVBAR LINKS */}
+            {/* START*/}
+              <Route exact path ='/resources/faqs' exact render={() => <FAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
 
-              <Route exact path ='/resources/howtos' exact render={() => <TestHowTo howtos={this.state.howtos}/>}/>
+              <Route exact path ='/resources/howtos' exact render={() => <HowTo howtos={this.state.howtos}/>}/>
 
-              <Route exact path ='/contact' exact render={() => <TestContactForm/>}/>
+              <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
 
-              <Route exact path ='/aboutus/news' exact render={() => <TestNews news={this.state.news}/>}/>
+              <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
 
-              <Route exact path ='/aboutus/overview' exact render={() => <TestOverview overviews={this.state.overviews}/>}/>
+              <Route exact path ='/aboutus/overview' exact render={() => <Overview overviews={this.state.overviews}/>}/>
 
-              <Route exact path ='/aboutus/management' exact render={() => <TestManagement managements={this.state.managements}/>}/>
+              <Route exact path ='/aboutus/management' exact render={() => <Management managements={this.state.managements}/>}/>
+            {/* NAVBAR LINKS */}
+            {/* END */}
 
-        {/* HOME LINK */}
-        <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
-
-
-              {/* FOOTER LINKS */}
-              <Route exact path ='/terms' exact render={() => <TestTerm terms={this.state.terms}/>}/>
-
-              <Route exact path ='/privacy' exact render={() => <TestPrivacy privacy={this.state.privacy}/>}/>
-
+      {/* HOME LINK */}
+      {/* START */}
+          <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
+      {/* HOME LINK */}
+      {/* END */}
 
         {/* SHOW ROUTE LINKS */}
-            <Route exact path='/lightboards/:id' exact render = {(props) => <TestLightboard lightboards={this.state.lightboards} {...props}/>}/>
+        {/* START */}
+            <Route exact path='/lightboards/:id' exact render = {(props) => <Lightboard lightboards={this.state.lightboards} {...props}/>}/>
 
-            <Route exact path='/studios/:id' exact render = {(props) => <TestStudio studios={this.state.studios} {...props}/>}/>
+            <Route exact path='/studios/:id' exact render = {(props) => <Studio studios={this.state.studios} {...props}/>}/>
 
-            <Route exact path='/accessories/:id' exact render = {(props) => <TestAccessory accessories={this.state.accessories} {...props}/>}/>
+            <Route exact path='/accessories/:id' exact render = {(props) => <Accessory accessories={this.state.accessories} {...props}/>}/>
 
-            <Route exact path ='/newstudio' exact render={() => <NewStudioTest studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
+            <Route exact path ='/newstudio' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
 
-            <Route exact path ='/newaccessory' exact render={() => <NewAccessoryTest accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
+            <Route exact path ='/newaccessory' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
 
-            <Route exact path ='/newfaq' exact render={() => <NewFAQTest faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
+            <Route exact path ='/newfaq' exact render={() => <NewFAQ faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
+        {/* SHOW ROUTE LINKS */}
+        {/* END*/}
 
-          
-
-   <Footer />
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* <Route exact path ='/newLightboard/' exact render={() => <NewLightboard lightboards={this.state.lightboards} handleAddLightboard={this.handleAddLightboard} fakeAuth = {fakeAuth} getLightboards = {this.getLightboards}/>}/>
-
-          <Route exact path ='/newStudio/' exact render={() => <NewStudio studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
-
-          <Route exact path ='/newAccessory/' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
-
-
-          <Route exact path ='/newNews/' exact render={() => <NewNews news={this.state.news} handleAddNews={this.handleAddNews} fakeAuth = {fakeAuth} getNews = {this.getNews}/>}/>
-
-          <Route exact path ='/newFAQ/' exact render={() => <NewFAQ faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
-
-          <Route exact path ='/newHowTo/' exact render={() => <NewHowTo howtos={this.state.howtos} handleAddHowTo={this.handleAddHowTo} fakeAuth = {fakeAuth} getHowTos = {this.getHowTos}/>}/>
-
-          <Route exact path ='/newManagement/' exact render={() => <NewManagement managements={this.state.managements} handleAddManagement={this.handleAddManagement} fakeAuth = {fakeAuth} getManagements = {this.getManagements}/>}/>
-
-          <Route exact path ='/newOverview/' exact render={() => <NewOverview overviews={this.state.overviews} handleAddOverview={this.handleAddOverview} fakeAuth = {fakeAuth} getOverviews = {this.getOverviews}/>}/>
-
-          <Route exact path ='/newPrivacy/' exact render={() => <NewPrivacy privacy={this.state.privacy} handleAddPrivacy={this.handleAddPrivacy} fakeAuth = {fakeAuth} getPrivacy = {this.getPrivacy}/>}/>
-
-
-          <Route exact path ='/studios/' exact render={() => <Studio studios={this.state.studios}/>}/>
-
-          <Route exact path ='/lightboards' exact render={() => <Lightboard  lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users}/>}/>
-
-          <Route exact path ='/accessories/' exact render={() => <Accessory accessories={this.state.accessories}/>}/>
-
-          <Route exact path ='/aboutUs/overview' exact render={() => <Overview overviews={this.state.overviews}/>}/>
-
-          <Route exact path ='/aboutus/management' exact render={() => <Management managements={this.state.managements}/>}/>
-
-          <Route exact path ='/aboutus/news' exact render={() => <News news={this.state.news}/>}/>
-
-          <Route exact path ='/resources/faqs' exact render={() => <Faq defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
-
-          <Route exact path ='/resources/howtos' exact render={() => <HowTo howtos={this.state.howtos}/>}/>
-
-          <Route exact path ='/contact' exact render={() => <ContactForm/>}/>
+      {/* TERMS AND PRIVACY */}
+      {/* START */}
+          <Route exact path ='/terms' exact render={() => <Term terms={this.state.terms}/>}/>
 
           <Route exact path ='/privacy' exact render={() => <Privacy privacy={this.state.privacy}/>}/>
-
-          <Route exact path ='/terms' exact render={() => <Terms terms={this.state.terms}/>}/>
-
-          <Route exact path='/lightboards/:id' exact render = {(props) => <LightboardShowRoute {...props} lightboards={this.state.lightboards}/>} />
-
-          <Route exact path='/studios/:id' exact render = {(props) => <StudioShowRoute {...props} studios={this.state.studios}/>} />
-
-          <Route exact path='/accessories/:id' exact render = {(props) => <AccessoryShowRoute {...props} accessories={this.state.accessories}/>} /> */}
-
-      </Router>
-      </div>
+      {/* TERMS AND PRIVACY */}
+      {/* END */}
+      
+    <Footer />
+  </Router>
+</div>
             
     );
   }

@@ -2,7 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import UpdateAccessory from '../update/UpdateAccessory.js';
+import UpdateAccessory from '../update/UpdateAccessory.js'
+
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -39,15 +43,14 @@ class NewAccessory extends React.Component {
 
     handleEditItem() {
         this.props.getAccessories()
-        this.setState({
+        this.state = {
             name: '',
             image: '',
             code: '',
             description: '',
             price: '',
             category: 'accessory',
-          })
-
+        }
         this.toggleEdit()
     }
 
@@ -133,13 +136,12 @@ class NewAccessory extends React.Component {
           })
         }
 
+
     render() {
         return (
-            <div className = 'row showContent'>
-            <div className = 'col rightBlackBox'></div>
-            <div className = 'col leftWhiteBox'>
-                <div className = 'aboutWrapper'>
-                    <div className = 'aboutHeader'>
+            <div className = 'row aboutContent'>
+                <div className = 'aboutContainer'>
+                <div className = 'aboutHeader'>
                         New Accessory
                     </div>
                     {this.state.edit  ? (
@@ -196,9 +198,8 @@ class NewAccessory extends React.Component {
                 </form>
         </>
         )}
-            </div></div>
 
-           <div className = 'cardEditContainer'>
+<div className = 'cardEditContainer'>
            {this.props.accessories.map((item, index) => {
                 return (
                     <div className="card cardDelete">
@@ -212,7 +213,7 @@ class NewAccessory extends React.Component {
                             Price: ${item.price}
                         </p>
                         <p onClick={() => { this.handleAccessoryDelete(item.id) }} >
-                            <i className="small material-icons adminDelete">
+                            <i className="small material-icons adminDelete" >
                                 delete
                             </i>
                         </p>
@@ -223,9 +224,12 @@ class NewAccessory extends React.Component {
                         )
             })}
        </div>
-
+        
+          
+          </div>
             </div>
-        )
+  
+                 )
     }
 }
 

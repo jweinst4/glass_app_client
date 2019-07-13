@@ -2,7 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import UpdateLightboard from '../update/UpdateLightboard.js';
+import UpdateLightboard from '../update/UpdateLightboard.js'
+
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -39,14 +43,14 @@ class NewLightboard extends React.Component {
 
     handleEditItem() {
         this.props.getLightboards()
-        this.setState({
+        this.state = {
             name: '',
             image: '',
             code: '',
             description: '',
             price: '',
             category: 'lightboard',
-          })
+        }
         this.toggleEdit()
     }
 
@@ -132,13 +136,12 @@ class NewLightboard extends React.Component {
           })
         }
 
+
     render() {
         return (
-            <div className = 'row showContent'>
-            <div className = 'col rightBlackBox'></div>
-            <div className = 'col leftWhiteBox'>
-                <div className = 'aboutWrapper'>
-                    <div className = 'aboutHeader'>
+            <div className = 'row aboutContent'>
+                <div className = 'aboutContainer'>
+                <div className = 'aboutHeader'>
                         New Lightboard
                     </div>
                     {this.state.edit  ? (
@@ -195,9 +198,8 @@ class NewLightboard extends React.Component {
                 </form>
         </>
         )}
-            </div></div>
 
-           <div className = 'cardEditContainer'>
+<div className = 'cardEditContainer'>
            {this.props.lightboards.map((item, index) => {
                 return (
                     <div className="card cardDelete">
@@ -210,23 +212,24 @@ class NewLightboard extends React.Component {
                         <p>
                             Price: ${item.price}
                         </p>
-                        <div className = 'row'>
-                            <div className = 'col s1 m1 l1' onClick={() => { this.handleLightboardDelete(item.id) }} >
-                                <i className="small material-icons adminDelete">
-                                    delete
-                                </i>
-                            </div>
-                            <div className = 'col s1 m1 l1' onClick={() => { this.handleLightboardEdit(item) }} className = 'adminEdit'>
-                                Edit
-                            </div>
-                        </div>
+                        <p onClick={() => { this.handleLightboardDelete(item.id) }} >
+                            <i className="small material-icons adminDelete" >
+                                delete
+                            </i>
+                        </p>
+                        <p onClick={() => { this.handleLightboardEdit(item) }} className = 'adminEdit'>
+                            Edit
+                        </p>
                     </div>
                         )
             })}
        </div>
-
+        
+          
+          </div>
             </div>
-        )
+  
+                 )
     }
 }
 

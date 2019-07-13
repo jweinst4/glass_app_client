@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -13,11 +17,11 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class UpdateStudio extends React.Component {
+class Updaudio extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+        
         }
         this.handleStudioEditChange = this.handleStudioEditChange.bind(this)
         this.handleStudioEditSubmit = this.handleStudioEditSubmit.bind(this)
@@ -54,9 +58,10 @@ class UpdateStudio extends React.Component {
     }
 
 
+
+
     render() {
         return (
-            
             <form className = 'col s12 m12 l12' onSubmit={this.handleStudioEditSubmit}>
          
             <div className = 'form-inline'>
@@ -98,8 +103,9 @@ class UpdateStudio extends React.Component {
                 <input type="submit" value="Edit a Studio"/>
                 </div>
             </form>
-        )
+  
+                 )
     }
 }
 
-export default UpdateStudio
+export default Updaudio

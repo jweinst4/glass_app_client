@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+
 require('dotenv').config()
 const aws = require('aws-sdk');
 const emailjs = require('emailjs-com');
-
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -17,23 +17,18 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-
-
 class ContactForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-        name: '',
+            name: '',
          email: '',
          message: '',
-
-
         }
         this.handleContactChange = this.handleContactChange.bind(this)
         this.handleContactSubmit = this.handleContactSubmit.bind(this)
         this.sendEmail = this.sendEmail.bind(this)
     }
-
 
     handleContactChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
@@ -63,15 +58,10 @@ class ContactForm extends React.Component {
     }
 
 
-    
-
     render() {
         return (
-          <div className = 'row aboutContent'>
-          <div className = 'col rightBlackBox'></div>
-          <div className = 'col leftWhiteBox'></div>
-        
-          <div className = 'aboutContainer'>
+            <div className = 'row aboutContent'>
+                <div className = 'aboutContainer'>
           <div className = 'aboutHeader'>
             Contact Form: 
           </div>
@@ -106,7 +96,8 @@ class ContactForm extends React.Component {
           
          </form>
           </div>
-        </div>
+            </div>
+  
                  )
     }
 }

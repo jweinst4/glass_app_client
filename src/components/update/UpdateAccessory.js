@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -17,7 +21,7 @@ class UpdateAccessory extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+        
         }
         this.handleAccessoryEditChange = this.handleAccessoryEditChange.bind(this)
         this.handleAccessoryEditSubmit = this.handleAccessoryEditSubmit.bind(this)
@@ -54,9 +58,10 @@ class UpdateAccessory extends React.Component {
     }
 
 
+
+
     render() {
         return (
-            
             <form className = 'col s12 m12 l12' onSubmit={this.handleAccessoryEditSubmit}>
          
             <div className = 'form-inline'>
@@ -95,10 +100,11 @@ class UpdateAccessory extends React.Component {
                 </div>
 
                 <div className = 'form-row'>
-                <input type="submit" value="Edit an Accessory"/>
+                <input type="submit" value="Edit a Accessory"/>
                 </div>
             </form>
-        )
+  
+                 )
     }
 }
 

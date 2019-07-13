@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import Navbar2 from '../test/Navbar2.js'
-import Sidebar from '../test/Sidebar.js'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -13,9 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://glass-app-api.herokuapp.com'
 }
 
-
-
-class TestStudio extends React.Component {
+class Lightboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -30,7 +26,7 @@ componentDidMount() {
     render() {
         return (
             <div className = 'row aboutContent'>
-                {this.props.studios.map((item, index) => {
+                {this.props.lightboards.map((item, index) => {
                     return (
                             <div>  
                                 {item.id === parseInt(this.props.match.params.id) ? (
@@ -66,4 +62,4 @@ componentDidMount() {
     }
 }
 
-export default TestStudio
+export default Lightboard

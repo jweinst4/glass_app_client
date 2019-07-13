@@ -2,7 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import UpdateStudio from '../update/UpdateStudio.js';
+import UpdateStudio from '../update/UpdateStudio.js'
+
+require('dotenv').config()
+const aws = require('aws-sdk');
+const emailjs = require('emailjs-com');
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -132,13 +136,12 @@ class NewStudio extends React.Component {
           })
         }
 
+
     render() {
         return (
-            <div className = 'row showContent'>
-            <div className = 'col rightBlackBox'></div>
-            <div className = 'col leftWhiteBox'>
-                <div className = 'aboutWrapper'>
-                    <div className = 'aboutHeader'>
+            <div className = 'row aboutContent'>
+                <div className = 'aboutContainer'>
+                <div className = 'aboutHeader'>
                         New Studio
                     </div>
                     {this.state.edit  ? (
@@ -195,9 +198,8 @@ class NewStudio extends React.Component {
                 </form>
         </>
         )}
-            </div></div>
 
-           <div className = 'cardEditContainer'>
+<div className = 'cardEditContainer'>
            {this.props.studios.map((item, index) => {
                 return (
                     <div className="card cardDelete">
@@ -222,9 +224,12 @@ class NewStudio extends React.Component {
                         )
             })}
        </div>
-
+        
+          
+          </div>
             </div>
-        )
+  
+                 )
     }
 }
 

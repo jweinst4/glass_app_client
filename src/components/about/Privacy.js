@@ -17,17 +17,17 @@ class Privacy extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+
         }
-     
+       
     }
+
 
 
     render() {
         return (
             <div className = 'row aboutContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'></div>
+            
             
               <div className = 'aboutContainer'>
               {this.props.privacy.map((item, index) => {
@@ -54,6 +54,8 @@ class Privacy extends React.Component {
                 })}
               </div>
             </div>
+                 
+           
                  )
     }
 }

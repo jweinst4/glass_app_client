@@ -11,9 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://glass-app-api.herokuapp.com'
 }
 
-
-
-class StudioShowRoute extends React.Component {
+class Studio extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -28,12 +26,10 @@ componentDidMount() {
     render() {
         return (
             <div className = 'row aboutContent'>
-               <div className = 'col rightBlackBox'></div>
-                <div className = 'col leftWhiteBox'></div>
                 {this.props.studios.map((item, index) => {
                     return (
                             <div>  
-                                {parseInt(this.props.match.params.id) === item.id ? (
+                                {item.id === parseInt(this.props.match.params.id) ? (
                                     <> 
                                      <div>
                                         <h3 className = 'showParagraph'>
@@ -41,8 +37,8 @@ componentDidMount() {
                                         </h3>
                                         <h5 className = 'showParagraph'>{item.description}
                                         </h5>
-                                        <h5 className = 'showParagraph'>${item.price}
-                                        </h5>
+                                        <h4 className = 'showParagraph'>${item.price}
+                                        </h4>
                                     </div> 
                                     <div>
                                         <img className = 'currentShowImage' src={item.image} />
@@ -58,10 +54,12 @@ componentDidMount() {
                             </div>                    
                             )
                 })}
+                
 
             </div>
+  
                  )
     }
 }
 
-export default StudioShowRoute
+export default Studio

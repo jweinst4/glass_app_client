@@ -17,34 +17,34 @@ class HowTo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-       
+
         }
-     
+       
     }
+
 
 
     render() {
         return (
             <div className = 'row aboutContent'>
-              <div className = 'col rightBlackBox'></div>
-              <div className = 'col leftWhiteBox'></div>
-            
+           
               <div className = 'aboutContainer'>
               <div className = 'aboutHeader'>
                 How To Guides:
               </div>
               {this.props.howtos.map((item, index) => {
                   return (
-                    <a href = {item.item}>
+                
                       <div className = 'aboutText'>
                         {item.item}
                       </div>
-                    </a>
+            
                     
                         )
                 })}
               </div>
             </div>
+           
                  )
     }
 }

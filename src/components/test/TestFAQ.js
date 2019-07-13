@@ -70,6 +70,7 @@ class TestFAQ extends React.Component {
                                   
                                   { this.state.currentFAQ.id === item.id ? (
                 <> 
+                <div className = 'faqAnswer'>
               <h6>{item.answer}</h6>
               <h6>{item.answertwo}</h6>
               <h6>{item.answerthree}</h6>
@@ -80,7 +81,7 @@ class TestFAQ extends React.Component {
               <h6>{item.answereight}</h6>
               <h6>{item.answernine}</h6>
               <h6>{item.answerten}</h6>
-
+                    </div>
                 </>
               ):(
               <>

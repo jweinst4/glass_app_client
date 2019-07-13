@@ -188,24 +188,26 @@ if (process.env.NODE_ENV === 'development') {
       // SPECIAL INFO ONLY ADMIN SEES WHEN THEY LOG IN   
           const AuthButton = withRouter(({ history }) => (
             fakeAuth.isAuthenticated ? (
-              <div className = 'row authenticatedRow'>
-             
-                 <div className = 'col'>Welcome!</div>
-                  <div className = 'col'><button onClick={() => {
-                    fakeAuth.signout(() => history.push('/'))
-                  }}>Sign out</button> </div>
+              <div className = 'row authenticatedRow'>          
+                <div className = 'col'>Welcome!</div>
+                <div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
+                <div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
+                <div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
+                <div className = 'col'><Link to ="/newNews">NewNews</Link></div>
+                <div className = 'col'><Link to ="/newFAQ">NewFAQ</Link></div>
+                <div className = 'col'><Link to ="/newHowTo">NewHowTo</Link></div>
+                <div className = 'col'><Link to ="/newOverview">NewOverview</Link></div>
+                <div className = 'col'><Link to ="/newManagement">NewManagement</Link></div>
+                <div className = 'col'><Link to ="/newPrivacy">NewPrivacy</Link></div>
 
-<div className = 'col'><Link to ="/newLightboard">NewLightboard</Link></div>
-<div className = 'col'> <Link to ="/newStudio">NewStudio</Link></div>
-<div className = 'col'><Link to ="/newAccessory">NewAccessory</Link></div>
-<div className = 'col'><Link to ="/newNews">NewNews</Link></div>
-<div className = 'col'><Link to ="/newFAQ">NewFAQ</Link></div>
-<div className = 'col'><Link to ="/newHowTo">NewHowTo</Link></div>
-<div className = 'col'><Link to ="/newOverview">NewOverview</Link></div>
-<div className = 'col'><Link to ="/newManagement">NewManagement</Link></div>
-<div className = 'col'><Link to ="/newPrivacy">NewPrivacy</Link></div>
-              
+                <div className = 'col'>
+                  <button onClick={() => {
+                    fakeAuth.signout(() => history.push('/'))
+                    }}>
+                      Sign out
+                  </button>
                 </div>
+              </div>
             ) : (
               <>
               </>
@@ -443,44 +445,46 @@ class App extends React.Component {
     return (
       <div className = 'outerContainer'>
       <Router>
-     
-        {/* ADMIN AUTHORIZATION */}
-       
-         
         <Navbar2 />
         
         <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
 
-         
+        {/* ADMIN AUTHORIZATION */}
         <AuthButton/>
-          <Route path="/public" component={Public} admin={this.state.admin}/>
-          <Route path="/login" component={Login} admin={this.state.admin}/>
-          <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
-      
+        <Route path="/public" component={Public} admin={this.state.admin}/>
+        <Route path="/login" component={Login} admin={this.state.admin}/>
+        <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
+    
 
-            {/* <Route exact path='/faq' exact render = {() => </>}/> */}
+              {/* NAVBAR LINKS */}
+              <Route exact path ='/resources/faqs' exact render={() => <TestFAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
 
+              <Route exact path ='/resources/howtos' exact render={() => <TestHowTo howtos={this.state.howtos}/>}/>
+
+              <Route exact path ='/contact' exact render={() => <TestContactForm/>}/>
+
+              <Route exact path ='/aboutus/news' exact render={() => <TestNews news={this.state.news}/>}/>
+
+              <Route exact path ='/aboutus/overview' exact render={() => <TestOverview overviews={this.state.overviews}/>}/>
+
+              <Route exact path ='/aboutus/management' exact render={() => <TestManagement managements={this.state.managements}/>}/>
+
+        {/* HOME LINK */}
+        <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
+
+
+              {/* FOOTER LINKS */}
+              <Route exact path ='/terms' exact render={() => <TestTerm terms={this.state.terms}/>}/>
+
+              <Route exact path ='/privacy' exact render={() => <TestPrivacy privacy={this.state.privacy}/>}/>
+
+
+        {/* SHOW ROUTE LINKS */}
             <Route exact path='/lightboards/:id' exact render = {(props) => <TestLightboard lightboards={this.state.lightboards} {...props}/>}/>
 
             <Route exact path='/studios/:id' exact render = {(props) => <TestStudio studios={this.state.studios} {...props}/>}/>
 
             <Route exact path='/accessories/:id' exact render = {(props) => <TestAccessory accessories={this.state.accessories} {...props}/>}/>
-
-            <Route exact path ='/contact' exact render={() => <TestContactForm/>}/>
-
-            <Route exact path ='/terms' exact render={() => <TestTerm terms={this.state.terms}/>}/>
-
-            <Route exact path ='/resources/faqs' exact render={() => <TestFAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
-
-            <Route exact path ='/resources/howtos' exact render={() => <TestHowTo howtos={this.state.howtos}/>}/>
-
-            <Route exact path ='/aboutus/news' exact render={() => <TestNews news={this.state.news}/>}/>
-
-            <Route exact path ='/aboutus/overview' exact render={() => <TestOverview overviews={this.state.overviews}/>}/>
-
-            <Route exact path ='/privacy' exact render={() => <TestPrivacy privacy={this.state.privacy}/>}/>
-
-            <Route exact path ='/aboutus/management' exact render={() => <TestManagement managements={this.state.managements}/>}/>
 
             <Route exact path ='/newstudio' exact render={() => <NewStudioTest studios={this.state.studios} handleAddStudio={this.handleAddStudio} fakeAuth = {fakeAuth} getStudios = {this.getStudios}/>}/>
 
@@ -488,8 +492,7 @@ class App extends React.Component {
 
             <Route exact path ='/newfaq' exact render={() => <NewFAQTest faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
 
-
-            <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
+          
 
    <Footer />
    
@@ -557,19 +560,6 @@ class App extends React.Component {
           <Route exact path='/studios/:id' exact render = {(props) => <StudioShowRoute {...props} studios={this.state.studios}/>} />
 
           <Route exact path='/accessories/:id' exact render = {(props) => <AccessoryShowRoute {...props} accessories={this.state.accessories}/>} /> */}
-
-          
-
- 
-
-     {/* CONTAINER FOR LEFT AND RIGHT CONTENT COLUMNS       */}
-     
-
-
- 
-    
-     
-     
 
       </Router>
       </div>

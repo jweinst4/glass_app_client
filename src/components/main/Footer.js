@@ -30,13 +30,19 @@ class Footer extends React.Component {
       return (
       <div className = 'footer row'>
         <div className = 'footerContentContainer col s12 m12 l12'>
+          <div className = "col all-rights s1 m1 l1">
+            <span className = 'footerText'>
+              
+            </span>
+          </div>
           <div className = "col all-rights s7 m7 l7">
             <span className = 'footerText'>
-              Lightboard Glass Systems Inc., all rights reserved
+              Learning Glass Systems Inc., all rights reserved
             </span>
           </div>
           <div className = 'col terms s2 m2 l2'>
             <Link to ='/terms'>
+              
               <span className = 'footerText'>
                 Terms and Conditions
               </span>             

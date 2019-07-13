@@ -45,18 +45,7 @@ height: 100vh;
             }
 
             /* Individual Category Header, i.e. "Lightboards" */
-            .leftContentHeader {
-                color: black;   
-                margin-bottom: 10px;      
-            }
-
-            /* Individual Item, i.e. "Dracast" */
-            .leftContentItem {
-                font-size: 20px;
-                color: grey;
-                margin-left: 10px !important;
-                margin-bottom: 5px;             
-            }
+            
         /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
         /* END */
 
@@ -65,10 +54,15 @@ height: 100vh;
 /* START */
 .faqItem {
     border-bottom: 1px dashed grey;
+    color: rgba(6,155,229);
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     cursor: grab;
+  }
+  .faqAnswer {
+    color: black;
+    margin-left: 40px;
   }
 
   .faqIcon {
@@ -164,118 +158,111 @@ height: 100vh;
                 .footerContentContainer {
                     position: absolute;
                     width: 90%;
-                    bottom: 0px !important;
-                    height: 30px;
-                    left: 150px !important;    
-
+                    bottom: 0px;
+                    height: 30px;         
+                    background: black;
                 }
 
                 .footerText {
-                    color: black;
+                    color: white !important;
                 }
 
                 .termsText, .privacyText {
-                    color: white;
+                color: white;
                 justify-content: right;
                 text-align: right;
                 }
 
-                .terms, .privacy {
-                    text-align: right;
+                .all-rights {
+               
                 }
+
+                .terms {
+                  text-align: right;
+                  bottom: 0px;
+                  right: 0px;
+                  position: relative;
+              
+                }
+
+                .privacy {
+                 
+                  text-align: center;
+                  bottom: 0px;
+                  right: 0px;
+                  position: relative;
+       
+                }
+
 
             /* EVERYTHING RELATED TO FOOTER */
             /* END */
 
 
-.rightContent {
-    position: absolute;
-    width: 30vw;
-    right: 0px;
-    height: 100vh;
- background: black;
-}
 
+/* EVERYTHING RELATED TO HOMEPAGE CAROUSEL */
+/* START */
+
+/* http://jsfiddle.net/mcSfe/ */
 .currentCarouselImage {   
-    position: absolute;
-    width: 90%;
-    height: 100vh;
-    left: 160px;
-    justify-content: center;
-    display: inline-block;
-    vertical-align: middle;
+    position: relative;
     border-radius: 5px;   
     box-shadow: 0px 0px 5px 5px black;
     cursor: grab;
-    /* -webkit-animation: mymove 6s infinite; 
-    animation: mymove 5s infinite; */
+    width: 90%;
+  
 }
 
+.carouselContainerOuter {
+  position: relative;
+  display: table-cell;
+  width: 40vw;
+  left: 57vw !important;
+  height: 85vh;
+  vertical-align: middle;
+  text-align: center;
+}
 
+.carouselContainerInner {
+  position: relative;
+  display: inline-block;
+  width: 90%;
+}
 
-/* 
+.homepageText {
+  color: black;
+  position: absolute;
+  left: 10vw !important;
+  top: 12vw;
+  height: 100%;
+  width: 45vw !important;
 
-@-webkit-keyframes mymove {
-    from { top: 0; left: 0; }
-  to   { top: 100px; left: 100px; }
-  }
-  @-moz-keyframes mymove {
-    from { top: 0; left: 0; }
-  to   { top: 100px; left: 100px; }
-  }
-  @-o-keyframes mymove {
-    from { top: 0; left: 0; }
-    to   { top: 100px; left: 100px; }
-  }
-  @keyframes mymove {
-    from { top: 0; left: 0; }
-  to   { top: 100px; left: 100px; }
-  }
- */
+  
+}
 
-
- /* EVERYTHING RELATED TO BLACK AN W */
+/* EVERYTHING RELATED TO HOMEPAGE CAROUSEL */
 /* END */
-.whiteIconTop {
-    position: absolute;
-    top: 8vh;
-    height: 10px;
-    width: 40px;
-    left: 0px;
-    display: inline-block;
-  background: white;
-}
 
-.whiteIconBottom {
-    position: absolute;
-    bottom: 8vh;
-    height: 10px;
-    width: 40px;
-    left: 0px;
-    display: inline-block;
-  background: white;
-}
 
-.blackIconTop {
-    position: absolute;
-    top: 8vh;
-    height: 10px;
-    width: 40px;
-    right: 0px;
-    display: inline-block;
+        /* EVERYTHING RELATED TO LOGIN */
+        /* START */
+
+          .authenticatedRow {
+            margin-top: 50px;
+            margin-left: 100px;
+            font-size: 20px;
+          }
+
+          /* EVERYTHING RELATED TO LOGIN */
+        /* END */
+
+ .rightContent {
+  position: absolute;
+  width: 30vw;
+  right: 0px;
+  height: 100vh;
   background: black;
 }
-
-.blackIconBottom {
-    position: absolute;
-    bottom: 8vh;
-    height: 10px;
-    width: 40px;
-    right: 0px;
-    display: inline-block;
-  background: black;
-}
-
 
 input {
     color: black;
@@ -311,8 +298,19 @@ input[type=submit] {
     height: 50px;
     color: black;
     position: absolute;
-   
+}
 
+.content {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #34495e;
+  position: relative;
+  top: 0;
+  
+  bottom: 100%;
+  left: 0;
+  z-index: 1;  
+  padding: 4em;
 }
 
 .navBarRight {
@@ -483,6 +481,7 @@ input[type=submit] {
       font-size: 30px;
       margin-left: 20px;
       text-align: left;
+   color: rgba(6,155,229);
       margin-bottom: 40px;
   }
 
@@ -512,11 +511,11 @@ input[type=submit] {
 
 .contactSubmit {
     margin-top: 20px;
-    background: none;
-    border: 1px solid black;
+    background: #e3f2fd;
+    width: 300px;
     border-radius: 5px;
     margin-left: 10px;
-    box-shadow: 3px 3px 3px 3px;
+font-size: 30px;
     cursor: grab;
 }
 
@@ -528,7 +527,7 @@ input[type=submit] {
       margin-left: 12vw;
       margin-top: 5vh;
       background: white;
-      border:3px solid black;
+
       border-radius: 5px; 
       z-index: 1;
   }
@@ -569,11 +568,6 @@ input[type=submit] {
     z-index: 1;
 }
 
-.authenticatedRow {
-margin-top: 50px;
-}
-  
-
 .testImage {
     background: red;
     width: 80vw;
@@ -581,111 +575,99 @@ margin-top: 50px;
     opacity: 0.7
 }
 
-
-             /* EVERYTHING RELATED TO SIDEBAR */
-            /* START */
+      /* EVERYTHING RELATED TO SIDEBAR */
+      /* START */
               
+        *, *:before, *:after {
+          padding:0;
+          margin:0;
+        }
 
+        body {
+          overflow-x: hidden;
+          color: #fff;
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+          font-weight: 300;
+        }
 
+        body, html {
+          width:100%;
+          height:100%;
+        }
 
-*, *:before, *:after {
-  padding:0;
-  margin:0;
-}
+        h1 {
+          font-family: 'Lobster', cursive;
+          font-weight:300;
+          font-size: 2.5em;
+        }
 
-body {
-  overflow-x: hidden;
-  color: #fff;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  font-weight: 300;
-}
+        .sidebarFolder {
+          position: relative;
+          height: 100vh;
+          display: table-cell;
+          width: 120px;
+        
+          vertical-align: middle;
+        }
 
-body, html {
-  width:100%;
-  height:100%;
-}
+        .sidebarInner {
 
-h1 {
-  font-family: 'Lobster', cursive;
-  font-weight:300;
-  font-size: 2.5em;
-}
+          display: inline-block;
+          width: 100%;
+          margin-top: -140px;
+        }
+        
+        /* top must be same height as navbar!! */
+        .sidebar {
+          list-style-type: none;
+          width: 120px;
+          height: 100%;
+          position: fixed;
+          top: 50px;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 0;
+          background: black;    
+        }
 
-.sidebar-btn {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-}
+        .sidebar li {
+          padding:1em;
+          color: #fff;
+          width:120px;
+          position: relative;
+          font-family: 'Ubuntu', sans-serif;
+          font-weight:400; 
+          font-size: 30px !important;        
+        }
 
-label[for="sidebar-btn"] {
-  position: fixed;
-  left: 15px; 
-  top: 15px;
-  z-index: 2;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect style='fill:rgb(255,255,255)' width='15' height='3'/><rect style='fill:rgb(255,255,255)' y='8' width='20' height='3'/><rect style='fill:rgb(255,255,255)' y='16' width='25' height='3'/></svg>");
-  background-size: contain;
-}
+          .sidebarHeader {
+            color: white;   
+            margin-bottom: 10px; 
+            margin-top: 20px; 
+            font-size: 20px;
+            margin-left: 5px;    
+        }
 
-.sidebarFolder {
-  position: relative;
-  vertical-align: middle !important;
-}
-.sidebar-btn + label, .content {
-  transition: left 0.1s;
-}
+        /* Individual Item, i.e. "Dracast" */
+        .sidebarItem {
+            font-size: 20px;
+            margin-bottom: 15px;
+            width: 90%;
+            justify-content: center;
+            margin-left: 12px;
+            color: grey;
+        }
 
-.sidebar-btn:checked + label {
-  left: 245px;
-}
-
-.sidebar-btn:checked ~ .content {
-  left: 230px;
-}
-
-/* top must be same height as navbar!! */
-.sidebar {
-  list-style-type: none;
-  width: 160px;
-  height: 100%;
-  position: fixed;
-  top: 50px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  background-color: black;
-
-}
-
-.sidebar li {
-  background-color: black;
-  padding:1em;
-  color: #fff;
-  width:160px;
-  position: relative;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight:400;  
-
-}
-
-.content {
-  min-height: 100%;
-  min-width: 100%;
-  background-color: #34495e;
-  position: relative;
-  top: 0;
-  bottom: 100%;
-  left: 0;
-  z-index: 1;  
-  padding: 4em;
-}
-            /* EVERYTHING RELATED TO SIDEBAR */
-            /* END */
+      
+      /* EVERYTHING RELATED TO SIDEBAR */
+      /* END */
 
   nav {
     background: black !important;
   }
   
+
+
+
   

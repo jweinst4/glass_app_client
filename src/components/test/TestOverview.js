@@ -34,11 +34,11 @@ class TestOverview extends React.Component {
               </div>
               {this.props.overviews.map((item, index) => {
                   return (
-                    <a href = {item.item}>
+                    
                       <div className = 'aboutText'>
                         {item.item}
                       </div>
-                    </a>
+                   
                     
                         )
                 })}

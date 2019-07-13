@@ -34,11 +34,11 @@ class TestNews extends React.Component {
               </div>
               {this.props.news.map((item, index) => {
                   return (
-                    <a href = {item.item}>
+                
                       <div className = 'aboutText'>
                         {item.item}
                       </div>
-                    </a>
+                 
                     
                         )
                 })}

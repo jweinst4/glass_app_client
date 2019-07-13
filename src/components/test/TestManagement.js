@@ -34,11 +34,11 @@ class TestManagement extends React.Component {
               </div>
               {this.props.managements.map((item, index) => {
                   return (
-                    <a href = {item.item}>
+                   
                       <div className = 'aboutText'>
                         {item.item}
                       </div>
-                    </a>
+                 
                     
                         )
                 })}

@@ -15,18 +15,16 @@ class Sidebar extends Component {
     render() {
         return (
             <div>
-           
-            
             <ul class="sidebar">
             <div className = 'sidebarFolder'>
- <div className = 'col'>          
+              <div className = 'sidebarInner'>          
              
                 <div className = 'col s12 m12 l12'>
-                    <h6>Lightboards:</h6>
+                    <div className = 'sidebarHeader'>Lightboards:</div>
                   {this.props.lightboards.map((item, index) => {
                       return (
-                        <Link to={`lightboards/${item.id}`} >
-                          <div className = 'leftContentItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
+                        <Link to={`../lightboards/${item.id}`} >
+                          <div className = 'sidebarItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
                                   this.props.changeCurrentShowItem(item) }}>
                             {item.code} 
                           </div>
@@ -38,11 +36,11 @@ class Sidebar extends Component {
               
               
                 <div className = 'col s12 m12 l12'>
-                <h6>Studios:</h6>
+                <div className = 'sidebarHeader'>Studios:</div>
                     {this.props.studios.map((item, index) => {
                         return (
-                          <Link to={`studios/${item.id}`} >
-                          <div className = 'leftContentItem col s12 m12 l12' key = {item._id} index = {index} >
+                          <Link to={`../studios/${item.id}`} >
+                          <div className = 'sidebarItem col s12 m12 l12' key = {item._id} index = {index} >
                             {item.code} 
                           </div>
                         </Link>
@@ -51,11 +49,11 @@ class Sidebar extends Component {
                 </div>
             
                 <div className = 'col s12 m12 l12'>
-                <h6>Accessories:</h6>
+                <div className = 'sidebarHeader'>Accessories:</div>
                   {this.props.accessories.map((item, index) => {
                       return (
-                        <Link to={`accessories/${item.id}`} >
-                        <div className = 'leftContentItem col s12 m12 l12' key = {item._id} index = {index} >
+                        <Link to={`../accessories/${item.id}`} >
+                        <div className = 'sidebarItem col s12 m12 l12' key = {item._id} index = {index} >
                           {item.code}
                         </div>
                       </Link>

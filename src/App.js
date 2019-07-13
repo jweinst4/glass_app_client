@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-
     // START //
         import ContactForm from './components/about/ContactForm.js'
         import Term from './components/about/Terms.js'
-        import FAQ from './components/about/FAQ.js'
+        import FAQ from './components/about/Faq.js'
         import HowTo from './components/about/HowTo.js'
         import Management from './components/about/Management.js'
         import News from './components/about/News.js'

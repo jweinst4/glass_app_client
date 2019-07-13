@@ -19,7 +19,6 @@ import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-
         import Management from './components/about/Management.js'
         import News from './components/about/News.js'
         import Overview from './components/about/Overview.js'
-        import Terms from './components/about/Terms.js'
         import Privacy from './components/about/Privacy.js'
     // ABOUT COMPONENTS //
     // END //
@@ -38,35 +37,20 @@ import { BrowserRouter as Router, Link, Route, Redirect,withRouter} from 'react-
         import NewStudio from './components/new/NewStudio.js'
         import NewAccessory from './components/new/NewAccessory.js'
         import NewFAQ from './components/new/NewFAQ.js'
-        import NewHowTo from './components/new/NewHowTo.js'
-        import NewLightboard from './components/new/NewLightboard.js'
-        import NewManagement from './components/new/NewManagement.js'
-        import NewNews from './components/new/NewNews.js'
-        import NewOverview from './components/new/NewOverview.js'
-        import NewPrivacy from './components/new/NewPrivacy.js'
+        // import NewHowTo from './components/new/NewHowTo.js'
+        // import NewLightboard from './components/new/NewLightboard.js'
+        // import NewManagement from './components/new/NewManagement.js'
+        // import NewNews from './components/new/NewNews.js'
+        // import NewOverview from './components/new/NewOverview.js'
+        // import NewPrivacy from './components/new/NewPrivacy.js'
     // NEW COMPONENTS //
     // END //
-
-// UPDATE COMPONENTS //
-// START //
-    import UpdateStudio from './components/update/UpdateStudio.js'
-    import UpdateAccessory from './components/update/UpdateAccessory.js'
-    import UpdateFAQ from './components/update/UpdateFAQ.js'
-    import UpdateHowTo from './components/update/UpdateHowTo.js'
-    import UpdateLightboard from './components/update/UpdateLightboard.js'
-    import UpdateManagement from './components/update/UpdateManagement.js'
-    import UpdateNews from './components/update/UpdateNews.js'
-    import UpdateOverview from './components/update/UpdateOverview.js'
-    import UpdatePrivacy from './components/update/UpdatePrivacy.js'
-// UPDATE COMPONENTS //
-// END //
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
 require('dotenv').config()
-const aws = require('aws-sdk');
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -433,16 +417,16 @@ class App extends React.Component {
       
       <Sidebar lightboards = {this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories} users = {this.state.users} currentShowItem={this.state.currentShowItem} changeCurrentShowItem = {this.changeCurrentShowItem}/>
 
-      {/* ADMIN AUTHORIZATION */}
+      {/* ADMIN AUTHORIZATION COMPONENTS*/}
       {/* START */}
         <AuthButton/>
         <Route path="/public" component={Public} admin={this.state.admin}/>
         <Route path="/login" component={Login} admin={this.state.admin}/>
         <PrivateRoute path='/protected' component={Protected} admin={this.state.admin} />
-      {/* ADMIN AUTHORIZATION */}
+      {/* ADMIN AUTHORIZATION COMPONENTS*/}
       {/* END */}
 
-            {/* NAVBAR LINKS */}
+            {/* NAVBAR LINK COMPONENTS */}
             {/* START*/}
               <Route exact path ='/resources/faqs' exact render={() => <FAQ defaultCardHeight = {this.state.defaultCardHeight} activeCardHeight = {this.state.activeCardHeight} cardHeights = {this.state.cardHeights} getCardHeights = {this.getCardHeights} activeCard = {this.state.card} faqs={this.state.faqs} originalCardHeights={this.state.originalCardHeights}/>}/>
 
@@ -455,16 +439,16 @@ class App extends React.Component {
               <Route exact path ='/aboutus/overview' exact render={() => <Overview overviews={this.state.overviews}/>}/>
 
               <Route exact path ='/aboutus/management' exact render={() => <Management managements={this.state.managements}/>}/>
-            {/* NAVBAR LINKS */}
+            {/* NAVBAR LINK COMPONENTS */}
             {/* END */}
 
-      {/* HOME LINK */}
+      {/* HOME COMPONENTS*/}
       {/* START */}
           <Route exact path ='/' exact render={() => <Home getImages={this.getImages} lightboards={this.state.lightboards} studios={this.state.studios} accessories={this.state.accessories}/>}/>
-      {/* HOME LINK */}
+      {/* HOME COMPONENTS */}
       {/* END */}
 
-        {/* SHOW ROUTE LINKS */}
+        {/* SHOW COMPONENTS */}
         {/* START */}
             <Route exact path='/lightboards/:id' exact render = {(props) => <Lightboard lightboards={this.state.lightboards} {...props}/>}/>
 
@@ -477,15 +461,18 @@ class App extends React.Component {
             <Route exact path ='/newaccessory' exact render={() => <NewAccessory accessories={this.state.accessories} handleAddAccessory={this.handleAddAccessory} fakeAuth = {fakeAuth} getAccessories = {this.getAccessories}/>}/>
 
             <Route exact path ='/newfaq' exact render={() => <NewFAQ faqs={this.state.faqs} handleAddFAQ={this.handleAddFAQ} fakeAuth = {fakeAuth} getFAQs = {this.getFAQs}/>}/>
-        {/* SHOW ROUTE LINKS */}
+        {/* SHOW COMPONENTS */}
         {/* END*/}
 
-      {/* TERMS AND PRIVACY */}
+        {/* NEW COMPONENTS */}
+        {/* START*/}
+
+      {/* TERMS AND PRIVACY COMPONENTS */}
       {/* START */}
           <Route exact path ='/terms' exact render={() => <Term terms={this.state.terms}/>}/>
 
           <Route exact path ='/privacy' exact render={() => <Privacy privacy={this.state.privacy}/>}/>
-      {/* TERMS AND PRIVACY */}
+      {/* TERMS AND PRIVACY COMPONENTS*/}
       {/* END */}
       
     <Footer />

@@ -36,7 +36,7 @@ componentDidMount() {
         return (
             <div className="navbar-fixed">
             <nav>
-              <div class="nav-wrapper">
+              <div className="nav-wrapper">
               <div className = 'row'>
               
                 <ul id="dropdown1" className="dropdown-content">

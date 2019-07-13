@@ -41,7 +41,7 @@ componentDidMount() {
                                         </h4>
                                     </div> 
                                     <div>
-                                        <img className = 'currentShowImage currentAccessoryImage' src={item.image} />
+                                        <img className = 'currentShowImage' src={item.image} />
                                     </div>
                                    
                                        

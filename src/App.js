@@ -489,10 +489,11 @@ class App extends React.Component {
 
                 {/* SHOW COMPONENTS */}
                 {/* START */}
-                    <Route exact path='/lightboards/:id' exact render = {(props) => <Lightboard lightboards={this.state.lightboards} {...props}/>}/>
-                    <Route exact path='/studios/:id' exact render = {(props) => <Studio studios={this.state.studios} {...props}/>}/>
+                    <Route exact path='/lightboards/:id' exact render = {(props) => <Lightboard lightboards={this.state.lightboards} {...props} faqs={this.state.faqs} getFAQs = {this.getFAQs}/>}/>
 
-                    <Route exact path='/accessories/:id' exact render = {(props) => <Accessory accessories={this.state.accessories} {...props}/>}/>
+                    <Route exact path='/studios/:id' exact render = {(props) => <Studio studios={this.state.studios} {...props} faqs={this.state.faqs} getFAQs = {this.getFAQs}/>}/>
+
+                    <Route exact path='/accessories/:id' exact render = {(props) => <Accessory accessories={this.state.accessories} {...props} faqs={this.state.faqs} getFAQs = {this.getFAQs}/>}/>
 
                 {/* SHOW COMPONENTS */}
                 {/* END*/}

@@ -44,58 +44,54 @@ class FAQ extends React.Component {
 
     render() {
         return (
-            <div className = 'row aboutContent'>
-            
-            
+            <div className = 'row aboutContent'>         
               <div className = 'aboutContainer'>
-              <div className = 'aboutHeader'>
-                Frequently Asked Questions: 
-              </div>
-              {this.props.faqs.map((item, index) => {
-                              return (
-                                <div className = 'faqItem' onClick={() => { 
-                                  this.handleClick(item) }} key = {item._id} index = {index} >
+                <div className = 'aboutHeader'>
+                  Frequently Asked Questions: 
+                </div>
+                {this.props.faqs.map((item, index) => {
+                  return (
+                    <div className = 'faqItem' onClick={() => { 
+                      this.handleClick(item) }} key = {item._id} index = {index} >
+                      {this.state.currentFAQ.id === item.id ? (
+                          <> 
+                            <i className="material-icons faqIcon" >remove_circle_outline</i>
+                          </>
+                        ):(
+                          <>                       
+                            <i className="material-icons faqIcon" >add_circle_outline</i>
+                          </>
+                        )}
+                      {item.question}
 
-    { this.state.currentFAQ.id === item.id ? (
-                <> 
-                <i className="material-icons faqIcon" >remove_circle_outline</i>
-                </>
-              ):(
-              <>
-              
-                <i className="material-icons faqIcon" >add_circle_outline</i>
-              </>
-              )}
-                                  {item.question}
-                                  
-                                  { this.state.currentFAQ.id === item.id ? (
-                <> 
-                <div className = 'faqAnswer'>
-              <h6>{item.answer}</h6>
-              <h6>{item.answertwo}</h6>
-              <h6>{item.answerthree}</h6>
-              <h6>{item.answerfour}</h6>
-              <h6>{item.answerfive}</h6>
-              <h6>{item.answersix}</h6>
-              <h6>{item.answerseven}</h6>
-              <h6>{item.answereight}</h6>
-              <h6>{item.answernine}</h6>
-              <h6>{item.answerten}</h6>
-                    </div>
-                </>
-              ):(
-              <>
-              
-              </>
-              )}
-                                  
-                                  
-                                </div>
-                                    )
-                            })}
-              </div>
-            </div>
-  
+                        {this.state.currentFAQ.id === item.id ? (
+                          <> 
+                            <div className = 'faqAnswer'>
+                              <h6>{item.answer}</h6>
+                              <h6>{item.answertwo}</h6>
+                              <h6>{item.answerthree}</h6>
+                              <h6>{item.answerfour}</h6>
+                              <h6>{item.answerfive}</h6>
+                              <h6>{item.answersix}</h6>
+                              <h6>{item.answerseven}</h6>
+                              <h6>{item.answereight}</h6>
+                              <h6>{item.answernine}</h6>
+                              <h6>{item.answerten}</h6>
+                            </div>
+                          </>
+                        ):(
+                          <>
+                          
+                          </>
+                        )}
+                                                
+                                            
+                                          </div>
+                                              )
+                                      })}
+                        </div>
+                      </div>
+          
                  )
     }
 }

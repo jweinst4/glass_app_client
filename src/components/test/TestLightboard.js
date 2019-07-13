@@ -40,8 +40,8 @@ componentDidMount() {
                                         </h3>
                                         <h5 className = 'showParagraph'>{item.description}
                                         </h5>
-                                        <h5 className = 'showParagraph'>${item.price}
-                                        </h5>
+                                        <h4 className = 'showParagraph'>${item.price}
+                                        </h4>
                                     </div> 
                                     <div>
                                         <img className = 'currentShowImage' src={item.image} />

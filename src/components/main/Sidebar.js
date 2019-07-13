@@ -24,7 +24,7 @@ class Sidebar extends Component {
                   {this.props.lightboards.map((item, index) => {
                       return (
                         <Link to={`../lightboards/${item.id}`} >
-                          <div className = 'sidebarItem lightboardItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
+                          <div className = 'sidebarItem col s12 m12 l12' key = {item._id} index = {index} onClick={() => { 
                                   this.props.changeCurrentShowItem(item) }}>
                             {item.code} 
                           </div>

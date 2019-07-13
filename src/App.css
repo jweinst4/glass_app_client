@@ -1,54 +1,22 @@
-*, *:before, *:after {
-    padding:0;
-    margin:0;
-  }
 
-/* BODY AND OUTER CONTAINER*/
-/* START */
-body {
-font-family: 'BioRhyme' !important;
-position: relative;
-height: 100vh;
-}
+    /* BODY AND OUTER CONTAINER*/
+    /* START */
+    body {
+      font-family: 'BioRhyme';
+      width:100%;
+      height:100%;
+    }
 
-.outerContainer {
- min-height: 100vh; /* will cover the 100% of viewport */
- overflow: hidden;
- display: block;
- position: relative;
- padding-bottom: 30px;
-  /* height of your footer */
-}
-/* BODY AND OUTER CONTAINER*/
-/* END */
-
-        /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
-        /* START */
-
-            /* NavBar container, 100% height */
-            .leftContent {
-                position: absolute;
-                height: 100vh;
-                width: 70vw;
-                left: 0px;
-                color: black;
-                vertical-align: middle !important;
-                justify-content: center;    
-            }
-
-            /* Individual Categories, i.e. all Lightboards, all Studios, etc. */
-            .leftContentFolder {
-                font-size: 36px;
-                color: black;
-                position: relative; 
-                margin-bottom: 30px;        
-            }
-
-            /* Individual Category Header, i.e. "Lightboards" */
-            
-        /* EVERYTHING RELATED TO LEFT CONTENT, INCLUDING LOGO, INCLUDING NAVBAR*/
-        /* END */
-
+    .outerContainer {
+    min-height: 100vh; /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 30px;
+      /* height of your footer */
+    }
+    /* BODY AND OUTER CONTAINER*/
+    /* END */
 
 /* EVERYTHING RELATED TO FAQ  */
 /* START */
@@ -71,34 +39,6 @@ height: 100vh;
   }
   /* EVERYTHING RELATED TO FAQ  */
 /* END */
-
-
-                        /* EVERYTHING RELATED TO LEFT WHITE BOX AND RIGHT BLACK BOX */
-                        /* START */
-                        .rightBlackBox {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            bottom: 0;
-                            height: 100%;
-                            width: 30vw;
-                            display: inline-block;
-                            background: black;
-                        }
-            
-                        .leftWhiteBox {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            height: 100%;
-                            width: 70vw;
-                            display: inline-block;
-                            background:white;
-                        }
-
-                        /* EVERYTHING RELATED TO LEFT WHITE BOX AND RIGHT BLACK BOX */
-                        /* END */
-
 
 /* EVERYTHING RELATED TO SHOW ROUTE */
 /* START */
@@ -138,15 +78,13 @@ height: 100vh;
     left: 200px;
 }
 
-
 .aboutContent {
     text-align: left;
     display: flex;
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    color: black;
-    
+    color: black; 
 }
 
 /* EVERYTHING RELATED TO SHOW ROUTE */
@@ -164,17 +102,13 @@ height: 100vh;
                 }
 
                 .footerText {
-                    color: white !important;
+                  color: rgba(6,155,229);
                 }
 
                 .termsText, .privacyText {
                 color: white;
                 justify-content: right;
                 text-align: right;
-                }
-
-                .all-rights {
-               
                 }
 
                 .terms {
@@ -184,60 +118,53 @@ height: 100vh;
                   position: relative;          
                 }
 
-                .privacy {
-                 
+                .privacy {   
                   text-align: center;
                   bottom: 0px;
                   right: 0px;
                   position: relative;
-       
                 }
-
 
             /* EVERYTHING RELATED TO FOOTER */
             /* END */
 
 
-
 /* EVERYTHING RELATED TO HOMEPAGE CAROUSEL */
 /* START */
 
-/* http://jsfiddle.net/mcSfe/ */
-.currentCarouselImage {   
-    position: relative;
-    border-radius: 5px;   
-    box-shadow: 0px 0px 5px 5px black;
-    cursor: grab;
-    width: 90%;
-  
-}
+    /* http://jsfiddle.net/mcSfe/ */
+    .currentCarouselImage {   
+        position: relative;
+        border-radius: 5px;   
+        box-shadow: 0px 0px 5px 5px black;
+        cursor: grab;
+        width: 90%;     
+    }
 
-.carouselContainerOuter {
-  position: relative;
-  display: table-cell;
-  width: 35vw;
-  left: 60vw !important;
-  height: 85vh;
-  vertical-align: middle;
-  text-align: center;
-}
+    .carouselContainerOuter {
+      position: relative;
+      display: table-cell;
+      width: 35vw;
+      left: 60vw !important;
+      height: 85vh;
+      vertical-align: middle;
+      text-align: center;
+    }
 
-.carouselContainerInner {
-  position: relative;
-  display: inline-block;
-  width: 90%;
-}
+    .carouselContainerInner {
+      position: relative;
+      display: inline-block;
+      width: 90%;
+    }
 
-.homepageText {
-  color: black;
-  position: absolute;
-  left: 10vw !important;
-  top: 12vw;
-  height: 100%;
-  width: 45vw !important;
-
-  
-}
+    .homepageText {
+      color: black;
+      position: absolute;
+      left: 10vw !important;
+      top: 12vw;
+      height: 100%;
+      width: 45vw !important;
+    }
 
 /* EVERYTHING RELATED TO HOMEPAGE CAROUSEL */
 /* END */
@@ -247,357 +174,148 @@ height: 100vh;
         /* START */
 
           .authenticatedRow {
-            margin-top: 50px;
-            margin-left: 100px;
+            margin-top: 20px;
+            margin-left: 130px;
             font-size: 20px;
+            width: 100%;
+            justify-content: center !important;
+            position: absolute;
           }
 
-          /* EVERYTHING RELATED TO LOGIN */
+          .signOutButton {
+            color: rgba(6,155,229);
+            width: 120px;
+            height: 30px;
+            margin-top: -10px;
+          }
+
+        /* EVERYTHING RELATED TO LOGIN */
         /* END */
 
- .rightContent {
-  position: absolute;
-  width: 30vw;
-  right: 0px;
-  height: 100vh;
-  background: black;
-}
+/* EVERYTHING RELATED TO NAVBAR AND DROPDOWN */
+/* START */
 
-input {
-    color: black;
-}
+      nav {
+        background: black;
+      }
+        
+      .navBar {
+        width: 100vw;
+        height: 50px;
+        position: absolute;
+        top: 0px;
+      }
 
-input[type=submit] {
-    color: black;
-}
+      .navText {
+        font-size: 20px;
+        margin-top: 10px;
+        text-align: center; 
+        color: white; 
+      }
+    
+      .navBar ul {
+        position: sticky;
+        top: 0;
+      }
+    
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
 
-.lightboardItem > img {
-    width: 20%;
-}
+      .navCategoryText {
+        color: rgba(6,155,229);
+      }
+        
+      .dropdown .dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        color: red !important;
+        min-width: 200px;
+        overflow: hidden;
+        top: -30px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 5 !important;
+      }
 
-.studioItem > img {
-    width: 20%;
-}
+      .red {
+        color: red !important;
+      }
+      
+      .dropdownWidth {
+        width: 300px;
+      }
+      
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .dropdown-content a:hover {
+        color: rgba(6,155,229);
+      }
+        
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
 
-.accessoryItem > img {
-    width: 20%;
-}
+/* EVERYTHING RELATED TO NAVBAR AND DROPDOWN */
+/* END */
 
-.navBar {
-    width: 100vw;
-    height: 50px;
-    position: absolute;
-    top: 0px;
-    background: white !important;
-    z-index: 10 !important;
-}
-
-.navBarLeft {
-    width: 70vw;
-    height: 50px;
-    color: black;
-    position: absolute;
-}
-
-.content {
-  min-height: 100%;
-  min-width: 100%;
-  background-color: #34495e;
-  position: relative;
-  top: 0;
-  
-  bottom: 100%;
-  left: 0;
-  z-index: 1;  
-  padding: 4em;
-}
-
-.navBarRight {
-    width: 30vw;
-    height: 50px; 
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background: black;
-}
-
-.navBarlogo {
-    margin-left: 20px;
-}
-
-.brand-logo {
-  font-size: 50px !important;
-}
-
-.logo-image {
-
-  width: 300px;
-
-}
-.navText {
-    font-size: 20px;
-    color:white;
-    margin-top: 10px;
-    text-align: center;  
-}
-
-.navBar ul {
-    position: sticky;
-    top: 0;
-  }
-
-  .navBarLeft ul {
-    position: sticky;
-    top: 0;
-  }
-
-  .navBarRight ul {
-    position: sticky;
-    top: 0;
-  }
-
-
-
-.adminDelete, .adminEdit, input[type=submit] {
-    cursor: grab;
-}
-
-.largeTextArea {
-   width: 100%;
-}
-
-            .leftShowContent {
-                background: white;
-                width: 50vw;
-                margin-top: 70px;
-                border: 1px solid black;
-                
-            }
-
-            .rightShowContent {
-                width: 50vw;
-                margin-top: 70px;
-                border: 1px solid black;
-            }
-
-            .showContent {
-                text-align: left;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-
-            .showImage {
-                height: 300px;
-            }
-            
-            .card {
-                width: 500px;
-                margin: 20px;
-                border: 3px solid black;
-                border-radius: 5px;
-            }
-
-            
-            .privacyCard {
-                width: 100%;
-            }
-
-            .cardDelete {
-                width: 90vw !important;
-            }
-
-            .cardEditContainer {
-                position: relative;
-                display: flex;
-                width: 100%;
-                flex-wrap: wrap;
-                margin-top: 30vw;
-            }
-
-            .card-title {
-                color: black !important;
-                font-size: 30px !important;
-               -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: white;
-            }
-            
-            .dropdown {
-                float: left;
-                overflow: hidden;
-              }
-              
-              .dropdown .dropbtn {
-                font-size: 16px;  
-                border: none;
-                outline: none;
-                color: white;
-                padding: 14px 16px;
-                background-color: inherit;
-                font-family: inherit;
-                margin: 0;
-              }
-
-            
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 200px;
-    overflow: hidden;
-    top: -30px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5 !important;
-}
-
-
-  .test1 {
-      width: 300px;
-  }
-
-  
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .aboutText {
-      font-size: 30px;
-      margin-left: 20px;
-      text-align: left;
-   color: rgba(6,155,229);
-      margin-bottom: 40px;
-  }
-
-  .termsAndPrivacyText {
-    color: black;
-    font-size: 20px;
-    margin-left: 20px;
-    text-align: left;
-}
-
-
-.contactForm {
-    margin-top: 50px;
-}
-
-.contactLabel {
-    color: black;
-    font-size: 30px;
-}
-
-.contactInput {
-    color: red;
-    font-size: 30px;
-    width: 400px;
-    height: 300px;
-}
-
-.contactSubmit {
-    margin-top: 20px;
-    background: #e3f2fd;
-    width: 300px;
-    border-radius: 5px;
-    margin-left: 10px;
-font-size: 30px;
-    cursor: grab;
-}
-
-  .aboutContainer {
-      display: flex;
-      flex-direction: column;
-      width: 80vw;
-      min-height: 80vh;
-      margin-left: 12vw;
-      margin-top: 5vh;
-      background: white;
-
-      border-radius: 5px; 
-      z-index: 1;
-  }
-
-  .cardContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 70px;
-    justify-content: space-evenly; 
-}
-
-  .aboutHeader {
-    font-size: 40px;
-    margin-left: 20px;
-    text-align: left; 
-  }
-
-
-  .aboutWrapper {
-      margin-top: 70px;
-      margin-left: 30px;
-      font-size: 20px !important;
-      padding-bottom: 50px;
-  }
-
-  .otherContent {
-      width: 80%;
-      margin-left: 10%;
-  }
-  .overviewContent {
-    width: 80%;
-    margin-left: 10%;
-}
-
-.overviewContainer {
-    z-index: 1;
-}
-
-.testImage {
-    background: red;
-    width: 80vw;
-    height: 50vh;
-    opacity: 0.7
-}
-
-      /* EVERYTHING RELATED TO SIDEBAR */
+      /* EVERYTHING RELATED TO CONTACT FORM */
       /* START */
+            .contactForm {
+              margin-top: 50px;
+              }
               
-        *, *:before, *:after {
+              .contactLabel {
+              color: black;
+              font-size: 30px;
+              }
+              
+              .contactInput {
+              color: red;
+              font-size: 30px;
+              width: 400px;
+              height: 300px;
+              }
+              
+              .contactSubmit {
+              margin-top: 20px;
+              background: #e3f2fd;
+              width: 300px;
+              border-radius: 5px;
+              margin-left: 10px;
+              font-size: 30px;
+              cursor: grab;
+              }
+
+      /* EVERYTHING RELATED TO CONTACT FORM */
+      /* END */
+
+
+/* EVERYTHING RELATED TO SIDEBAR */
+/* START */
+      *, *:before, *:after {
           padding:0;
           margin:0;
         }
-
-        body {
-          overflow-x: hidden;
-          color: #fff;
-          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-          font-weight: 300;
-        }
-
-        body, html {
-          width:100%;
-          height:100%;
-        }
-
-        h1 {
-          font-family: 'Lobster', cursive;
-          font-weight:300;
-          font-size: 2.5em;
-        }
-
+        
         .sidebarFolder {
           position: relative;
           height: 100vh;
@@ -605,7 +323,7 @@ font-size: 30px;
           width: 120px;
           vertical-align: middle;
         }
-
+        
         .sidebarInner {
           display: inline-block;
           width: 100%;
@@ -625,41 +343,141 @@ font-size: 30px;
           z-index: 0;
           background: black;    
         }
-
+        
         .sidebar li {
           padding:1em;
           width:120px;
           position: relative;    
         }
-
-          .sidebarHeader {
-            color: white;
-            font-size: 16px;
-            margin-left: 5px; 
-            margin-bottom: 25px;   
+        
+        .sidebarHeader {
+          color: rgba(6,155,229);
+          font-size: 16px;
+          margin-left: 5px; 
+          margin-bottom: 25px;   
         }
-
+        
         /* Individual Item, i.e. "Dracast" */
         .sidebarItem {
-            font-size: 16px;
-            margin-bottom: 25px;
-            width: 90%;
-            justify-content: center;
-            margin-left: 12px;
-            color: white;
+          font-size: 16px;
+          margin-bottom: 25px;
+          width: 90%;
+          justify-content: center;
+          margin-left: 12px;
+          color: white;
         }
-
+        
         .showItemContainer {
           margin-bottom: 40px;
         }
-      
-      /* EVERYTHING RELATED TO SIDEBAR */
-      /* END */
-
-  nav {
-    background: black !important;
-  }
   
+  /* EVERYTHING RELATED TO SIDEBAR */
+  /* END */
+
+.content {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #34495e;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;  
+  padding: 4em;
+} 
+
+input {
+  color: black;
+}
+
+input[type=submit] {
+  color: black;
+}
+
+.brand-logo {
+  font-size: 50px !important;
+}
+
+.logo-image {
+  width: 300px;
+}
+
+.adminDelete, .adminEdit, input[type=submit] {
+    cursor: grab;
+}
+
+.showImage {
+  height: 300px;
+}
+
+.card {
+  width: 500px;
+  margin: 20px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  justify-content: space-evenly; 
+}
+
+.cardDelete {
+  width: 90vw !important;
+}
+
+.cardEditContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 30vw;
+}
+
+.card-title {
+  color: black !important;
+  font-size: 30px !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.aboutText {
+  font-size: 30px;
+  margin-left: 20px;
+  text-align: left;
+  color: rgba(6,155,229);
+  margin-bottom: 40px;
+}
+
+.termsAndPrivacyText {
+  color: black;
+  font-size: 20px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  min-height: 80vh;
+  margin-left: 12vw;
+  margin-top: 5vh;
+  background: white;
+  border-radius: 5px; 
+  z-index: 1;
+}
+
+.aboutHeader {
+  font-size: 40px;
+  margin-left: 20px;
+  text-align: left; 
+}
+
+
 
 
 
